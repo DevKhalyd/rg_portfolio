@@ -7,7 +7,7 @@ abstract class Routes {
   static const String home = '/';
 
   static final routes = <String, WidgetBuilder>{
-    home: (context) => const HomeScreen(),
+    home: (_) => const HomeScreen(),
   };
 }
 

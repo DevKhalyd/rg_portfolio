@@ -6,4 +6,7 @@ abstract class Utils {
 
   /// Just a temp image...
   static const tempImage = 'assets/img/profile.png';
+
+  // TODO: Verify this email
+  static const email = 'rolandogarciacontactme@gmail.com';
 }
