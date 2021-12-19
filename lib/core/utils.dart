@@ -1,4 +1,5 @@
 abstract class Utils {
   static const appName = 'RG Portfolio';
-  static const ReadexProFont = 'ReadexPro';
+  /// The font for the Google letters
+  static const readexProFont = 'ReadexPro';
 }

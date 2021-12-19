@@ -1,3 +1,11 @@
+# TODO
+
+- Complet the default theme
+
+- Add a darktheme
+
+- Complete the home design
+
 # RG Portfolio
 
 My portfolio is a collection of projects that I have worked on 😉.
@@ -34,4 +42,17 @@ Ref Navigator: https://api.flutter.dev/flutter/widgets/Navigator-class.html
 <!--
     ReactJS source code: https://github.com/enjeck/gfolio
     Website: https://gfolio.enjeck.com/
+
+    Yaml for custom views: https://github.com/gskinnerTeam/flutter-folio/blob/master/pubspec.yaml
+
+    Adaptative screen:
+        -  https://aloisdeniel.com/#/posts/adaptative-ui
+
+        - https://docs.flutter.dev/development/ui/layout/building-adaptive-apps
+
+    For Desktop: https://docs.flutter.dev/desktop
+    Verify that the cache dont increases in my pc. Otherwise just compile in mac.
+
+    Context Menu: https://api.flutter.dev/flutter/cupertino/CupertinoContextMenu-class.html
+
  -->

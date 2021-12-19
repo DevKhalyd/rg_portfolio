@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'core/routes.dart';
 import 'core/utils.dart';
 
 void main() => runApp(const MyApp());
@@ -16,11 +17,8 @@ class MyApp extends StatelessWidget {
       ),*/
       debugShowCheckedModeBanner: false,
       title: Utils.appName,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => Container(),
-        '/second': (context) => Container(),
-      },
+      initialRoute: Routes.home,
+      routes: Routes.routes,
     );
   }
 }
