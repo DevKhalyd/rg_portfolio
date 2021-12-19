@@ -25,10 +25,14 @@ class _SelectableWordState extends State<SelectableWord> {
     return MouseRegion(
       onExit: (event) => setState(() => isHover = false),
       onEnter: (event) => setState(() => isHover = true),
-      child: Text(
-        widget.label,
-        style: TextStyle(
-          decoration: isHover ? TextDecoration.underline : TextDecoration.none,
+      child: InkResponse(
+        onTap: widget.onPressed,
+        hoverColor: Colors.transparent,
+        child: Text(
+          widget.label,
+          style: TextStyle(
+            decoration: isHover ? TextDecoration.underline : TextDecoration.none,
+          ),
         ),
       ),
     );

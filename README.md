@@ -6,6 +6,8 @@
 
 - Complete the home design
 
+- Create the server to get the images from Cloudinary
+
 # RG Portfolio
 
 My portfolio is a collection of projects that I have worked on 😉.
