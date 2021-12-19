@@ -10,3 +10,8 @@ abstract class Routes {
     home: (context) => const HomeScreen(),
   };
 }
+
+test() {
+  // Basically I can put how to show the dialog... if its a stack or a simple dialog
+  //showDialog(context: context, builder: builder);
+}

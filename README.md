@@ -34,6 +34,7 @@ Bloc: https://bloclibrary.dev/#/
 
 Cookbook: https://docs.flutter.dev/cookbook/navigation
 Ref Navigator: https://api.flutter.dev/flutter/widgets/Navigator-class.html
+Images in Flutter: https://docs.flutter.dev/development/platform-integration/web-images
 
 [reddit]: https://www.reddit.com/r/webdev/comments/pzq1bs/i_built_a_google_search_themed_portfolio_website/?utm_medium=android_app&utm_source=share
 [google]: https://www.google.com/
@@ -54,5 +55,4 @@ Ref Navigator: https://api.flutter.dev/flutter/widgets/Navigator-class.html
     Verify that the cache dont increases in my pc. Otherwise just compile in mac.
 
     Context Menu: https://api.flutter.dev/flutter/cupertino/CupertinoContextMenu-class.html
-
  -->
