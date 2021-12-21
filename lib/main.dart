@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/routes.dart';
 import 'core/utils.dart';
@@ -10,15 +11,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      /*theme: ThemeData(
+    return MultiBlocProvider(
+        providers: [],
+        child: MaterialApp(
+          /*theme: ThemeData(
         brightness: Brightness.dark,
         primaryColor: Colors.blueGrey,
       ),*/
-      debugShowCheckedModeBanner: false,
-      title: Utils.appName,
-      initialRoute: Routes.home,
-      routes: Routes.routes,
-    );
+          debugShowCheckedModeBanner: false,
+          title: Utils.appName,
+          initialRoute: Routes.home,
+          routes: Routes.routes,
+        ));
   }
 }

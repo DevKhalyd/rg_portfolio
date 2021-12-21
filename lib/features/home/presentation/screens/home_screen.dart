@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rg_portfolio/features/home/presentation/widgets/body/body_home.dart';
 
 import '../widgets/header/header_home.dart';
 
@@ -12,12 +13,7 @@ class HomeScreen extends StatelessWidget {
       body: Column(
         children: [
           const HeaderHome(),
-          Expanded(
-            flex: 6,
-            child: Container(
-              color: Colors.yellow,
-            ),
-          ),
+          const BodyHome(),
           Expanded(
             child: Container(
               color: Colors.red,
