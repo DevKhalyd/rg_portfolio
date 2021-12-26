@@ -1,27 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'core/bloc/simple_bloc_observer.dart';
 import 'core/routes.dart';
 import 'core/utils.dart';
-
-void main() => runApp(const MyApp());
+// Refs: https://bloclibrary.dev/#/flutterbloccoreconcepts?id=repositoryprovider-usage
+void main() {
+  BlocOverrides.runZoned(
+    () => runApp(const MyApp()),
+    blocObserver: SimpleBlocObserver(),
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-        providers: [],
-        child: MaterialApp(
-          /*theme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Colors.blueGrey,
+    return MaterialApp(
+      /*theme: ThemeData(
+    brightness: Brightness.dark,
+    primaryColor: Colors.blueGrey,
       ),*/
-          debugShowCheckedModeBanner: false,
-          title: Utils.appName,
-          initialRoute: Routes.home,
-          routes: Routes.routes,
-        ));
+      debugShowCheckedModeBanner: false,
+      title: Utils.appName,
+      initialRoute: Routes.home,
+      routes: Routes.routes,
+    );
   }
 }
