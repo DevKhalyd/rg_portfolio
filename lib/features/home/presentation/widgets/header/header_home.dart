@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rg_portfolio/core/menus/menu_about_me.dart';
+import 'package:rg_portfolio/core/menus/menu_options.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/utils.dart';
@@ -22,7 +24,9 @@ class HeaderHome extends StatelessWidget {
           SelectableWord(onPressed: () {}, label: 'Portfolio'),
           IconMenu(
             onPressed: () {
-              context.read<HomeBloc>().add(HomeTogglePressed());
+              context
+                  .read<HomeBloc>()
+                  .add(const HomeTogglePressed(menu: MenuOptions()));
             },
           ),
           const _ProfileIcon()
@@ -67,6 +71,9 @@ class _ProfileIcon extends StatelessWidget {
           hoverColor: Colors.transparent,
           onTap: () {
             //   showMenu(context, const MenuOptions());
+            context
+                .read<HomeBloc>()
+                .add(const HomeTogglePressed(menu: MenuAboutMe()));
           },
           child: const CircleAvatar(
             minRadius: 15,
@@ -80,26 +87,4 @@ class _ProfileIcon extends StatelessWidget {
       ),
     );
   }
-}
-
-/// `menu` is the menu that will be shown when the button is pressed
-showMenu(BuildContext context, Widget menu) {
-  // Render objects Flutter
-  // This to avoid to use the Navigator and make the experience better and flow
-  final child = Stack(
-    alignment: AlignmentDirectional.topEnd,
-    children: [
-      Positioned(
-        top: context.getPercentHeight(0.075),
-        right: context.getPercentWidth(0.01),
-        child: menu,
-      ),
-    ],
-  );
-
-  showDialog(
-    context: context,
-    barrierColor: Colors.transparent,
-    builder: (_) => child,
-  );
 }

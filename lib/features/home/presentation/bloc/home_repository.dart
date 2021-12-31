@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 /// The logic for the HomeRepository
 class HomeRepository {
   bool _isMenuOpen = false;

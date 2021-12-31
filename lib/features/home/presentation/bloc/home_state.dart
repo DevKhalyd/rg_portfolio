@@ -19,16 +19,19 @@ abstract class HomeState extends Equatable {
 }
 
 class HomeToggleMenu extends HomeState {
-  final bool isOpen;
+  const HomeToggleMenu({required this.isOpen, required this.menu});
 
-  const HomeToggleMenu({required this.isOpen});
+  final bool isOpen;
+  /// The menu to show in the screen
+  final Widget menu;
 
   // This line is necesary for Bloc because allow to update the state
   // according to the previous state and the current one
   @override
-  List<Object> get props => [isOpen];
+  List<Object> get props => [isOpen,menu];
 }
 
+/// A base state of the bloc
 class HomeLoaded extends HomeState {}
 
 class HomeError extends HomeState {

@@ -27,11 +27,7 @@ class BodyHome extends StatelessWidget {
                     ? Positioned(
                         top: context.getPercentHeight(0.0005),
                         right: context.getPercentWidth(0.001),
-                        child: Container(
-                          color: Colors.red,
-                          height: 300,
-                          width: 300,
-                        ),
+                        child: state.menu,
                       )
                     : const SizedBox();
               }
