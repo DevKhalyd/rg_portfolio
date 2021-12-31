@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
-import '../../../../../core/menus/menu_options.dart';
 import '../../../../../core/utils.dart';
+import '../../bloc/home_bloc.dart';
 import '../shared/selectable_word.dart';
 import 'icon_menu.dart';
 
@@ -21,7 +22,7 @@ class HeaderHome extends StatelessWidget {
           SelectableWord(onPressed: () {}, label: 'Portfolio'),
           IconMenu(
             onPressed: () {
-              showMenu(context, const MenuOptions());
+              context.read<HomeBloc>().add(HomeTogglePressed());
             },
           ),
           const _ProfileIcon()
@@ -65,7 +66,7 @@ class _ProfileIcon extends StatelessWidget {
         child: InkResponse(
           hoverColor: Colors.transparent,
           onTap: () {
-            showMenu(context, const MenuOptions());
+            //   showMenu(context, const MenuOptions());
           },
           child: const CircleAvatar(
             minRadius: 15,

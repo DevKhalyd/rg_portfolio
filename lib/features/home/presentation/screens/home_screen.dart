@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rg_portfolio/features/home/presentation/widgets/body/body_home.dart';
 
+import '../widgets/body/body_home.dart';
 import '../widgets/header/header_home.dart';
 
 /// The main page of my portfolio
