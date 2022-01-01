@@ -26,7 +26,7 @@ class BodyHome extends StatelessWidget {
                 return state.isOpen
                     ? Positioned(
                         top: context.getPercentHeight(0.0005),
-                        right: context.getPercentWidth(0.001),
+                        right: context.getPercentWidth(0.015),
                         child: state.menu,
                       )
                     : const SizedBox();

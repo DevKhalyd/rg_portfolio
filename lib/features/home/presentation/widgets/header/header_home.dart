@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rg_portfolio/core/menus/menu_about_me.dart';
-import 'package:rg_portfolio/core/menus/menu_options.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
-import '../../../../../core/utils.dart';
+import '../../../../../core/menus/menu_about_me.dart';
+import '../../../../../core/menus/menu_options.dart';
+import '../../../../../core/utils/utils.dart';
+import '../../../../../core/widgets/widgets.dart';
 import '../../bloc/home_bloc.dart';
 import '../shared/selectable_word.dart';
 import 'icon_menu.dart';
@@ -75,14 +76,7 @@ class _ProfileIcon extends StatelessWidget {
                 .read<HomeBloc>()
                 .add(const HomeTogglePressed(menu: MenuAboutMe()));
           },
-          child: const CircleAvatar(
-            minRadius: 15,
-            maxRadius: 25,
-            foregroundImage: AssetImage(
-              Utils.tempImage,
-            ),
-            backgroundColor: Colors.black,
-          ),
+          child: const RolandoImage(),
         ),
       ),
     );

@@ -4,8 +4,11 @@ class HomeRepository {
 
   bool get isMenuOpen => _isMenuOpen;
 
-  toggleMenu() {
-    _isMenuOpen = !_isMenuOpen;
+  toggleMenu([bool? newState]) {
+    if (newState != null) {
+      if (newState != _isMenuOpen) _isMenuOpen = newState;
+    } else {
+      _isMenuOpen = !_isMenuOpen;
+    }
   }
-
 }

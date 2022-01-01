@@ -16,3 +16,6 @@ class HomeTogglePressed extends HomeEvent {
   @override
   List<Object> get props => [menu];
 }
+
+/// When the screen is in the initial state [HomeLoaded]
+class HomeInitial extends HomeEvent {}

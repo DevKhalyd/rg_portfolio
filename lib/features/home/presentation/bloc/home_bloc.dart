@@ -12,16 +12,29 @@ part 'home_state.dart';
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc({required this.homeRepository}) : super(HomeLoaded()) {
     on<HomeTogglePressed>(_onTogglePressed);
+    on<HomeInitial>(_onHomeInitial);
   }
 
   final HomeRepository homeRepository;
+
+  /// Helps to close the menu...
+  void _onHomeInitial(
+    HomeInitial event,
+    Emitter<HomeState> emit,
+  ) {
+    try {
+      if (homeRepository.isMenuOpen) homeRepository.toggleMenu();
+      emit(HomeLoaded());
+    } catch (e) {
+      emit(HomeError(message: e.toString()));
+    }
+  }
 
   void _onTogglePressed(
     HomeTogglePressed event,
     Emitter<HomeState> emit,
   ) async {
     try {
-    
       if (state is HomeToggleMenu) {
         final currentMenu = (state as HomeToggleMenu).menu;
         if (currentMenu != event.menu) {

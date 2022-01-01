@@ -13,7 +13,6 @@ class SearchButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
-      // TODO: Check out the behavior when is onHover
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Text(label),
