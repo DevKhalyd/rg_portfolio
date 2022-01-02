@@ -12,7 +12,7 @@ class BodyHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        flex: 6,
+        flex: 10,
         child: Stack(
           children: [
             // The Rolando name with Google Font and the field to search for
@@ -36,23 +36,5 @@ class BodyHome extends StatelessWidget {
             }),
           ],
         ));
-    /*
-          if (state is HomeToggleMenu)
-                state.isOpen
-                    ? Positioned(
-                        top: context.getPercentHeight(0.0005),
-                        right: context.getPercentWidth(0.001),
-                        child: Container(
-                          color: Colors.red,
-                          height: 300,
-                          width: 300,
-                        ),
-                      )
-                    : const SizedBox(),
-
-           */
-
-    /*
-   */
   }
 }
