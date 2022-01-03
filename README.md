@@ -58,4 +58,11 @@ Images in Flutter: https://docs.flutter.dev/development/platform-integration/web
     Verify that the cache dont increases in my pc. Otherwise just compile in mac.
 
     Context Menu: https://api.flutter.dev/flutter/cupertino/CupertinoContextMenu-class.html
+
+    TODO: Add a loading screen. Check the resouces below
+    
+    https://itnext.io/fix-flutter-web-loading-time-with-a-loading-spinner-c5dd36a29f5b
+
+    https://github.com/flutter/flutter/issues/77936
+
  -->

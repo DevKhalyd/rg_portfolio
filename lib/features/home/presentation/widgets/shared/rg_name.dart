@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rg_portfolio/core/utils/utils.dart';
+
+import '../../../../../core/utils/utils.dart';
 
 final _colors = <Color>[
   Colors.blue,
@@ -36,9 +37,8 @@ class RGName extends StatelessWidget {
     // NOTE: Verify that the fontsize works in diffent screen sizes...
     return TextStyle(
       color: color,
-      fontSize: 24,
+      fontSize: 100,
       fontFamily: Utils.readexProFont,
-      letterSpacing: 1.25,
     );
   }
 }

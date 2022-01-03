@@ -28,7 +28,7 @@ class MenuAboutMe extends StatelessWidget {
       //  height: context.getPercentHeight(.6),
       width: width,
       decoration: const BoxDecoration(
-          color: Colors.white70,
+          color: Colors.white,
           borderRadius: BorderRadius.all(Radius.circular(8.0)),
           boxShadow: [
             BoxShadow(

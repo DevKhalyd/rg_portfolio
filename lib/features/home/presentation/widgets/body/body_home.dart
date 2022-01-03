@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/widgets/widgets.dart';
-import '../../bloc/home_bloc.dart';
-
 import '../../../../../core/extensions/build_context_ext.dart';
+import '../../bloc/home_bloc.dart';
+import '../shared/rg_name.dart';
+import 'txt_field_searcher.dart';
 
 class BodyHome extends StatelessWidget {
   const BodyHome({Key? key}) : super(key: key);
@@ -12,14 +12,21 @@ class BodyHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-        flex: 10,
+        flex: 8,
         child: Stack(
           children: [
             // The Rolando name with Google Font and the field to search for
-            Column(
-              children: const [
-                TextCenter('Some text for interviewing'),
-              ],
+            SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  RGName(),
+                  // TODO: Continue with this part
+                  TextFieldSearcher(),
+                ],
+              ),
             ),
             BlocBuilder<HomeBloc, HomeState>(builder: (_, state) {
               if (state is HomeToggleMenu) {
