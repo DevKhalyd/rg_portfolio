@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rg_portfolio/features/home/presentation/widgets/body/search_button.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../bloc/home_bloc.dart';
@@ -15,16 +16,31 @@ class BodyHome extends StatelessWidget {
         flex: 8,
         child: Stack(
           children: [
-            // The Rolando name with Google Font and the field to search for
+            // TODO: If the size is too small add a scroll views
             SizedBox(
               width: double.infinity,
               height: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: const [
-                  RGName(),
-                  // TODO: Continue with this part
-                  TextFieldSearcher(),
+                children: [
+                  const RGName(),
+                  const SizedBox(height: 30),
+                  const TextFieldSearcher(),
+                  const SizedBox(height: 40),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SearchButton(
+                        "Search Website",
+                        onPressed: () {},
+                      ),
+                      const SizedBox(width: 30),
+                      SearchButton(
+                        "I'm feeling lucky",
+                        onPressed: () {},
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),

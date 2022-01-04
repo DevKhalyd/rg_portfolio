@@ -22,6 +22,8 @@ class App extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: ThemeData(
             // https://docs.flutter.dev/release/breaking-changes/buttons
+            // Buttons styles.
+            // https://docs.flutter.dev/development/ui/widgets/material
             outlinedButtonTheme: OutlinedButtonThemeData(
               style: ButtonStyle(
                 foregroundColor: MaterialStateProperty.all<Color>(Colors.black),

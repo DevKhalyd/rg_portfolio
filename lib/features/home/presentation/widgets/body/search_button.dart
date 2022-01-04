@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class SearchButton extends StatelessWidget {
-  const SearchButton({
+  const SearchButton(
+    this.label, {
     Key? key,
-    required this.label,
     required this.onPressed,
   }) : super(key: key);
 
@@ -14,7 +14,7 @@ class SearchButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(10.0),
         child: Text(label),
       ),
       onPressed: onPressed,
