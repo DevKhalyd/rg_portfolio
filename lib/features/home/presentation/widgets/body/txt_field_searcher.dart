@@ -1,6 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
+import '../../../../../core/widgets/text_custom.dart';
+import '../../../domain/usecases/searcher_item.dart';
+import '../../bloc/home_bloc.dart';
 
 const _cornerValue = 24.0;
 
@@ -11,12 +17,6 @@ const _constraints = BoxConstraints(
   minWidth: 400,
 );
 
-const List<String> _options = <String>[
-  'About me',
-  'Projects',
-  'Hello World',
-];
-
 /// The text field when the user search for the new things about me
 class TextFieldSearcher extends StatefulWidget {
   const TextFieldSearcher({Key? key}) : super(key: key);
@@ -26,31 +26,24 @@ class TextFieldSearcher extends StatefulWidget {
 }
 
 class _TextFieldSearcherState extends State<TextFieldSearcher> {
-  final controller = TextEditingController();
-  // NOTE: Verify if this one is important
+  // Need for a correct working of the text field
   final focusNode = FocusNode();
-
-  bool isFocused = false;
-
-  @override
-  void initState() {
-    super.initState();
-    focusNode.addListener(() {
-      final focus = focusNode.hasFocus;
-      if (focus != isFocused) {
-        setState(() => isFocused = focus);
-      }
-    });
-  }
+  final controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     /// Textfield width
     final width = context.width * 0.35;
 
-    return RawAutocomplete<String>(
+    final homeRepository = context.read<HomeBloc>().homeRepository;
+
+    return RawAutocomplete<SearchItem>(
         textEditingController: controller,
         focusNode: focusNode,
+        onSelected: (option) {
+          // NOTE: Do something with this
+          log('Selected: $option');
+        },
         fieldViewBuilder: (_, controller, focusNode, onSubmitted) {
           return Container(
             constraints: _constraints,
@@ -60,6 +53,10 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
             ),
             width: width,
             child: TextFormField(
+              onTap: () {
+                context.read<HomeBloc>().add(HomeInitial());
+                controller.clear();
+              },
               controller: controller,
               focusNode: focusNode,
               cursorColor: Colors.black,
@@ -89,13 +86,12 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
             ),
           );
         },
-        optionsBuilder: (textEditingValue) => _options,
-        optionsViewBuilder: (context, onSelected, options) {
+        optionsBuilder: (textEditingValue) => homeRepository.searchItems,
+        optionsViewBuilder: (_, onSelected, options) {
           const sharedBorderRadius = BorderRadius.only(
             bottomLeft: Radius.circular(_cornerValue),
             bottomRight: Radius.circular(_cornerValue),
           );
-
           return Align(
             alignment: Alignment.topLeft,
             child: Container(
@@ -113,12 +109,19 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
                   itemCount: options.length,
                   itemBuilder: (context, index) {
                     final option = options.elementAt(index);
-                    // TODO: Make it blue to see if the user already view this item
                     return ListTile(
                       hoverColor: Colors.grey.shade300,
                       leading: const Icon(Icons.history),
-                      onTap: () => onSelected(option),
-                      title: Text(option),
+                      onTap: () {
+                        homeRepository.changeSearchItem(option);
+                        onSelected(option);
+                      },
+                      title: TextCustom(
+                        option.label,
+                        color: option.wasSelected
+                            ? Colors.deepPurple
+                            : Colors.black,
+                      ),
                     );
                   },
                 ),
@@ -130,8 +133,6 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
 
   @override
   void dispose() {
-    focusNode.dispose();
-    controller.dispose();
     super.dispose();
   }
 }

@@ -6,11 +6,13 @@ class TextCustom extends StatelessWidget {
     Key? key,
     this.fontSize,
     this.fontWeight,
+    this.color,
   }) : super(key: key);
 
   final String data;
   final double? fontSize;
   final FontWeight? fontWeight;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +21,7 @@ class TextCustom extends StatelessWidget {
       style: TextStyle(
         fontSize: fontSize,
         fontWeight: fontWeight,
+        color: color,
       ),
     );
   }

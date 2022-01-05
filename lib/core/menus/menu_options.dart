@@ -42,6 +42,8 @@ class MenuOptions extends StatelessWidget {
               child: GridView.count(
                 crossAxisCount: 3,
                 children: [
+                  // TODO: Add a question mark that indicates what is the state of the website
+                  // TODO: Add a download icon to download my CV
                   const IconOption(
                     asset: Assets.linkedinIcon,
                     label: 'LinkedIn',

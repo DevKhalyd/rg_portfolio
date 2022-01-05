@@ -1,7 +1,18 @@
-import 'package:rg_portfolio/core/utils/utils.dart';
+import 'dart:developer';
+
+import '../../../../core/utils/utils.dart';
+import '../../domain/usecases/searcher_item.dart';
 
 /// The logic for the HomeRepository
 class HomeRepository {
+  final _searchItems = [
+    SearchItem(label: 'About me'),
+    SearchItem(label: 'Projects'),
+    SearchItem(label: 'More...'),
+  ];
+
+  List<SearchItem> get searchItems => _searchItems;
+
   bool _isMenuOpen = false;
 
   bool get isMenuOpen => _isMenuOpen;
@@ -14,11 +25,16 @@ class HomeRepository {
     }
   }
 
-  openGitHub() {
-    Utils.launchURL(Utils.githubUrl);
+  void changeSearchItem(SearchItem item) {
+    for (var element in _searchItems) {
+      if (element.label == item.label) {
+        element.wasSelected = true;
+        break;
+      }
+    }
   }
 
-  openLinkedIn() {
-    Utils.launchURL(Utils.linkedInUrl);
-  }
+  void openGitHub() => Utils.launchURL(Utils.githubUrl);
+
+  void openLinkedIn() => Utils.launchURL(Utils.linkedInUrl);
 }
