@@ -133,6 +133,8 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
 
   @override
   void dispose() {
+    focusNode.dispose();
+    controller.dispose();
     super.dispose();
   }
 }

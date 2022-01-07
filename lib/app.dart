@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import 'core/routes.dart';
 import 'core/utils/utils.dart';
@@ -20,6 +21,8 @@ class App extends StatelessWidget {
         ],
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
+          builder: FlutterSmartDialog.init(),
+          navigatorObservers: [FlutterSmartDialog.observer],
           theme: ThemeData(
             // https://docs.flutter.dev/release/breaking-changes/buttons
             // Buttons styles.

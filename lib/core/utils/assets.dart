@@ -6,4 +6,6 @@ abstract class Assets {
   static const gmailIcon = '$icons/gmail.png';
   static const stackOverflowIcon = '$icons/stackoverflow.png';
   static const upworkIcon = '$icons/upwork.png';
+  static const downloadIcon = '$icons/download.png';
+  static const questionMarkIcon = '$icons/question_mark.png';
 }

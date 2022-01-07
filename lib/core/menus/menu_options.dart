@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import '../extensions/build_context_ext.dart';
 import '../utils/assets.dart';
 import '../utils/utils.dart';
+import '../widgets/custom_toast.dart';
 import 'widgets/icon_option.dart';
 
 /// Contains my social media and the email to copy in the clipboard
@@ -42,8 +44,6 @@ class MenuOptions extends StatelessWidget {
               child: GridView.count(
                 crossAxisCount: 3,
                 children: [
-                  // TODO: Add a question mark that indicates what is the state of the website
-                  // TODO: Add a download icon to download my CV
                   const IconOption(
                     asset: Assets.linkedinIcon,
                     label: 'LinkedIn',
@@ -68,10 +68,25 @@ class MenuOptions extends StatelessWidget {
                     asset: Assets.gmailIcon,
                     label: 'Gmail',
                     onPressed: () {
-                      // TODO: Show a message that says: Copy to clipboard (With a check mark)
+                      SmartDialog.showToast(
+                        '',
+                        widget: const CustomToast('Email copied to clipboard'),
+                        time: const Duration(seconds: 3),
+                      );
                       Clipboard.setData(const ClipboardData(text: Utils.email));
                     },
-                  )
+                  ),
+                  // TODO: Add the missing options
+                  IconOption(
+                    asset: Assets.questionMarkIcon,
+                    label: 'Web Questions',
+                    onPressed: () {},
+                  ),
+                  IconOption(
+                    asset: Assets.downloadIcon,
+                    label: 'Download CV',
+                    onPressed: () {},
+                  ),
                 ],
               ),
             )
