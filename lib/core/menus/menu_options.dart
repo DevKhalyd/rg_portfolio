@@ -76,16 +76,33 @@ class MenuOptions extends StatelessWidget {
                       Clipboard.setData(const ClipboardData(text: Utils.email));
                     },
                   ),
-                  // TODO: Add the missing options
                   IconOption(
                     asset: Assets.questionMarkIcon,
                     label: 'Web Questions',
-                    onPressed: () {},
+                    onPressed: () {
+                      showDialog(
+                          context: context,
+                          builder: (c) {
+                            return AlertDialog(
+                              title: const Text('Web State'),
+                              content: const Text(
+                                  'Each month I launch a new version of my web. Please stay tuned for the next one.'),
+                              actions: [
+                                ElevatedButton(
+                                  child: const Text('OK'),
+                                  onPressed: () => Navigator.pop(c),
+                                ),
+                              ],
+                            );
+                          });
+                    },
                   ),
                   IconOption(
                     asset: Assets.downloadIcon,
                     label: 'Download CV',
-                    onPressed: () {},
+                    // NOTE: A nice way to show my cv is showing in the same browser
+                    onPressed: () =>
+                        Utils.launchURL('https://rg-server.herokuapp.com/cv'),
                   ),
                 ],
               ),
