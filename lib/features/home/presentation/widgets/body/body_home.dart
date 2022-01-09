@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
-import 'package:rg_portfolio/core/widgets/custom_toast.dart';
-import 'search_button.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../bloc/home_bloc.dart';
 import '../shared/rg_name.dart';
+import 'search_button.dart';
 import 'txt_field_searcher.dart';
 
 class BodyHome extends StatelessWidget {

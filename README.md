@@ -36,6 +36,8 @@ Cookbook: https://docs.flutter.dev/cookbook/navigation
 Ref Navigator: https://api.flutter.dev/flutter/widgets/Navigator-class.html
 Images in Flutter: https://docs.flutter.dev/development/platform-integration/web-images
 
+Open the Chrome Console: Shift + CTRL + J (Windows)
+
 [Bloc]: https://bloclibrary.dev/#/
 [Font]: https://fonts.google.com/specimen/Readex+Pro?preview.text=Google&preview.text_type=custom#standard-styles
 [reddit]: https://www.reddit.com/r/webdev/comments/pzq1bs/i_built_a_google_search_themed_portfolio_website/?utm_medium=android_app&utm_source=share
