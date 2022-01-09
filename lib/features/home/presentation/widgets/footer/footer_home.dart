@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
 
 import '../../bloc/home_bloc.dart';
 import '../shared/selectable_word.dart';
@@ -12,6 +13,8 @@ class FooterHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final repo = context.read<HomeBloc>().homeRepository;
+
+    if (context.height <= 620) return const SizedBox.shrink();
 
     return Expanded(
       child: Container(

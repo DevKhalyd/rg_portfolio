@@ -59,10 +59,13 @@ Images in Flutter: https://docs.flutter.dev/development/platform-integration/web
 
     Context Menu: https://api.flutter.dev/flutter/cupertino/CupertinoContextMenu-class.html
 
-    TODO: Add a loading screen. Check the resouces below
+    NOTE: Add a loading screen. Check the resouces below
     
     https://itnext.io/fix-flutter-web-loading-time-with-a-loading-spinner-c5dd36a29f5b
 
     https://github.com/flutter/flutter/issues/77936
+
+    NOTE: Adaptative Responsive application
+    https://docs.flutter.dev/development/ui/layout/adaptive-responsive
 
  -->
