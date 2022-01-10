@@ -1,9 +1,12 @@
 # TODO
 
-
 - Add the icon of my website to the PWA
 
-- Test in a local server the application for mobile
+- Test in a local server the application for mobile the [PWA]
+
+# Run locally with own server
+
+`flutter run -d chrome --web-hostname 192.168.1.69 --web-port 8888`
 
 # RG Portfolio
 
@@ -37,12 +40,33 @@ Images in Flutter: https://docs.flutter.dev/development/platform-integration/web
 
 Open the Chrome Console: Shift + CTRL + J (Windows)
 
-[Bloc]: https://bloclibrary.dev/#/
-[Font]: https://fonts.google.com/specimen/Readex+Pro?preview.text=Google&preview.text_type=custom#standard-styles
+[bloc]: https://bloclibrary.dev/#/
+[font]: https://fonts.google.com/specimen/Readex+Pro?preview.text=Google&preview.text_type=custom#standard-styles
 [reddit]: https://www.reddit.com/r/webdev/comments/pzq1bs/i_built_a_google_search_themed_portfolio_website/?utm_medium=android_app&utm_source=share
 [google]: https://www.google.com/
 [navigation]: https://docs.flutter.dev/development/ui/navigation
-[Icons]: https://icons8.com/
+[icons]: https://icons8.com/
+
+# Research
+
+Maskable is for Android Icons.
+
+Verify if should be used...
+
+```json
+    {
+      "src": "icons/Icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/Icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+```
 
 <!--
     ReactJS source code: https://github.com/enjeck/gfolio
@@ -61,7 +85,7 @@ Open the Chrome Console: Shift + CTRL + J (Windows)
     Context Menu: https://api.flutter.dev/flutter/cupertino/CupertinoContextMenu-class.html
 
     NOTE: Add a loading screen. Check the resouces below
-    
+
     https://itnext.io/fix-flutter-web-loading-time-with-a-loading-spinner-c5dd36a29f5b
 
     https://github.com/flutter/flutter/issues/77936

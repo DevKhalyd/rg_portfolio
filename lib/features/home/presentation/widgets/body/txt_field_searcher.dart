@@ -47,42 +47,44 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
           log('Selected: $option');
         },
         fieldViewBuilder: (_, controller, focusNode, onSubmitted) {
-          return Container(
-            constraints: _constraints,
+          return Padding(
             padding: EdgeInsets.symmetric(horizontal: isMobileSize ? 15 : 0),
-            decoration: BoxDecoration(
-              borderRadius: _borderRadius,
-              color: Colors.white,
-            ),
-            width: width,
-            child: TextFormField(
-              onTap: () {
-                context.read<HomeBloc>().add(HomeInitial());
-                controller.clear();
-              },
-              controller: controller,
-              focusNode: focusNode,
-              cursorColor: Colors.black,
-              decoration: InputDecoration(
-                hoverColor: Colors.red,
-                prefixIcon: const Icon(
-                  Icons.search,
-                  color: Colors.grey,
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: _borderRadius,
-                  borderSide: BorderSide(
-                    color: Colors.grey.shade300,
+            child: Container(
+              constraints: _constraints,
+              decoration: BoxDecoration(
+                borderRadius: _borderRadius,
+                color: Colors.white,
+              ),
+              width: width,
+              child: TextFormField(
+                onTap: () {
+                  context.read<HomeBloc>().add(HomeInitial());
+                  controller.clear();
+                },
+                controller: controller,
+                focusNode: focusNode,
+                cursorColor: Colors.black,
+                decoration: InputDecoration(
+                  hoverColor: Colors.red,
+                  prefixIcon: const Icon(
+                    Icons.search,
+                    color: Colors.grey,
                   ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  gapPadding: 10.0,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(_cornerValue),
-                    topRight: Radius.circular(_cornerValue),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: _borderRadius,
+                    borderSide: BorderSide(
+                      color: Colors.grey.shade300,
+                    ),
                   ),
-                  borderSide: BorderSide(
-                    color: Colors.grey.shade400,
+                  focusedBorder: OutlineInputBorder(
+                    gapPadding: 10.0,
+                    borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(_cornerValue),
+                      topRight: Radius.circular(_cornerValue),
+                    ),
+                    borderSide: BorderSide(
+                      color: Colors.grey.shade400,
+                    ),
                   ),
                 ),
               ),
