@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
 
 import '../../../features/home/presentation/bloc/home_bloc.dart';
 import '../../utils/utils.dart';
 
 const _size = 150.0;
+
+const _sizemobile = 100.0;
 
 class IconOption extends StatelessWidget {
   const IconOption({
@@ -13,9 +16,7 @@ class IconOption extends StatelessWidget {
     required this.label,
     this.url,
     this.onPressed,
-  })  : assert(url == null || onPressed == null,
-            'At least one of url or onPressed must be null'),
-        super(key: key);
+  }) : super(key: key);
 
   final String asset;
   final String label;
@@ -26,23 +27,33 @@ class IconOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isMobileSize = context.isMobileSize;
+
+    final size = isMobileSize ? _sizemobile : _size;
+
+    final heightSizedBox = isMobileSize ? 10.0 : 20.0;
+
+    final fontSize = isMobileSize ? 15.0 : 18.0;
+
     return InkResponse(
-      radius: _size / 2.1,
+      radius: size / 2.1,
       onTap: () => onTap(context),
       child: SizedBox(
-        height: _size,
-        width: _size,
+        height: size,
+        width: size,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
               asset,
-              height: _size * .5,
+              height: size * .5,
             ),
-            const SizedBox(height: 20),
+            SizedBox(height: heightSizedBox),
             Text(
               label,
-              style: const TextStyle(fontSize: 18),
+              style: TextStyle(
+                fontSize: fontSize,
+              ),
             ),
           ],
         ),
@@ -51,8 +62,13 @@ class IconOption extends StatelessWidget {
   }
 
   void onTap(BuildContext context) {
+    final isMobile = context.isMobileSize;
+    if (isMobile) {
+      Navigator.pop(context);
+    } else {
+      context.read<HomeBloc>().add(HomeInitial());
+    }
     final onDefault = url != null ? () => Utils.launchURL(url!) : onPressed;
     onDefault!();
-    context.read<HomeBloc>().add(HomeInitial());
   }
 }

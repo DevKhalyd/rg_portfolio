@@ -70,7 +70,9 @@ class MenuOptions extends StatelessWidget {
                     onPressed: () {
                       SmartDialog.showToast(
                         '',
-                        widget: const CustomToast('Email copied to clipboard'),
+                        widget: const CustomToast(
+                          'Email copied to clipboard',
+                        ),
                         time: const Duration(seconds: 3),
                       );
                       Clipboard.setData(const ClipboardData(text: Utils.email));
@@ -97,12 +99,10 @@ class MenuOptions extends StatelessWidget {
                           });
                     },
                   ),
-                  IconOption(
+                  const IconOption(
                     asset: Assets.downloadIcon,
                     label: 'Download CV',
-                    // NOTE: A nice way to show my cv is showing in the same browser
-                    onPressed: () =>
-                        Utils.launchURL('https://rg-server.herokuapp.com/cv'),
+                    url: 'https://rg-server.herokuapp.com/cv',
                   ),
                 ],
               ),

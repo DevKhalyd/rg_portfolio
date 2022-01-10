@@ -37,6 +37,8 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
 
     final homeRepository = context.read<HomeBloc>().homeRepository;
 
+    final isMobileSize = context.isMobileSize;
+
     return RawAutocomplete<SearchItem>(
         textEditingController: controller,
         focusNode: focusNode,
@@ -47,6 +49,7 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
         fieldViewBuilder: (_, controller, focusNode, onSubmitted) {
           return Container(
             constraints: _constraints,
+            padding: EdgeInsets.symmetric(horizontal: isMobileSize ? 15 : 0),
             decoration: BoxDecoration(
               borderRadius: _borderRadius,
               color: Colors.white,

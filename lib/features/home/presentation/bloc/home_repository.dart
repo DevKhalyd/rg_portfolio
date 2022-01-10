@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import '../../../../core/utils/utils.dart';
 import '../../domain/usecases/searcher_item.dart';
 

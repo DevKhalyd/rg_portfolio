@@ -1,21 +1,40 @@
 import 'package:flutter/material.dart';
-import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
+
+import '../extensions/build_context_ext.dart';
 
 // Ref: https://pub.dev/packages/flutter_smart_dialog#custom-toast
 
 class CustomToast extends StatelessWidget {
-  const CustomToast(this.msg, {Key? key}) : super(key: key);
+  const CustomToast(
+    this.msg, {
+    Key? key,
+    this.alignment,
+    this.margin,
+  }) : super(key: key);
 
   final String msg;
-  // TODO: Ask for the margin and the aligment for other dimensions
+
+  final AlignmentGeometry? alignment;
+
+  final EdgeInsetsGeometry? margin;
 
   @override
   Widget build(BuildContext context) {
+    //Alignment.bottomRight
+
+    final isMobileSize = context.isMobileSize;
+
+    final defaultAligment =
+        isMobileSize ? Alignment.bottomCenter : Alignment.bottomRight;
+
+    final defaultMargin = isMobileSize
+        ? EdgeInsets.only(bottom: context.getPercentHeight(0.01))
+        : EdgeInsets.only(bottom: context.getPercentHeight(0.12), right: 30);
+
     return Align(
-      alignment: Alignment.bottomRight,
+      alignment: alignment ?? defaultAligment,
       child: Container(
-        margin:
-            EdgeInsets.only(bottom: context.getPercentHeight(0.12), right: 30),
+        margin: margin ?? defaultMargin,
         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         decoration: BoxDecoration(
           color: Colors.grey[800],

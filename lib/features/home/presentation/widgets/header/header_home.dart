@@ -25,6 +25,15 @@ class HeaderHome extends StatelessWidget {
           SelectableWord(onPressed: () {}, label: 'Portfolio'),
           IconMenu(
             onPressed: () {
+              if (context.isMobileSize) {
+                showDialog(
+                  context: context,
+                  builder: (_) => const Dialog(
+                    child: MenuOptions(),
+                  ),
+                );
+                return;
+              }
               context
                   .read<HomeBloc>()
                   .add(const HomeTogglePressed(menu: MenuOptions()));
@@ -71,6 +80,15 @@ class _ProfileIcon extends StatelessWidget {
         child: InkResponse(
           hoverColor: Colors.transparent,
           onTap: () {
+            if (context.isMobileSize) {
+              showDialog(
+                context: context,
+                builder: (_) => const Dialog(
+                  child: MenuAboutMe(),
+                ),
+              );
+              return;
+            }
             //   showMenu(context, const MenuOptions());
             context
                 .read<HomeBloc>()

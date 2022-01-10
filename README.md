@@ -1,8 +1,7 @@
 # TODO
 
-- Complete the home design
 
-- Add the icons8 link to the footer page
+- Add the icon of my website to the PWA
 
 - Test in a local server the application for mobile
 
@@ -69,5 +68,8 @@ Open the Chrome Console: Shift + CTRL + J (Windows)
 
     NOTE: Adaptative Responsive application
     https://docs.flutter.dev/development/ui/layout/adaptive-responsive
+
+    NOTE: Know about the device in the web
+    https://stackoverflow.com/a/67260733/10942018
 
  -->

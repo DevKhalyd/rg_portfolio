@@ -4,6 +4,21 @@ extension BuildContextExtension on BuildContext {
   double get width => MediaQuery.of(this).size.width;
   double get height => MediaQuery.of(this).size.height;
   double get statusBarHeight => MediaQuery.of(this).padding.top;
+  bool get isLandscape => width > height + 100;
+
+  /// Verify if its a mobile size
+  bool get isMobileSize {
+    /// A desktop or tablet
+    if (height < width) {
+      if (height <= 450 && width <= 850) return true;
+      return false;
+    }
+
+    // Range to find if it's a mobile size
+    if (height <= 860 && width <= 450) return true;
+
+    return false;
+  }
 
   // Until a certain point it's not a good idea to use these methods.
   // Because if the size of the screen changes to min,

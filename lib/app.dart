@@ -23,6 +23,8 @@ class App extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           builder: FlutterSmartDialog.init(),
           navigatorObservers: [FlutterSmartDialog.observer],
+          scrollBehavior: const MaterialScrollBehavior()
+              .copyWith(physics: const BouncingScrollPhysics()),
           theme: ThemeData(
             // https://docs.flutter.dev/release/breaking-changes/buttons
             // Buttons styles.

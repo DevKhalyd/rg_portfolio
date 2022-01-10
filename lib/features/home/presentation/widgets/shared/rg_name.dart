@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
 
 import '../../../../../core/utils/utils.dart';
 
@@ -21,7 +22,7 @@ class RGName extends StatelessWidget {
     final widgets = letters.map((e) {
       counter++;
       if (counter >= _colors.length) counter = 0;
-      final style = styleName(_colors[counter]);
+      final style = styleName(_colors[counter], context);
       return TextSpan(
         text: e,
         style: style,
@@ -30,14 +31,17 @@ class RGName extends StatelessWidget {
 
     return RichText(
         text: TextSpan(
-            text: 'R', style: styleName(_colors[0]), children: widgets));
+            text: 'R',
+            style: styleName(_colors[0], context),
+            children: widgets));
   }
 
-  TextStyle styleName(Color color) {
-    // NOTE: Verify that the fontsize works in diffent screen sizes...
+  TextStyle styleName(Color color, BuildContext context) {
+    final fontSize = context.isMobileSize ? 70.0 : 100.0;
+
     return TextStyle(
       color: color,
-      fontSize: 100,
+      fontSize: fontSize,
       fontFamily: Utils.readexProFont,
     );
   }

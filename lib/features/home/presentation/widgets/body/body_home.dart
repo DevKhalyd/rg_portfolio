@@ -12,40 +12,47 @@ class BodyHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final flex = context.isMobileSize ? 7 : 8;
+
+    final useScrollView = context.isMobileSize && context.isLandscape;
+
+    Widget child = Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        const RGName(),
+        const SizedBox(height: 30),
+        const TextFieldSearcher(),
+        const SizedBox(height: 40),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SearchButton(
+              "Search Website",
+              onPressed: () {},
+            ),
+            const SizedBox(width: 30),
+            SearchButton(
+              "I'm feeling lucky",
+              onPressed: () {},
+            ),
+          ],
+        )
+      ],
+    );
+
+    if (useScrollView) child = SingleChildScrollView(child: child);
+
     return Expanded(
-        flex: 8,
+        flex: flex,
         child: Stack(
           children: [
-            // TODO: If the size is too small add a scroll views
             GestureDetector(
               onTap: () => context.read<HomeBloc>().add(HomeInitial()),
               child: Container(
                 color: Colors.transparent,
                 width: double.infinity,
                 height: double.infinity,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const RGName(),
-                    const SizedBox(height: 30),
-                    const TextFieldSearcher(),
-                    const SizedBox(height: 40),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SearchButton(
-                          "Search Website",
-                          onPressed: () {},
-                        ),
-                        const SizedBox(width: 30),
-                        SearchButton(
-                          "I'm feeling lucky",
-                          onPressed: () {},
-                        ),
-                      ],
-                    )
-                  ],
-                ),
+                child: child,
               ),
             ),
             BlocBuilder<HomeBloc, HomeState>(builder: (_, state) {

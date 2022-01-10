@@ -8,7 +8,6 @@ import '../widgets/header/header_home.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
-  // TODO: Test in mobile devices
   @override
   Widget build(BuildContext context) {
     return Scaffold(
