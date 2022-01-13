@@ -1,6 +1,6 @@
 # TODO
 
-Create the search part of this one
+Create the search part home
 
 
 # Run locally with own server
@@ -78,10 +78,6 @@ Verify if should be used...
 
         - https://docs.flutter.dev/development/ui/layout/building-adaptive-apps
 
-    For Desktop: https://docs.flutter.dev/desktop
-    Verify that the cache dont increases in my pc. Otherwise just compile in mac.
-
-    Context Menu: https://api.flutter.dev/flutter/cupertino/CupertinoContextMenu-class.html
 
     NOTE: Add a loading screen. Check the resouces below
 

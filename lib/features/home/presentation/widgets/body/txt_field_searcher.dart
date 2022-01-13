@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rg_portfolio/core/routes.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/widgets/text_custom.dart';
@@ -43,8 +44,9 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
         textEditingController: controller,
         focusNode: focusNode,
         onSelected: (option) {
-          // NOTE: Do something with this
           log('Selected: $option');
+          // TODO: Check the transition page if its posiblle remove it or use a hero widget
+          Navigator.of(context).pushNamed(Routes.search, arguments: option);
         },
         fieldViewBuilder: (_, controller, focusNode, onSubmitted) {
           return Padding(
