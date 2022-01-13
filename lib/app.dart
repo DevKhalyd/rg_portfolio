@@ -19,6 +19,7 @@ class App extends StatelessWidget {
                     homeRepository: HomeRepository(),
                   ))
         ],
+        // Note Here the data
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           builder: FlutterSmartDialog.init(),

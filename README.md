@@ -1,8 +1,7 @@
 # TODO
 
-- Add the icon of my website to the PWA
+Create the search part of this one
 
-- Test in a local server the application for mobile the [PWA]
 
 # Run locally with own server
 
