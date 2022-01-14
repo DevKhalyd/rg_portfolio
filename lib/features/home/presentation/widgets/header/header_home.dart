@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
+import '../../../../../core/menus/menu_about_me.dart';
 import '../../../../../core/menus/menu_options.dart';
 import '../../../../../core/widgets/profile_icon.dart';
 import '../../bloc/home_bloc.dart';
@@ -37,7 +38,24 @@ class HeaderHome extends StatelessWidget {
                   .add(const HomeTogglePressed(menu: MenuOptions()));
             },
           ),
-          const ProfileIcon()
+          ProfileIcon(
+            onPressed: () {
+              // TODO: Update the methods according to each screen
+              if (context.isMobileSize) {
+                showDialog(
+                  context: context,
+                  builder: (_) => const Dialog(
+                    child: MenuAboutMe(),
+                  ),
+                );
+                return;
+              }
+              //   showMenu(context, const MenuOptions());
+              context
+                  .read<HomeBloc>()
+                  .add(const HomeTogglePressed(menu: MenuAboutMe()));
+            },
+          )
         ],
       ),
     );

@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features/home/presentation/bloc/home_bloc.dart';
 import '../extensions/build_context_ext.dart';
-import '../menus/menu_about_me.dart';
 import '../utils/utils.dart';
 import 'rolando_image.dart';
 
@@ -12,7 +9,10 @@ import 'rolando_image.dart';
 class ProfileIcon extends StatelessWidget {
   const ProfileIcon({
     Key? key,
+    required this.onPressed,
   }) : super(key: key);
+
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -41,22 +41,7 @@ class ProfileIcon extends StatelessWidget {
             EdgeInsets.symmetric(horizontal: context.getPercentWidth(0.005)),
         child: InkResponse(
           hoverColor: Colors.transparent,
-          onTap: () {
-            // TODO: Update the methods according to each screen
-            if (context.isMobileSize) {
-              showDialog(
-                context: context,
-                builder: (_) => const Dialog(
-                  child: MenuAboutMe(),
-                ),
-              );
-              return;
-            }
-            //   showMenu(context, const MenuOptions());
-            context
-                .read<HomeBloc>()
-                .add(const HomeTogglePressed(menu: MenuAboutMe()));
-          },
+          onTap: onPressed,
           child: const RolandoImage(),
         ),
       ),

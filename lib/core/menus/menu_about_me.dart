@@ -70,9 +70,7 @@ class MenuAboutMe extends StatelessWidget {
             const SizedBox(height: 25),
             const Divider(),
             InkResponse(
-              onTap: () {
-                // TODO: Do something here
-              },
+              onTap: () {},
               highlightShape: BoxShape.rectangle,
               child: SizedBox(
                 height: kToolbarHeight,

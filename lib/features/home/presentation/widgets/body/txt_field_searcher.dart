@@ -18,6 +18,9 @@ const _constraints = BoxConstraints(
   minWidth: 400,
 );
 
+
+// TODO: Split the logic in other one
+
 /// The text field when the user search for the new things about me
 class TextFieldSearcher extends StatefulWidget {
   const TextFieldSearcher({Key? key}) : super(key: key);

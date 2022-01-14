@@ -2,6 +2,8 @@
 
 Create the search part home
 
+- Add a visualization icon of who many user has seen my website
+
 
 # Run locally with own server
 

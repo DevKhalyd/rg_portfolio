@@ -12,7 +12,13 @@ final _colors = <Color>[
 
 /// My name with the Google Style
 class RGName extends StatelessWidget {
-  const RGName({Key? key}) : super(key: key);
+  const RGName({
+    Key? key,
+    this.fontSizeMobile = 70.0,
+    this.fontSizeDesktop = 100.0,
+  }) : super(key: key);
+
+  final double fontSizeMobile, fontSizeDesktop;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +43,7 @@ class RGName extends StatelessWidget {
   }
 
   TextStyle styleName(Color color, BuildContext context) {
-    final fontSize = context.isMobileSize ? 70.0 : 100.0;
+    final fontSize = context.isMobileSize ? fontSizeMobile : fontSizeDesktop;
 
     return TextStyle(
       color: color,
