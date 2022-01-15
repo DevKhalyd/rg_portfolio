@@ -40,7 +40,6 @@ class HeaderHome extends StatelessWidget {
           ),
           ProfileIcon(
             onPressed: () {
-              // TODO: Update the methods according to each screen
               if (context.isMobileSize) {
                 showDialog(
                   context: context,
@@ -50,7 +49,6 @@ class HeaderHome extends StatelessWidget {
                 );
                 return;
               }
-              //   showMenu(context, const MenuOptions());
               context
                   .read<HomeBloc>()
                   .add(const HomeTogglePressed(menu: MenuAboutMe()));

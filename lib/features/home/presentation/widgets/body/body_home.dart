@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
+import '../../../../../core/routes.dart';
 import '../../bloc/home_bloc.dart';
 import '../shared/rg_name.dart';
 import 'search_button.dart';
@@ -21,7 +22,11 @@ class BodyHome extends StatelessWidget {
       children: [
         const RGName(),
         const SizedBox(height: 30),
-        const TextFieldSearcher(),
+        TextFieldSearcher(
+          onSelected: (option) {
+            Navigator.of(context).pushNamed(Routes.search, arguments: option);
+          },
+        ),
         const SizedBox(height: 40),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

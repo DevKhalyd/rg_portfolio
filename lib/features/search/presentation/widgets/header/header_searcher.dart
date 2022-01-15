@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rg_portfolio/features/home/presentation/widgets/body/txt_field_searcher.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/widgets/profile_icon.dart';
@@ -19,6 +20,8 @@ class HeaderSearcher extends StatelessWidget {
             fontSizeDesktop: 40,
             fontSizeMobile: 40,
           ),
+          SizedBox(width: context.getPercentWidth(0.01)),
+          const TextFieldSearcher(),
           const Spacer(),
           IconMenu(
             onPressed: () {},

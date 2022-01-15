@@ -1,9 +1,10 @@
-# TODO
+# TODO Latest
 
-Create the search part home
+- Use both navigators
 
-- Add a visualization icon of who many user has seen my website
+- Add a visualization icon of who many user has seen my website (Firebase)
 
+- Add test to the home page (Latest part of this one)
 
 # Run locally with own server
 
@@ -92,5 +93,8 @@ Verify if should be used...
 
     NOTE: Know about the device in the web
     https://stackoverflow.com/a/67260733/10942018
+
+
+    NOTE: To mantain this project public, please do not commit any private information or keys for the database and so on.
 
  -->

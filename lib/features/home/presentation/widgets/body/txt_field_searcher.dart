@@ -1,8 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rg_portfolio/core/routes.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/widgets/text_custom.dart';
@@ -18,12 +15,14 @@ const _constraints = BoxConstraints(
   minWidth: 400,
 );
 
-
-// TODO: Split the logic in other one
-
 /// The text field when the user search for the new things about me
 class TextFieldSearcher extends StatefulWidget {
-  const TextFieldSearcher({Key? key}) : super(key: key);
+  const TextFieldSearcher({
+    Key? key,
+    this.onSelected,
+  }) : super(key: key);
+
+  final void Function(SearchItem)? onSelected;
 
   @override
   State<TextFieldSearcher> createState() => _TextFieldSearcherState();
@@ -46,11 +45,7 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
     return RawAutocomplete<SearchItem>(
         textEditingController: controller,
         focusNode: focusNode,
-        onSelected: (option) {
-          log('Selected: $option');
-          // TODO: Check the transition page if its posiblle remove it or use a hero widget
-          Navigator.of(context).pushNamed(Routes.search, arguments: option);
-        },
+        onSelected: widget.onSelected,
         fieldViewBuilder: (_, controller, focusNode, onSubmitted) {
           return Padding(
             padding: EdgeInsets.symmetric(horizontal: isMobileSize ? 15 : 0),
