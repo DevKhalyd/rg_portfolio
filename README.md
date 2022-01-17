@@ -1,3 +1,10 @@
+# TODO
+
+- Create the design of each item in the list.
+
+- Check how works the other navigator for my website
+
+
 # TODO Latest
 
 - Use both navigators
