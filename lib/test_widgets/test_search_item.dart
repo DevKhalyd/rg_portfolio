@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(const TestSearchItem());
 
-class MyApp extends StatelessWidget {
-
-  const MyApp({Key? key}) : super(key: key);
+class TestSearchItem extends StatelessWidget {
+  const TestSearchItem({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,24 +11,48 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: const  Text('Material App Bar'),
+          title: const Text('Material App Bar'),
         ),
-        body: Center(
-          child: Container(
-            child: Text('Hello World'),
-          ),
+        body: const Center(
+          child: Text('Hello World'),
         ),
       ),
     );
   }
 }
 
-class TestSearchItem extends StatelessWidget {
-  const TestSearchItem({Key? key}) : super(key: key);
+/// The item that appears when a result is selected.
+class SearchLinkItem extends StatelessWidget {
+  const SearchLinkItem({
+    Key? key,
+    required this.url,
+    required this.title,
+    required this.description,
+    this.topic,
+  }) : super(key: key);
 
+  final String url;
+
+  /// Topic to show next the url
+  final String? topic;
+  final String title;
+  final String description;
+
+  // TODO: Give the design
   @override
   Widget build(BuildContext context) {
-    // TODO: End the item
-    return Container();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Text(url),
+            if (topic != null) Text(topic!),
+          ],
+        ),
+        Text(title),
+        Text(description),
+      ],
+    );
   }
 }
