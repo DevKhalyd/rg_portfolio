@@ -23,7 +23,6 @@ class TestSearchItem extends StatelessWidget {
             color: Colors.white,
             child: const SearchLinkItem(
               url: 'www.example.com',
-              topic: 'About Example',
               title: 'Example',
               description:
                   'Description of the example. Add a long description.',
@@ -45,24 +44,23 @@ class SearchLinkItem extends StatelessWidget {
       required this.url,
       required this.title,
       required this.description,
-      this.topic,
+      this.topicList,
       this.onTap})
       : super(key: key);
 
   final String url;
-
-  /// Topic to show next the url
-  final String? topic;
+  final List<String>? topicList;
+  /// Make the title clickable (Selectable word is the widget key)
   final String title;
   final String description;
-
-  // TODO: Add a list of tags <string>
 
   /// When the link is pressed
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
+    if (topicList != null) assert(topicList!.length < 3);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -73,19 +71,13 @@ class SearchLinkItem extends StatelessWidget {
               url,
               color: Colors.grey,
             ),
-            const SizedBox(width: 6.0),
-            if (topic != null)
+            if (topicList != null)
               const Icon(
                 Icons.arrow_forward_ios,
                 color: Colors.grey,
                 size: 7,
               ),
-            const SizedBox(width: 6.0),
-            if (topic != null)
-              TextCustom(
-                topic!,
-                color: Colors.grey,
-              ),
+            if (topicList != null) ...getTopics()
           ],
         ),
         const SizedBox(height: 10.0),
@@ -102,5 +94,29 @@ class SearchLinkItem extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  List<Widget> getTopics() {
+    final widgets = <Widget>[
+      const SizedBox(width: 6.0),
+    ];
+
+    final topics = topicList!;
+
+    for (final t in topics) {
+      widgets.add(const Icon(
+        Icons.arrow_forward_ios,
+        color: Colors.grey,
+        size: 7,
+      ));
+      widgets.add(
+        TextCustom(
+          t,
+          color: Colors.grey,
+        ),
+      );
+    }
+
+    return widgets;
   }
 }
