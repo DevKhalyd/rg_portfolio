@@ -1,8 +1,6 @@
 # TODO
 
-- Create the design of each item in the list.
-
-- Check how works the other navigator for my website
+- Create the mobile design for that part. According to the design
 
 
 # TODO Latest

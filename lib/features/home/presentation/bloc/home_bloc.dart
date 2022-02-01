@@ -7,7 +7,8 @@ import 'home_repository.dart';
 part 'home_event.dart';
 part 'home_state.dart';
 
-// NOTE: HomeState can be replace by a enum if dont need share logic with the UI
+/// Space for web implementation
+const rightSpace = 90.0;
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc({required this.homeRepository}) : super(HomeLoaded()) {

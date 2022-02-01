@@ -58,7 +58,7 @@ class _SearchLinkItemState extends State<SearchLinkItem> {
               children: [
                 TextCustom(
                   widget.url,
-                  color: Colors.grey,
+                  color: Colors.black,
                   fontSize: 18,
                 ),
                 if (widget.topicList != null) const SizedBox(width: 2),
@@ -74,7 +74,7 @@ class _SearchLinkItemState extends State<SearchLinkItem> {
             onHover: (value) => setState(() => isHover = value),
             child: TextCustom(
               widget.title,
-              color: widget.wasSelected ? Colors.deepPurple : Colors.blue,
+              color: widget.wasSelected ? Colors.deepPurple : Colors.deepPurple,
               fontSize: 25,
               decoration:
                   isHover ? TextDecoration.underline : TextDecoration.none,
@@ -89,7 +89,7 @@ class _SearchLinkItemState extends State<SearchLinkItem> {
               widget.description,
               style: const TextStyle(
                 fontSize: 20,
-                color: Colors.grey,
+                color: Colors.black87,
                 overflow: TextOverflow.ellipsis,
               ),
             ),

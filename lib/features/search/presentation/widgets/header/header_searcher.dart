@@ -22,7 +22,7 @@ class HeaderSearcher extends StatelessWidget {
       ),
       child: Row(
         children: [
-          SizedBox(width: context.getPercentWidth(0.01)),
+          const SizedBox(width: 20),
           const RGName(
             fontSizeDesktop: 40,
             fontSizeMobile: 40,
