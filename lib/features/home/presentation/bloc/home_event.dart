@@ -1,5 +1,22 @@
 part of 'home_bloc.dart';
 
+/*
+Basically an event is handled from the Bloc.
+
+The event do some validations to update the UI and emit a new state
+for the UI.
+
+So, the event could be whatever you want handle from the Bloc.
+
+Use case:
+
+```dart
+    context
+      .read<HomeBloc>()
+      .add(const HomeTogglePressed(menu: MenuOptions()));
+```
+*/
+
 abstract class HomeEvent extends Equatable {
   const HomeEvent();
 

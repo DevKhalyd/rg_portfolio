@@ -23,17 +23,12 @@ class TestSearchItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                width: 400,
-                height: 200,
-                color: Colors.white,
-                child: SearchLinkItem(
-                  onTap: () {},
-                  url: 'www.example.com',
-                  title: 'Example',
-                  description:
-                      'Description of the example. Add a long description.',
-                ),
+              SearchLinkItem(
+                onTap: () {},
+                url: 'www.example.com',
+                title: 'Example',
+                description:
+                    'Description of the example. Add a long description.',
               ),
               SearchLinkItem(
                 wasSelected: true,
@@ -42,7 +37,7 @@ class TestSearchItem extends StatelessWidget {
                 url: 'www.example.com',
                 title: 'An overview aboyt my self skills and interest',
                 description:
-                    'HTML, CSS, JavaScript, React, GraphQL, Gatsby, Python, Open Source, Hugo, Documentation, UI Design, UX Research, Inkscape..',
+                    'HTML, CSS, JavaScript, React, GraphQL, Gatsby, Python, Open Source, Hugo, Documentation, UI Design, UX Research, Inkscape.. asdsahgdsadhsag1413v sadhgsadhgasdsahk',
               ),
             ],
           ),

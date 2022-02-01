@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/text_custom.dart';
 
-
-// TODO: Continue replicating this part: 
-
-// https://gfolio.enjeck.com/about
-
 /// The item that appears when a result is selected.
 class SearchLinkItem extends StatefulWidget {
   const SearchLinkItem({
@@ -36,6 +31,8 @@ class SearchLinkItem extends StatefulWidget {
   State<SearchLinkItem> createState() => _SearchLinkItemState();
 }
 
+const side = 25.0;
+
 class _SearchLinkItemState extends State<SearchLinkItem> {
   bool isHover = false;
 
@@ -43,53 +40,62 @@ class _SearchLinkItemState extends State<SearchLinkItem> {
   Widget build(BuildContext context) {
     assert((widget.topicList?.length ?? 0) < 3);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        InkResponse(
-          radius: 0,
-          onTap: widget.onTap,
-          onHover: (value) {
-            setState(() {
-              isHover = value;
-            });
-          },
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              TextCustom(
-                widget.url,
+    return Padding(
+      padding: const EdgeInsets.only(top: 30, left: side, right: side),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          InkResponse(
+            radius: 0,
+            onTap: widget.onTap,
+            onHover: (value) {
+              setState(() {
+                isHover = value;
+              });
+            },
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                TextCustom(
+                  widget.url,
+                  color: Colors.grey,
+                  fontSize: 18,
+                ),
+                if (widget.topicList != null) const SizedBox(width: 2),
+                if (widget.topicList != null) ...getTopics()
+              ],
+            ),
+          ),
+          const SizedBox(height: 15.0),
+          // Add the underline text
+          InkResponse(
+            radius: 0,
+            onTap: widget.onTap,
+            onHover: (value) => setState(() => isHover = value),
+            child: TextCustom(
+              widget.title,
+              color: widget.wasSelected ? Colors.deepPurple : Colors.blue,
+              fontSize: 25,
+              decoration:
+                  isHover ? TextDecoration.underline : TextDecoration.none,
+            ),
+          ),
+          const SizedBox(height: 15.0),
+          Container(
+            constraints: const BoxConstraints(
+              maxWidth: 1000,
+            ),
+            child: SelectableText(
+              widget.description,
+              style: const TextStyle(
+                fontSize: 20,
                 color: Colors.grey,
-                fontSize: 18,
+                overflow: TextOverflow.ellipsis,
               ),
-              if (widget.topicList != null) const SizedBox(width: 2),
-              if (widget.topicList != null) ...getTopics()
-            ],
+            ),
           ),
-        ),
-        const SizedBox(height: 15.0),
-        // Add the underline text
-        InkResponse(
-          radius: 0,
-          onTap: widget.onTap,
-          onHover: (value) => setState(() => isHover = value),
-          child: TextCustom(
-            widget.title,
-            color: widget.wasSelected ? Colors.deepPurple : Colors.blue,
-            fontSize: 25,
-            decoration:
-                isHover ? TextDecoration.underline : TextDecoration.none,
-          ),
-        ),
-        const SizedBox(height: 15.0),
-        SelectableText(
-          widget.description,
-          style: const TextStyle(
-            fontSize: 20,
-            color: Colors.grey,
-          ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
