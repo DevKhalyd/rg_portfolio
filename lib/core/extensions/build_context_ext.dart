@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// Min space avaible for the search
+const minWidthSearch = 700.0;
+
 extension BuildContextExtension on BuildContext {
   double get width => MediaQuery.of(this).size.width;
   double get height => MediaQuery.of(this).size.height;

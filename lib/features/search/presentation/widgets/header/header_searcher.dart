@@ -15,6 +15,24 @@ class HeaderSearcher extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = context.width;
+
+    if (width < minWidthSearch) {
+      return Column(
+        children: const [
+          SizedBox(height: 20),
+          RGName.forSearch(),
+          SizedBox(height: 10),
+          TextFieldSearcher(),
+        ],
+      );
+    }
+
+    if (context.isMobileSize) {
+      return Text('Its a mobile size');
+    }
+
+    // TODO: Work on this part
     return Padding(
       padding: EdgeInsets.only(
         top: context.getPercentHeight(0.015),
@@ -23,10 +41,7 @@ class HeaderSearcher extends StatelessWidget {
       child: Row(
         children: [
           const SizedBox(width: 20),
-          const RGName(
-            fontSizeDesktop: 40,
-            fontSizeMobile: 40,
-          ),
+          const RGName.forSearch(),
           SizedBox(width: context.getPercentWidth(0.01)),
           const TextFieldSearcher(),
           const Spacer(),

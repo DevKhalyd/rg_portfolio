@@ -18,6 +18,12 @@ class RGName extends StatelessWidget {
     this.fontSizeDesktop = 100.0,
   }) : super(key: key);
 
+  const RGName.forSearch({
+    Key? key,
+    this.fontSizeMobile = 40.0,
+    this.fontSizeDesktop = 40.0,
+  }) : super(key: key);
+
   final double fontSizeMobile, fontSizeDesktop;
 
   @override
