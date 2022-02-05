@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
+import 'package:rg_portfolio/core/routes.dart';
 
 import '../../../../../core/utils/utils.dart';
 
@@ -16,15 +17,18 @@ class RGName extends StatelessWidget {
     Key? key,
     this.fontSizeMobile = 70.0,
     this.fontSizeDesktop = 100.0,
-  }) : super(key: key);
+  })  : isClickable = false,
+        super(key: key);
 
   const RGName.forSearch({
     Key? key,
     this.fontSizeMobile = 40.0,
     this.fontSizeDesktop = 40.0,
-  }) : super(key: key);
+  })  : isClickable = true,
+        super(key: key);
 
   final double fontSizeMobile, fontSizeDesktop;
+  final bool isClickable;
 
   @override
   Widget build(BuildContext context) {
@@ -41,11 +45,27 @@ class RGName extends StatelessWidget {
       );
     }).toList();
 
-    return RichText(
+    Widget child = RichText(
         text: TextSpan(
             text: 'R',
             style: styleName(_colors[0], context),
             children: widgets));
+
+    if (!isClickable) return child;
+
+    return InkResponse(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      child: child,
+      onTap: () {
+        if (context.canPop()) {
+          context.pop();
+          return;
+        }
+        context.pushNamed(Routes.home);
+      },
+    );
   }
 
   TextStyle styleName(Color color, BuildContext context) {

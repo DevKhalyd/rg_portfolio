@@ -9,7 +9,7 @@
 
 - Add a visualization icon of who many user has seen my website (Firebase)
 
-- Add test to the home page (Latest part of this one)
+- Add test (widgets, unit test) to the home page (Latest part of this one)
 
 # Run locally with own server
 

@@ -37,4 +37,21 @@ extension BuildContextExtension on BuildContext {
     assert(percent > 0 && percent < 1);
     return height * percent;
   }
+
+  /// Return true if can
+  bool canPop() {
+    return Navigator.of(this).canPop();
+  }
+
+  void pop() {
+    Navigator.pop(this);
+  }
+
+  void pushNamed(String name) {
+    Navigator.pushNamed(this, name);
+  }
+
+  void popIfCan() {
+    if (canPop()) pop();
+  }
 }

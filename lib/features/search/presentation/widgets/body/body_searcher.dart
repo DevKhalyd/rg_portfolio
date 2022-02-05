@@ -55,6 +55,9 @@ class BodySearcher extends StatelessWidget {
   }
 }
 
+
+// TODO: Start to listen to this place
+/// The results of the search
 class ResultsSearch extends StatelessWidget {
   const ResultsSearch({
     Key? key,

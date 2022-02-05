@@ -28,11 +28,6 @@ class HeaderSearcher extends StatelessWidget {
       );
     }
 
-    if (context.isMobileSize) {
-      return Text('Its a mobile size');
-    }
-
-    // TODO: Work on this part
     return Padding(
       padding: EdgeInsets.only(
         top: context.getPercentHeight(0.015),
@@ -42,7 +37,7 @@ class HeaderSearcher extends StatelessWidget {
         children: [
           const SizedBox(width: 20),
           const RGName.forSearch(),
-          SizedBox(width: context.getPercentWidth(0.01)),
+          const SizedBox(width: 27),
           const TextFieldSearcher(),
           const Spacer(),
           IconMenu(
