@@ -1,7 +1,6 @@
 part of 'home_bloc.dart';
 
 /*
-
 What are the states?
 
 Basically the state of the current page.
@@ -53,4 +52,14 @@ class HomeError extends HomeState {
 
   @override
   List<Object> get props => [message];
+}
+
+class HomeSearch extends HomeState {
+  const HomeSearch({required this.search});
+
+  /// The item selected by the user
+  final SearchItem search;
+
+  @override
+  List<Object> get props => [search];
 }

@@ -23,9 +23,8 @@ class BodyHome extends StatelessWidget {
         const RGName(),
         const SizedBox(height: 30),
         TextFieldSearcher(
-          onSelected: (option) {
-            Navigator.of(context).pushNamed(Routes.search, arguments: option);
-          },
+          onSelected: (option) =>
+              Navigator.of(context).pushNamed(Routes.search),
         ),
         const SizedBox(height: 40),
         Row(

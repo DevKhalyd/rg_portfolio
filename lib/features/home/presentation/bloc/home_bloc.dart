@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
+import '../../domain/usecases/searcher_item.dart';
 import 'home_repository.dart';
 
 part 'home_event.dart';
@@ -14,9 +15,21 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc({required this.homeRepository}) : super(HomeLoaded()) {
     on<HomeTogglePressed>(_onTogglePressed);
     on<HomeInitial>(_onHomeInitial);
+    on<HomeSelectedSearch>(_onHomeSelectedSearch);
   }
 
   final HomeRepository homeRepository;
+
+  void _onHomeSelectedSearch(
+    HomeSelectedSearch event,
+    Emitter<HomeState> emit,
+  ) {
+    try {
+      emit(HomeSearch(search: event.item));
+    } catch (e) {
+      emit(HomeError(message: e.toString()));
+    }
+  }
 
   /// Helps to close the menu...
   void _onHomeInitial(

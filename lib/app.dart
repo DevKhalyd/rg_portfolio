@@ -18,7 +18,6 @@ class App extends StatelessWidget {
               create: (_) => HomeBloc(
                     homeRepository: HomeRepository(),
                   )),
-          // TODO: Define here the new bloc because of the Web on Flutter
         ],
         // Note Here the data
         child: MaterialApp(
@@ -40,7 +39,7 @@ class App extends StatelessWidget {
             ),
           ),
           title: Utils.appName,
-          initialRoute: Routes.home,
+          initialRoute: Routes.initialRoute,
           routes: Routes.routes,
         ));
   }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rg_portfolio/core/widgets/text_custom.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../home/presentation/bloc/home_bloc.dart';
-import 'searcher_link_item.dart';
 
 class BodySearcher extends StatelessWidget {
   const BodySearcher({Key? key}) : super(key: key);
@@ -56,7 +56,6 @@ class BodySearcher extends StatelessWidget {
 }
 
 
-// TODO: Start to listen to this place
 /// The results of the search
 class ResultsSearch extends StatelessWidget {
   const ResultsSearch({
@@ -65,23 +64,36 @@ class ResultsSearch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [
-        const SizedBox(height: 40),
-        SearchLinkItem(
-          onTap: () {},
-          url: 'www.example.com',
-          title: 'Example',
-          topicList: const ['Example', 'Example'],
-          description: 'Description of the example. Add a long description.',
-        ),
-        SearchLinkItem(
-          onTap: () {},
-          url: 'www.example.com',
-          title: 'Example',
-          description: 'Description of the example. Add a long description.',
-        ),
-      ],
+    final repo = context.read<HomeBloc>().homeRepository;
+
+    return BlocBuilder<HomeBloc, HomeState>(
+      builder: (context, state) {
+        if (state is HomeSearch) return TextCustom(state.search.label);
+
+        return TextCustom(repo.currentSearchItem.label);
+
+        // TODO: Do this one
+        /* return ListView(
+          children: [
+            const SizedBox(height: 40),
+            SearchLinkItem(
+              onTap: () {},
+              url: 'www.example.com',
+              title: 'Example',
+              topicList: const ['Example', 'Example'],
+              description:
+                  'Description of the example. Add a long description.',
+            ),
+            SearchLinkItem(
+              onTap: () {},
+              url: 'www.example.com',
+              title: 'Example',
+              description:
+                  'Description of the example. Add a long description.',
+            ),
+          ],
+        );*/
+      },
     );
   }
 }

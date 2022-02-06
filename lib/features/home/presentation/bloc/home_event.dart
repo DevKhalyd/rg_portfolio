@@ -34,5 +34,15 @@ class HomeTogglePressed extends HomeEvent {
   List<Object> get props => [menu];
 }
 
+/// Event when the user select a new item in the menu
+class HomeSelectedSearch extends HomeEvent {
+  const HomeSelectedSearch({required this.item});
+
+  final SearchItem item;
+
+  @override
+  List<Object> get props => [item];
+}
+
 /// When the screen is in the initial state [HomeLoaded]
 class HomeInitial extends HomeEvent {}

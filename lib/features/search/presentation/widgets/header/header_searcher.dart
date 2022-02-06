@@ -16,14 +16,18 @@ class HeaderSearcher extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = context.width;
+    
+    final fieldSearcher = TextFieldSearcher(
+        initialValue:
+            context.read<HomeBloc>().homeRepository.currentSearchItem.label);
 
     if (width < minWidthSearch) {
       return Column(
-        children: const [
-          SizedBox(height: 20),
-          RGName.forSearch(),
-          SizedBox(height: 10),
-          TextFieldSearcher(),
+        children: [
+          const SizedBox(height: 20),
+          const RGName.forSearch(),
+          const SizedBox(height: 10),
+          fieldSearcher,
         ],
       );
     }
@@ -38,7 +42,7 @@ class HeaderSearcher extends StatelessWidget {
           const SizedBox(width: 20),
           const RGName.forSearch(),
           const SizedBox(width: 27),
-          const TextFieldSearcher(),
+          fieldSearcher,
           const Spacer(),
           IconMenu(
             onPressed: () {
