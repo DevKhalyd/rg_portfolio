@@ -87,8 +87,10 @@ class _SearchLinkItemState extends State<SearchLinkItem> {
             ),
             child: SelectableText(
               widget.description,
+              textAlign: TextAlign.justify,
               style: const TextStyle(
                 fontSize: 20,
+                height: 1.4,
                 color: Colors.black87,
                 overflow: TextOverflow.ellipsis,
               ),

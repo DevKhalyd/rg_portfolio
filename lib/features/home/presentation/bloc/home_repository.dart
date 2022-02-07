@@ -7,13 +7,13 @@ import '../../domain/usecases/searcher_item.dart';
 
 final _searchItems = [
   SearchItem(
-    label: SearchItem.aboutMe,
+    label: aboutMe,
     results: [
       SearchLinkItem(
         url: Utils.getUrlForOwnWebsite('aboutMe'),
-        title: SearchItem.aboutMe,
+        title: aboutMe,
         // Describe my self
-        description: SearchItem.aboutMeDescription,
+        description: aboutMeDescription,
         onTap: () {
           SmartDialog.showToast(
             '',

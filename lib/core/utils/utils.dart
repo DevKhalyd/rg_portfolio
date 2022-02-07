@@ -30,6 +30,9 @@ abstract class Utils {
   static const websiteRepoUrl = 'https://github.com/DevKhalyd/rg_portfolio';
 
   static void launchURL(String url, {VoidCallback? doSomething}) {
+    // Verify that contains https
+    if (!url.contains('https://')) url = 'https://$url';
+
     launch(url);
     if (doSomething != null) doSomething();
   }
@@ -41,6 +44,6 @@ abstract class Utils {
   }
 
   static String getUrlForGithub(String complement) {
-    return 'www.github.com/' + complement;
+    return 'https://www.github.com/' + complement;
   }
 }
