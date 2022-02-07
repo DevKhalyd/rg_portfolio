@@ -1,6 +1,6 @@
 # TODO
 
-- Create the mobile design for that part. According to the design
+- Test Home with Unit and Widget Testing
 
 
 # TODO Latest

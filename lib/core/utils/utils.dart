@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 abstract class Utils {
+  static const host = "https://rolando-garcia.netlify.app/#/";
+
   static const appName = 'RG Portfolio';
 
   /// The font for the Google letters
@@ -30,5 +32,15 @@ abstract class Utils {
   static void launchURL(String url, {VoidCallback? doSomething}) {
     launch(url);
     if (doSomething != null) doSomething();
+  }
+
+  /// [complement] Example: aboutMe
+  /// Result: https://rolando-garcia.netlify.app/#/aboutMe
+  static String getUrlForOwnWebsite(String complement) {
+    return host + complement;
+  }
+
+  static String getUrlForGithub(String complement) {
+    return 'www.github.com/' + complement;
   }
 }

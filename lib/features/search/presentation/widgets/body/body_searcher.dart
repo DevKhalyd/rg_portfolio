@@ -55,7 +55,6 @@ class BodySearcher extends StatelessWidget {
   }
 }
 
-
 /// The results of the search
 class ResultsSearch extends StatelessWidget {
   const ResultsSearch({
@@ -68,31 +67,18 @@ class ResultsSearch extends StatelessWidget {
 
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
-        if (state is HomeSearch) return TextCustom(state.search.label);
+        final results = repo.currentSearchItem.results;
 
-        return TextCustom(repo.currentSearchItem.label);
+        // if (state is HomeSearch) return TextCustom(state.search.label);
 
-        // TODO: Do this one
-        /* return ListView(
+        // return TextCustom(repo.currentSearchItem.label);
+
+        return ListView(
           children: [
             const SizedBox(height: 40),
-            SearchLinkItem(
-              onTap: () {},
-              url: 'www.example.com',
-              title: 'Example',
-              topicList: const ['Example', 'Example'],
-              description:
-                  'Description of the example. Add a long description.',
-            ),
-            SearchLinkItem(
-              onTap: () {},
-              url: 'www.example.com',
-              title: 'Example',
-              description:
-                  'Description of the example. Add a long description.',
-            ),
+            ...results,
           ],
-        );*/
+        );
       },
     );
   }

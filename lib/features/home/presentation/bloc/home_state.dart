@@ -55,6 +55,7 @@ class HomeError extends HomeState {
 }
 
 class HomeSearch extends HomeState {
+  // TODO: Review if this one is longer needed
   const HomeSearch({required this.search});
 
   /// The item selected by the user
