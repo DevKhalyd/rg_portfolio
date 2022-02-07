@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../features/search/presentation/widgets/body/searcher_link_item.dart';
+import '../../features/search/presentation/widgets/body/searcher_link_item.dart';
 
 void main() => runApp(const TestSearchItem());
 

@@ -2,14 +2,7 @@
 
 - Test Home with Unit and Widget Testing
 
-
-# TODO Latest
-
-- Use both navigators
-
 - Add a visualization icon of who many user has seen my website (Firebase)
-
-- Add test (widgets, unit test) to the home page (Latest part of this one)
 
 # Run locally with own server
 
@@ -38,6 +31,47 @@ So I built the Google Search portfolio [Google]
 ## Documentation
 
 [Navigation] Basically in Flutter there is two ways to handle the navigation
+
+## Testing
+
+Context: One of my first apps to test.
+
+**Why I should testing?**
+
+- Found bugs and fix them quickly and easily (E.G. After of add a new feature)
+- Provide Docs by its own (Refer to the tests when u want to see how it works the code)
+- Unit tests make better designs
+
+**What to be tested with Higher Priority?**
+
+- Collections passed as parameter not changed in the method (add(1,2),expected: 3)
+- Algorithm Engines (Because if someone changes the algorithm it will break the app or an unexpected behavior)
+- Utility methods
+- Core business logic methods
+- Simple DB queries checking predicates
+- Services that are high-risk (E.G. Auth, Storage, Database, etc) (If the operation is too complex skip to Integration test)
+- Exceptions
+
+**What Not to Unit Test?**
+
+- Complex DB queries
+- Constructors or properties (if they just return variables). Test them only if they contain validations.
+- Configurations like constants, readonly fields, configs, enumerations, etc.
+- Facades of just wrapping other frameworks or libraries
+- Complex multi-threading code (it is better to be tested with integration tests)
+- Methods that call another public method
+- Exception messages
+- POCO classes — models, etc.
+
+Ref: https://dzone.com/articles/unit-testing-guidelines-what-to-test-and-what-not
+
+**For Flutter:**
+
+- A unit test tests a single function, method, or class.
+- A widget test (in other UI frameworks referred to as component test) tests a single widget.
+- An integration test tests a complete app or a large part of an app.
+
+
 
 # Useful
 
