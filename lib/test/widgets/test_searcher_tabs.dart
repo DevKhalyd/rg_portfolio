@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:rg_portfolio/features/search/presentation/widgets/body/searcher_tabs/searcher_tab.dart';
 
-void main() => runApp(MyApp());
+import '../../features/search/presentation/widgets/body/searcher_tabs/searcher_tab.dart';
+
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Material App',
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Material App Bar'),
+          title: const Text('Material App Bar'),
         ),
-        body: TestSearcherTabs(),
+        body: const TestSearcherTabs(),
       ),
     );
   }
