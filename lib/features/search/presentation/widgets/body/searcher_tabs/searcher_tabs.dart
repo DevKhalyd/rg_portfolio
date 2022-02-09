@@ -14,6 +14,7 @@ class SearcherTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO: Create the logic.
     // TODO: Create the tabs.
     // TODO: Use PageView.builder.
     return Container();

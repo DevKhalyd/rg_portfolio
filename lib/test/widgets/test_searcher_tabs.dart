@@ -26,8 +26,25 @@ class TestSearcherTabs extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: SearcherTab(),
+    return Row(
+      children: [
+        SearcherTab(
+          icon: Icons.search,
+          isSelected: true,
+          label: 'Search',
+          onPressed: () {
+            print('Search');
+          },
+        ),
+        SearcherTab(
+          icon: Icons.search,
+          isSelected: false,
+          label: 'Search',
+          onPressed: () {
+            print('Search');
+          },
+        ),
+      ],
     );
   }
 }

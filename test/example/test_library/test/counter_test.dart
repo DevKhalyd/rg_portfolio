@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
 // ignore: avoid_relative_lib_imports
 import '../lib/counter.dart';
 
