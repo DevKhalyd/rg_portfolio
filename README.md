@@ -71,7 +71,11 @@ Ref: https://dzone.com/articles/unit-testing-guidelines-what-to-test-and-what-no
 - A widget test (in other UI frameworks referred to as component test) tests a single widget.
 - An integration test tests a complete app or a large part of an app.
 
+**Mock dependencies using Mockito**
 
+Mock: A mock is a substitute for a real object. Help to test an expected behavior of a real object.
+
+- A passing test might start failing if a web service or database returns unexpected results. This is known as a “flaky test.”
 
 # Useful
 
@@ -135,5 +139,4 @@ Verify if should be used...
 
 
     NOTE: To mantain this project public, please do not commit any private information or keys for the database and so on.
-
  -->
