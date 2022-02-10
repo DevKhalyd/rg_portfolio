@@ -1,7 +1,5 @@
 # TODO
 
-- Test Home with Unit and Widget Testing
-
 - Add a visualization icon of who many user has seen my website (Firebase)
 
 # Run locally with own server
@@ -76,6 +74,15 @@ Ref: https://dzone.com/articles/unit-testing-guidelines-what-to-test-and-what-no
 Mock: A mock is a substitute for a real object. Help to test an expected behavior of a real object.
 
 - A passing test might start failing if a web service or database returns unexpected results. This is known as a “flaky test.”
+
+Bloc Test:
+
+Blog:
+https://medium.com/flutter-community/bloc-testing-write-your-first-simple-unit-test-in-flutter-1eee1d1642aa
+
+
+Library:
+https://pub.dev/packages/bloc_test
 
 # Useful
 

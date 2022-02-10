@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rg_portfolio/features/search/domain/models/searcher_tab_model.dart';
-import 'package:rg_portfolio/features/search/presentation/widgets/body/searcher_tabs/searcher_tabs.dart';
+
+import '../../features/search/domain/models/searcher_tab_model.dart';
+import '../../features/search/presentation/widgets/body/searcher_tabs/searcher_tabs.dart';
 
 void main() => runApp(const MyApp());
 

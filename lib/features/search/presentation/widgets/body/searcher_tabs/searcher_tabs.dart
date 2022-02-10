@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rg_portfolio/features/search/presentation/widgets/body/searcher_tabs/searcher_tab.dart';
 
 import '../../../../domain/models/searcher_tab_model.dart';
+import 'searcher_tab.dart';
 
 /// The tabs to selected in the search page.
 class SearcherTabs extends StatefulWidget {
