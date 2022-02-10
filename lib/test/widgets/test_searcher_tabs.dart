@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../features/search/presentation/widgets/body/searcher_tabs/searcher_tab.dart';
+import 'package:rg_portfolio/features/search/domain/models/searcher_tab_model.dart';
+import 'package:rg_portfolio/features/search/presentation/widgets/body/searcher_tabs/searcher_tabs.dart';
 
 void main() => runApp(const MyApp());
 
@@ -21,30 +21,34 @@ class MyApp extends StatelessWidget {
   }
 }
 
+final tabs = <SearcherTabModel>[
+  SearcherTabModel(
+      label: 'Search',
+      icon: Icons.search,
+      fragment: Container(
+        color: Colors.red,
+      )),
+  SearcherTabModel(
+      label: 'Hello',
+      icon: Icons.access_alarm,
+      fragment: Container(
+        color: Colors.green,
+      )),
+  SearcherTabModel(
+      label: 'There',
+      icon: Icons.access_alarms_outlined,
+      fragment: Container(
+        color: Colors.yellow,
+      )),
+];
+
 class TestSearcherTabs extends StatelessWidget {
   const TestSearcherTabs({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SearcherTab(
-          icon: Icons.search,
-          isSelected: true,
-          label: 'Search',
-          onPressed: () {
-            print('Search');
-          },
-        ),
-        SearcherTab(
-          icon: Icons.search,
-          isSelected: false,
-          label: 'Search',
-          onPressed: () {
-            print('Search');
-          },
-        ),
-      ],
+    return SearcherTabs(
+      tabs: tabs,
     );
   }
 }
