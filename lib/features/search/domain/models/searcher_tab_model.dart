@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../../presentation/screen/fragments/search_all_fragment.dart';
+import '../../presentation/screen/fragments/search_images_fragment.dart';
+import '../../presentation/screen/fragments/search_news_fragment.dart';
+
 /// Model to use as parameter in [SearcherTab]
 class SearcherTabModel {
   const SearcherTabModel({
@@ -30,27 +34,21 @@ class SearcherTabModel {
 
   /// Tabs to show in the [HomeScreen]
   static List<SearcherTabModel> getTabs() {
-    return [
+    return const [
       SearcherTabModel(
         label: 'All',
         icon: Icons.search,
-        fragment: Container(
-          color: Colors.red,
-        ),
+        fragment: SearchAllFragment(),
       ),
       SearcherTabModel(
         label: 'Images',
         icon: Icons.image,
-        fragment: Container(
-          color: Colors.green,
-        ),
+        fragment: SearchImagesFragment(),
       ),
       SearcherTabModel(
         label: 'News',
         icon: Icons.new_releases,
-        fragment: Container(
-          color: Colors.yellow,
-        ),
+        fragment: SearchNewsFragment(),
       ),
     ];
   }

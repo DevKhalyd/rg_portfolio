@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../home/presentation/bloc/home_bloc.dart';
 import '../../../../domain/models/searcher_tab_model.dart';
 import 'searcher_tab.dart';
 
@@ -29,42 +31,47 @@ class _SearcherTabsState extends State<SearcherTabs> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(
-          height: kToolbarHeight,
-          child: Row(
-            children: tabs
-                .map((e) => SearcherTab(
-                      label: e.label,
-                      icon: e.icon,
-                      isSelected: e.label == currentItem,
-                      onPressed: () {
-                        if (currentItem == e.label) return;
-
-                        setState(() => currentItem = e.label);
-
-                        controller.animateToPage(
-                          tabs.indexOf(e),
-                          duration: const Duration(milliseconds: 300),
-                          curve: Curves.easeInOut,
-                        );
-                      },
-                    ))
-                .toList(),
+    return BlocListener<HomeBloc, HomeState>(
+      listener: (context, state) {
+        if (state is HomeSearch) updateState(tabs.first);
+      },
+      child: Column(
+        children: [
+          SizedBox(
+            height: kToolbarHeight,
+            child: Row(
+              children: tabs
+                  .map((e) => SearcherTab(
+                        label: e.label,
+                        icon: e.icon,
+                        isSelected: e.label == currentItem,
+                        onPressed: () => updateState(e),
+                      ))
+                  .toList(),
+            ),
           ),
-        ),
-        const SizedBox(height: 15),
-        Expanded(
-          child: PageView.builder(
-            controller: controller,
-            itemCount: tabs.length,
-            itemBuilder: (_, i) {
-              return tabs[i].fragment;
-            },
+          const SizedBox(height: 15),
+          Expanded(
+            child: PageView.builder(
+              controller: controller,
+              itemCount: tabs.length,
+              itemBuilder: (_, i) {
+                return tabs[i].fragment;
+              },
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
+    );
+  }
+
+  updateState(SearcherTabModel e) {
+    if (currentItem == e.label) return;
+    setState(() => currentItem = e.label);
+    controller.animateToPage(
+      tabs.indexOf(e),
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
     );
   }
 

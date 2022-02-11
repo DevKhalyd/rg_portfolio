@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../home/presentation/bloc/home_bloc.dart';
 import '../../../domain/models/searcher_tab_model.dart';
+import 'results_search.dart';
 import 'searcher_tabs/searcher_tabs.dart';
 
 class BodySearcher extends StatelessWidget {
@@ -57,31 +58,3 @@ class BodySearcher extends StatelessWidget {
   }
 }
 
-/// The results of the search
-class ResultsSearch extends StatelessWidget {
-  const ResultsSearch({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final repo = context.read<HomeBloc>().homeRepository;
-
-    return BlocBuilder<HomeBloc, HomeState>(
-      builder: (context, state) {
-        final results = repo.currentSearchItem.results;
-
-        // if (state is HomeSearch) return TextCustom(state.search.label);
-
-        // return TextCustom(repo.currentSearchItem.label);
-
-        return ListView(
-          children: [
-            const SizedBox(height: 40),
-            ...results,
-          ],
-        );
-      },
-    );
-  }
-}
