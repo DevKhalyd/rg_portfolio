@@ -1,5 +1,7 @@
 # TODO
 
+- TODO Add the missing screens for search, images, and news
+
 - Add a visualization icon of who many user has seen my website (Firebase)
 
 # Run locally with own server

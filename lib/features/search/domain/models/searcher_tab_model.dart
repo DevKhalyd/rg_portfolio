@@ -1,9 +1,8 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
 /// Model to use as parameter in [SearcherTab]
 class SearcherTabModel {
-
- const SearcherTabModel({
+  const SearcherTabModel({
     required this.label,
     required this.icon,
     required this.fragment,
@@ -27,5 +26,32 @@ class SearcherTabModel {
       icon: icon ?? this.icon,
       fragment: fragment,
     );
+  }
+
+  /// Tabs to show in the [HomeScreen]
+  static List<SearcherTabModel> getTabs() {
+    return [
+      SearcherTabModel(
+        label: 'All',
+        icon: Icons.search,
+        fragment: Container(
+          color: Colors.red,
+        ),
+      ),
+      SearcherTabModel(
+        label: 'Images',
+        icon: Icons.image,
+        fragment: Container(
+          color: Colors.green,
+        ),
+      ),
+      SearcherTabModel(
+        label: 'News',
+        icon: Icons.new_releases,
+        fragment: Container(
+          color: Colors.yellow,
+        ),
+      ),
+    ];
   }
 }

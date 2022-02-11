@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rg_portfolio/core/widgets/text_custom.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../home/presentation/bloc/home_bloc.dart';
+import '../../../domain/models/searcher_tab_model.dart';
+import 'searcher_tabs/searcher_tabs.dart';
 
 class BodySearcher extends StatelessWidget {
   const BodySearcher({Key? key}) : super(key: key);
@@ -25,10 +26,11 @@ class BodySearcher extends StatelessWidget {
                       height: double.infinity,
                       width: double.infinity,
                       child: Row(
-                        children: const [
-                          SizedBox(width: rightSpace + 100),
+                        children: [
+                          const SizedBox(width: rightSpace + 100),
                           Expanded(
-                            child: ResultsSearch(),
+                            child:
+                                SearcherTabs(tabs: SearcherTabModel.getTabs()),
                           )
                         ],
                       )),
