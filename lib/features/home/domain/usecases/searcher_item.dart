@@ -12,6 +12,13 @@ class SearchItem {
     this.wasSelected = false,
   }) : assert(results.isNotEmpty);
 
+  // Use for testing purposes
+  SearchItem.test({
+    this.label = 'test label',
+    this.results = const [],
+    this.wasSelected = true,
+  });
+
   final String label;
 
   /// The result to show in the screen
