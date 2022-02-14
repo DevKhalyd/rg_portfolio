@@ -19,7 +19,7 @@ class SearchNewsFragment extends StatelessWidget {
         ),
         SizedBox(height: 16),
         TextCustom(
-          '"Nothing new to show here"',
+          'Nothing new to show here',
           fontSize: 24,
         )
       ],

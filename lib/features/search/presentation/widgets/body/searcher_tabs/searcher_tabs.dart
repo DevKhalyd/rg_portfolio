@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rg_portfolio/features/search/presentation/mixins/searcher_mixin.dart';
 
 import '../../../../../home/presentation/bloc/home_bloc.dart';
 import '../../../../domain/models/searcher_tab_model.dart';
@@ -17,7 +18,7 @@ class SearcherTabs extends StatefulWidget {
   State<SearcherTabs> createState() => _SearcherTabsState();
 }
 
-class _SearcherTabsState extends State<SearcherTabs> {
+class _SearcherTabsState extends State<SearcherTabs> with SearcherMixin {
   final PageController controller = PageController();
   late final List<SearcherTabModel> tabs;
   late String currentItem;
@@ -31,15 +32,21 @@ class _SearcherTabsState extends State<SearcherTabs> {
 
   @override
   Widget build(BuildContext context) {
+    final notSpace = !isEnoughSpace(context);
+
     return BlocListener<HomeBloc, HomeState>(
       listener: (context, state) {
+        /// Set to the first tab
         if (state is HomeSearch) updateState(tabs.first);
       },
       child: Column(
         children: [
+          if (notSpace) const SizedBox(height: 20),
           SizedBox(
             height: kToolbarHeight,
             child: Row(
+              mainAxisAlignment:
+                  notSpace ? MainAxisAlignment.center : MainAxisAlignment.start,
               children: tabs
                   .map((e) => SearcherTab(
                         label: e.label,

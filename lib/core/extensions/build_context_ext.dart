@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// Const for differents designs
+
 /// Min space avaible for the search
 const minWidthSearch = 780.0;
 
@@ -9,7 +11,8 @@ extension BuildContextExtension on BuildContext {
   double get statusBarHeight => MediaQuery.of(this).padding.top;
   bool get isLandscape => width > height + 100;
 
-  /// Verify if its a mobile size
+  /// Verify if its a mobile size. For generics designs. Use
+  /// a custom widget for mobile and a custom widget for tablet if needed
   bool get isMobileSize {
     /// A desktop or tablet
     if (height < width) {

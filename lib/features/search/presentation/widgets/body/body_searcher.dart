@@ -4,21 +4,19 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../home/presentation/bloc/home_bloc.dart';
 import '../../../domain/models/searcher_tab_model.dart';
-import 'results_search.dart';
+import '../../mixins/searcher_mixin.dart';
 import 'searcher_tabs/searcher_tabs.dart';
 
-class BodySearcher extends StatelessWidget {
+class BodySearcher extends StatelessWidget with SearcherMixin {
   const BodySearcher({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final flex = context.isMobileSize ? 7 : 8;
 
-    final width = context.width;
-
     return Expanded(
       flex: flex,
-      child: width > minWidthSearch
+      child: isEnoughSpace(context)
           ? Stack(
               children: [
                 GestureDetector(
@@ -53,8 +51,7 @@ class BodySearcher extends StatelessWidget {
                 }),
               ],
             )
-          : const ResultsSearch(),
+          : SearcherTabs(tabs: SearcherTabModel.getTabs()),
     );
   }
 }
-

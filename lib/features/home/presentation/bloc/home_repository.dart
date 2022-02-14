@@ -6,6 +6,7 @@ import '../../../search/presentation/widgets/body/searcher_link_item.dart';
 import '../../domain/usecases/searcher_item.dart';
 
 final _searchItems = [
+  // TODO: Add a section of social. Basically the same menu shown in the header of each screen.
   SearchItem(
     label: aboutMe,
     results: [

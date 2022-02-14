@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rg_portfolio/features/home/presentation/bloc/home_bloc.dart';
+import 'package:rg_portfolio/core/widgets/text_custom.dart';
+import 'package:rg_portfolio/features/search/presentation/mixins/searcher_mixin.dart';
+import '../../../../home/presentation/bloc/home_bloc.dart';
 
 /// The results of the search to show in the screen
-class ResultsSearch extends StatelessWidget {
+class ResultsSearch extends StatelessWidget with SearcherMixin {
   const ResultsSearch({
     Key? key,
   }) : super(key: key);
@@ -17,11 +19,24 @@ class ResultsSearch extends StatelessWidget {
         final results = repo.currentSearchItem.results;
         return ListView(
           children: [
-            const SizedBox(height: 40),
+            const SizedBox(height: 10),
+            Padding(
+              padding: EdgeInsets.only(left: isEnoughSpace(context) ? 0 : side),
+              child: TextCustom(
+                getMessage(results.length),
+                fontSize: 18,
+                color: Colors.grey,
+              ),
+            ),
+            const SizedBox(height: 30),
             ...results,
           ],
         );
       },
     );
+  }
+
+  String getMessage(int results) {
+    return 'About $results results (0.${getTimeInSeconds()} seconds)';
   }
 }

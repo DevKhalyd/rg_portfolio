@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/text_custom.dart';
+import '../../mixins/searcher_mixin.dart';
 
 /// The item that appears when a result is selected.
 class SearchLinkItem extends StatefulWidget {
@@ -31,9 +32,7 @@ class SearchLinkItem extends StatefulWidget {
   State<SearchLinkItem> createState() => _SearchLinkItemState();
 }
 
-const side = 25.0;
-
-class _SearchLinkItemState extends State<SearchLinkItem> {
+class _SearchLinkItemState extends State<SearchLinkItem> with SearcherMixin {
   bool isHover = false;
 
   @override
@@ -41,7 +40,12 @@ class _SearchLinkItemState extends State<SearchLinkItem> {
     assert((widget.topicList?.length ?? 0) < 3);
 
     return Padding(
-      padding: const EdgeInsets.only(top: 30, left: side, right: side),
+      // Validate the left part
+      padding: EdgeInsets.only(
+        left: isEnoughSpace(context) ? 0 : side,
+        right: side,
+        bottom: 30,
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
