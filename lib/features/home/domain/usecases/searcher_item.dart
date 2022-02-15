@@ -5,6 +5,7 @@ const aboutMe = 'About Me';
 const aboutMeDescription =
     "I am a software developer, I have been working in the field of software development for the last few years. I am a self-taught programmer and I am always looking for new challenges and new ways to improve myself.";
 
+/// A class that allow to create a list of results for the [SearcherScreen]
 class SearchItem {
   SearchItem({
     required this.label,

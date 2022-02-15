@@ -5,8 +5,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:rg_portfolio/features/home/presentation/bloc/home_bloc.dart';
 import 'package:rg_portfolio/features/home/presentation/bloc/home_repository.dart';
 
-import 'home_repository_test.mocks.dart';
-
 void main() {
   group('HomeBloc - Test', () {
     late HomeBloc homeBloc;

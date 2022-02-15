@@ -14,7 +14,7 @@ class FooterHome extends StatelessWidget {
   Widget build(BuildContext context) {
     final repo = context.read<HomeBloc>().homeRepository;
 
-    if (context.height <= 620) return const SizedBox.shrink();
+    if (context.height <= 750) return const SizedBox.shrink();
 
     return Expanded(
       child: Container(

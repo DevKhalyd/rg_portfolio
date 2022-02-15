@@ -6,7 +6,6 @@ import '../../../search/presentation/widgets/body/searcher_link_item.dart';
 import '../../domain/usecases/searcher_item.dart';
 
 final _searchItems = [
-  // TODO: Add a section of social. Basically the same menu shown in the header of each screen.
   SearchItem(
     label: aboutMe,
     results: [
@@ -15,12 +14,8 @@ final _searchItems = [
         title: aboutMe,
         // Describe my self
         description: aboutMeDescription,
-        onTap: () {
-          SmartDialog.showToast(
-            '',
-            widget: const CustomToast('A short description about myself'),
-          );
-        },
+        onTap: () => SmartDialog.showToast('',
+            widget: const CustomToast('A short description about myself')),
       ),
       SearchLinkItem(
         url: Utils.getUrlForGithub('DevKhalyd'),
@@ -47,6 +42,35 @@ final _searchItems = [
         description: 'My Portfolio source code',
         onTap: () =>
             Utils.launchURL(Utils.getUrlForGithub('DevKhalyd/rg_portfolio')),
+      ),
+    ],
+  ),
+  SearchItem(
+    label: 'Social',
+    results: [
+      SearchLinkItem(
+        url: Utils.linkedInUrl,
+        title: 'LinkedIn',
+        description: 'My LinkedIn Profile',
+        onTap: () => Utils.launchURL(Utils.linkedInUrl),
+      ),
+      SearchLinkItem(
+        url: Utils.githubUrl,
+        title: 'GitHub',
+        description: 'My GitHub Profile',
+        onTap: () => Utils.launchURL(Utils.githubUrl),
+      ),
+      SearchLinkItem(
+        url: Utils.githubUrl,
+        title: 'StackOverlow',
+        description: 'My StackOverflow Profile',
+        onTap: () => Utils.launchURL(Utils.stackOverflowUrl),
+      ),
+      SearchLinkItem(
+        url: Utils.upworkUrl,
+        title: 'Upwork',
+        description: 'My Upwork Profile',
+        onTap: () => Utils.launchURL(Utils.upworkUrl),
       ),
     ],
   ),
