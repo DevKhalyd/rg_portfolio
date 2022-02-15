@@ -8,7 +8,6 @@
 
 `dart run build_runner build`
 
-
 # Run locally with own server
 
 `flutter run -d chrome --web-hostname 192.168.1.69 --web-port 8888`
@@ -39,7 +38,7 @@ So I built the Google Search portfolio [Google]
 
 ## Testing
 
-Context: One of my first apps to test.
+Simple put, test the main functions and the behavior like when add documentation
 
 **Why I should testing?**
 
@@ -84,12 +83,20 @@ Mock: A mock is a substitute for a real object. Help to test an expected behavio
 
 Bloc Test:
 
+Library:
+https://pub.dev/packages/bloc_test
+
 Blog:
 https://medium.com/flutter-community/bloc-testing-write-your-first-simple-unit-test-in-flutter-1eee1d1642aa
 
+Img: https://miro.medium.com/max/1400/1*uh0oxixcra7RFnJ15tc4Yg.png
 
-Library:
-https://pub.dev/packages/bloc_test
+Official Documentation:
+https://bloclibrary.dev/#/testing
+
+Example of a fully tested application:
+
+https://github.com/felangel/bloc/tree/master/examples/flutter_weather/test
 
 # Useful
 

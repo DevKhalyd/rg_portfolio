@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rg_portfolio/features/search/presentation/mixins/searcher_mixin.dart';
 
 import '../../../../../home/presentation/bloc/home_bloc.dart';
 import '../../../../domain/models/searcher_tab_model.dart';
+import '../../../mixins/searcher_mixin.dart';
 import 'searcher_tab.dart';
 
 /// The tabs to selected in the search page.
@@ -72,6 +72,7 @@ class _SearcherTabsState extends State<SearcherTabs> with SearcherMixin {
     );
   }
 
+  // NOTE: For this method may I can use Cubit for the logic (Take a look)
   updateState(SearcherTabModel e) {
     if (currentItem == e.label) return;
     setState(() => currentItem = e.label);
