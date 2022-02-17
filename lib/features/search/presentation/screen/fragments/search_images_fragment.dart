@@ -7,11 +7,9 @@ import 'package:flutter/material.dart';
 /*
 
 What to show?
-
   - My website
   - https://github.com/DevKhalyd/rgProjects
   - Twitter Design
-
  */
 class SearchImagesFragment extends StatelessWidget {
   const SearchImagesFragment({Key? key}) : super(key: key);
