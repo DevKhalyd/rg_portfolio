@@ -48,20 +48,26 @@ void main() {
     });
   });
 
-  group('menu open / close function', () {
-    late MockHomeRepository mockRepo;
+  // NOTE: U could create an interface to implement in a mock repository and this
+  // way can be tested
+
+  group('Test with the real logic menu open / close function', () {
+    late MockHomeRepository homeRepository;
+
     setUp(() {
-      mockRepo = MockHomeRepository();
+      homeRepository = MockHomeRepository();
     });
 
-    test('menu open', () {
-      when(mockRepo.isMenuOpen).thenAnswer((_) => true);
-      expect(mockRepo.isMenuOpen, true);
+    test('isMenuOpen default value should be false', () {
+      when(homeRepository.isMenuOpen).thenAnswer((_) => false);
+      expect(homeRepository.isMenuOpen, false);
     });
 
-    test('menu close', () {
-      when(mockRepo.isMenuOpen).thenAnswer((_) => false);
-      expect(mockRepo.isMenuOpen, false);
+    test('when toggleMenu is called the isMenuOpen should be true', () {
+      homeRepository.toggleMenu();
+      verify(homeRepository.toggleMenu()).called(1);
+      when(homeRepository.isMenuOpen).thenAnswer((_) => true);
+      expect(homeRepository.isMenuOpen, true);
     });
   });
 }

@@ -8,7 +8,7 @@
 
 `dart run build_runner build`
 
-# Run locally with own server
+# Run locally with own server`
 
 `flutter run -d chrome --web-hostname 192.168.1.69 --web-port 8888`
 
