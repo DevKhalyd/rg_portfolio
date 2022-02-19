@@ -60,10 +60,14 @@ class _SearchLinkItemState extends State<SearchLinkItem> with SearcherMixin {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                TextCustom(
-                  widget.url,
-                  color: Colors.black,
-                  fontSize: 18,
+                SizedBox(
+                  width: isEnoughSpace(context) ? null : 450,
+                  child: TextCustom(
+                    widget.url,
+                    color: Colors.black,
+                    fontSize: 18,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
                 if (widget.topicList != null) const SizedBox(width: 2),
                 if (widget.topicList != null) ...getTopics()

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rg_portfolio/core/widgets/text_custom.dart';
-import 'package:rg_portfolio/features/search/presentation/mixins/searcher_mixin.dart';
+
+import '../../../../../core/widgets/text_custom.dart';
 import '../../../../home/presentation/bloc/home_bloc.dart';
+import '../../mixins/searcher_mixin.dart';
 
 /// The results of the search to show in the screen
 class ResultsSearch extends StatelessWidget with SearcherMixin {

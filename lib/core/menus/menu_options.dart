@@ -88,7 +88,7 @@ class MenuOptions extends StatelessWidget {
                             return AlertDialog(
                               title: const Text('Web State'),
                               content: const Text(
-                                  'Each month I launch a new version of my web. Please stay tuned for the next one.'),
+                                  'Each YEAR I launch a new version of my web. Please stay tuned for the next one.'),
                               actions: [
                                 ElevatedButton(
                                   child: const Text('OK'),

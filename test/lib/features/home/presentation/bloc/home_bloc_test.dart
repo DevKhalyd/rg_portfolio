@@ -14,7 +14,12 @@ void main() {
     // TODO: Try to replicate:
     // Example for these blocs:
     // https://github.com/felangel/bloc/blob/master/examples/flutter_weather/test/weather/cubit/weather_cubit_test.dart
-    // https://stackoverflow.com/questions/67371802/dart-type-null-is-not-a-subtype-of-type-futurestring-in-mockito
+    // https://stackoverflow.com/questions/67371802/dart-type-null-is-not-a-subtype-of-type-futurestring-in-mockit
+    
+    // NOTE: Example of hydrated bloc
+    // Hydrated bloc: https://pub.dev/packages/hydrated_bloc
+    // Error:https://github.com/felangel/bloc/issues/2022
+    // Helper Storage:https://github.com/felangel/bloc/blob/master/examples/flutter_weather/test/helpers/hydrated_bloc.dart
     late HomeBloc homeBloc;
 
     // This is a non mocked instance of the HomeRepository.

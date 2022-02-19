@@ -9,6 +9,7 @@ class TextCustom extends StatelessWidget {
     this.color,
     this.decoration,
     this.maxLines,
+    this.overflow,
   }) : super(key: key);
 
   final String data;
@@ -17,12 +18,14 @@ class TextCustom extends StatelessWidget {
   final Color? color;
   final TextDecoration? decoration;
   final int? maxLines;
+  final TextOverflow? overflow;
 
   @override
   Widget build(BuildContext context) {
     return Text(
       data,
       maxLines: maxLines,
+      overflow: overflow,
       style: TextStyle(
         decoration: decoration,
         fontSize: fontSize,

@@ -13,7 +13,6 @@ void main() {
     homeRepo = MockHomeRepository();
   });
 
-
   group('void methods', () {
     test('toggle menu one time', () {
       // Necessary to use with verify

@@ -43,6 +43,18 @@ final _searchItems = [
         onTap: () =>
             Utils.launchURL(Utils.getUrlForGithub('DevKhalyd/rg_portfolio')),
       ),
+     /* SearchLinkItem(
+        url: Utils.getUrlForOwnWebsite('twitter'),
+        title: 'Twitter Clone',
+        description:
+            'The Twitter Profile clone made with Flutter for Web and mobile sizes',
+        onTap: () => Utils.launchURL(
+          /* TODO: Change to the real one */
+          Utils.getUrlForGithub(
+            'DevKhalyd/rg_portfolio',
+          ),
+        ),
+      ),*/
     ],
   ),
   SearchItem(
