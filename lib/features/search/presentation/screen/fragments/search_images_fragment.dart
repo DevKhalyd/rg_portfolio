@@ -16,9 +16,10 @@ class SearchImagesFragment extends StatelessWidget with SearcherMixin {
 
   @override
   Widget build(BuildContext context) {
+    // TODO:Fill in with my own data
     // NOTE: This could be used in other part
     // If that its the case, stored in search mixin
-    int crossAxisCount = isEnoughSpace(context)
+    final crossAxisCount = isEnoughSpace(context)
         ? context.width <= 890
             ? 2
             : 3
