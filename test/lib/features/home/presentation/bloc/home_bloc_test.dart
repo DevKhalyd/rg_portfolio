@@ -6,11 +6,18 @@ import 'package:rg_portfolio/features/home/domain/usecases/searcher_item.dart';
 import 'package:rg_portfolio/features/home/presentation/bloc/home_bloc.dart';
 import 'package:rg_portfolio/features/home/presentation/bloc/home_repository.dart';
 
-class MockHomeRepository extends Mock implements HomeRepository {}
+class MockHomeRepository extends Mock implements HomeRepository {
+  /*
+    Why I added this override?
+    Basically, the MockHomeRepository return a Null on "isMenuOpen"
+    So I had to override it to return a bool.
+   */
+  @override
+  bool get isMenuOpen => true;
+}
 
 void main() {
   group('HomeBloc - Test', () {
-    // TODO: Try to replicate:
     // Example for these blocs:
     // https://github.com/felangel/bloc/blob/master/examples/flutter_weather/test/weather/cubit/weather_cubit_test.dart
 
@@ -36,10 +43,17 @@ void main() {
       expect(homeBloc.state, HomeLoaded());
     });
 
+    // TODO: Read the bloc test parameters...
+
+    /// Basically the error is because the bloc is not being hydrated. (Thinking...)
+    /// Because the MockHomeRepo dont have a isMenuOpen.
     blocTest<HomeBloc, HomeState>(
       'emits [MyState] when HomeInitial is added.',
       build: () => homeBloc,
       act: (bloc) => bloc.add(HomeInitial()),
+      verify: (bloc) => verify(() =>
+          // Because u add a homeInitial, calls the toggleMenu
+          bloc.homeRepository.toggleMenu()).called(1),
       expect: () => [
         isA<HomeLoaded>(),
       ],
