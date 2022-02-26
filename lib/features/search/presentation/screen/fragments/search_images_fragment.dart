@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
 import 'package:rg_portfolio/features/search/presentation/mixins/searcher_mixin.dart';
@@ -17,13 +19,10 @@ class SearchImagesFragment extends StatelessWidget with SearcherMixin {
   @override
   Widget build(BuildContext context) {
     // TODO:Fill in with my own data
-    // NOTE: This could be used in other part
-    // If that its the case, stored in search mixin
-    final crossAxisCount = isEnoughSpace(context)
-        ? context.width <= 890
-            ? 2
-            : 3
-        : 1;
+
+    final width = context.width;
+
+    final crossAxisCount = width ~/ (widthImageProject + 50);
 
     return GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

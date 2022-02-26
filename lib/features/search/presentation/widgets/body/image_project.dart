@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/widgets.dart';
-
-const _width = 400.0;
+import '../../mixins/searcher_mixin.dart';
 
 /// A image project just show a preview of a project
 ///
 /// Then if needed, contains a tap to go to another service or page
-class ImageProject extends StatefulWidget {
+class ImageProject extends StatefulWidget with SearcherMixin {
   const ImageProject({
     Key? key,
     required this.url,
     required this.title,
     required this.subtitle,
     this.onTap,
-    this.width = _width,
+    this.width = widthImageProject,
   }) : super(key: key);
 
   const ImageProject.test({
@@ -23,7 +22,7 @@ class ImageProject extends StatefulWidget {
     this.title = 'Test title',
     this.subtitle = 'A basic description of this subtitle',
     this.onTap,
-    this.width = _width,
+    this.width = widthImageProject,
   }) : super(key: key);
 
   final String url, title, subtitle;

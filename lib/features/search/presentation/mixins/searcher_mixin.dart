@@ -5,6 +5,8 @@ import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
 
 const side = 25.0;
 
+const widthImageProject = 400.0;
+
 /// Methods for the searcher screen
 mixin SearcherMixin {
   /// True if the current space is enough to display the full design
