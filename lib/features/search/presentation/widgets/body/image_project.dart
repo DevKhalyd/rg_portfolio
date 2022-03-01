@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 import '../../../../../core/widgets/widgets.dart';
 import '../../mixins/searcher_mixin.dart';
@@ -61,9 +62,10 @@ class _ImageProjectState extends State<ImageProject> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.network(
-                widget.url,
-                fit: BoxFit.cover,
+              Expanded(
+                child: _FadeImageCustom(
+                  url: widget.url,
+                ),
               ),
               const SizedBox(height: 20),
               Padding(
@@ -82,10 +84,37 @@ class _ImageProjectState extends State<ImageProject> {
                   color: Colors.grey,
                 ),
               ),
+              const SizedBox(height: 30),
             ],
           ),
         ),
       ),
+    );
+  }
+}
+
+class _FadeImageCustom extends StatelessWidget {
+  const _FadeImageCustom({Key? key, required this.url}) : super(key: key);
+
+  final String url;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: <Widget>[
+        const Center(
+            child: CircularProgressIndicator(
+          strokeWidth: 2,
+        )),
+        Center(
+          child: FadeInImage.memoryNetwork(
+            placeholder: kTransparentImage,
+            image: url,
+            fit: BoxFit.cover,
+            width: double.infinity,
+          ),
+        ),
+      ],
     );
   }
 }

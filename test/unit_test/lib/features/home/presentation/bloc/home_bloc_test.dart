@@ -43,8 +43,6 @@ void main() {
       expect(homeBloc.state, HomeLoaded());
     });
 
-    // TODO: Read the bloc test parameters...
-
     /// Basically the error is because the bloc is not being hydrated. (Thinking...)
     /// Because the MockHomeRepo dont have a isMenuOpen.
     blocTest<HomeBloc, HomeState>(

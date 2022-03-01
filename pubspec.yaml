@@ -38,6 +38,7 @@ dependencies:
   url_launcher: ^6.0.17
   flutter_smart_dialog: ^3.2.0
   http: ^0.13.4
+  transparent_image: ^2.0.0
 
 dev_dependencies:
   flutter_test:
