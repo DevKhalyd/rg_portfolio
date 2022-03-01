@@ -38,6 +38,21 @@ class App extends StatelessWidget {
               ),
             ),
           ),
+          // TODO: Continue with this part
+          themeMode: ThemeMode.dark,
+          darkTheme: ThemeData.dark(),
+          /*darkTheme: ThemeData(
+            // https://docs.flutter.dev/release/breaking-changes/buttons
+            // Buttons styles.
+            // https://docs.flutter.dev/development/ui/widgets/material
+            outlinedButtonTheme: OutlinedButtonThemeData(
+              style: ButtonStyle(
+                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                overlayColor:
+                    MaterialStateProperty.all<Color>(Colors.grey.shade300),
+              ),
+            ),
+          ),*/
           title: Utils.appName,
           initialRoute: Routes.initialRoute,
           routes: Routes.routes,

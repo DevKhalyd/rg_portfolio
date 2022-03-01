@@ -43,8 +43,8 @@ final _searchItems = [
         onTap: () =>
             Utils.launchURL(Utils.getUrlForGithub('DevKhalyd/rg_portfolio')),
       ),
-   
-     /* SearchLinkItem(
+
+      /* SearchLinkItem(
         url: Utils.getUrlForOwnWebsite('twitter'),
         title: 'Twitter Clone',
         description:

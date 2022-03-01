@@ -1,8 +1,16 @@
 # TODO
 
-- TODO Add the missing screens for search, images, and news
-
 - Add a visualization icon of who many user has seen my website (Firebase)
+
+- Add the TODO word in the tabs to implement the Cubit
+
+- Create the new screen for the twitter and uncomment that part
+
+- Create the WebView Mobile View widget to specific each design
+
+# Step by Step
+
+Go implementing the dark mode
 
 # Commands
 
