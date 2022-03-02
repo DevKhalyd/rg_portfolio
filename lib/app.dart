@@ -39,8 +39,8 @@ class App extends StatelessWidget {
             ),
           ),
           // TODO: Continue with this part
-          themeMode: ThemeMode.dark,
-          darkTheme: ThemeData.dark(),
+          // themeMode: ThemeMode.dark,
+          // darkTheme: ThemeData.dark(),
           /*darkTheme: ThemeData(
             // https://docs.flutter.dev/release/breaking-changes/buttons
             // Buttons styles.

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../../../core/widgets/text_custom.dart';
 import '../../mixins/searcher_mixin.dart';
 
+typedef VoidContextCallBack = void Function(BuildContext);
+
 /// The item that appears when a result is selected.
 class SearchLinkItem extends StatefulWidget {
   const SearchLinkItem({
@@ -15,6 +17,7 @@ class SearchLinkItem extends StatefulWidget {
     this.wasSelected = false,
   }) : super(key: key);
 
+  /// The URL of the link
   final String url;
   final List<String>? topicList;
 
@@ -23,7 +26,7 @@ class SearchLinkItem extends StatefulWidget {
   final String description;
 
   /// When the link is pressed
-  final VoidCallback? onTap;
+  final VoidContextCallBack? onTap;
 
   /// When this item was selected by the user. Change the color if true or false
   final bool wasSelected;
@@ -51,7 +54,9 @@ class _SearchLinkItemState extends State<SearchLinkItem> with SearcherMixin {
         children: [
           InkResponse(
             radius: 0,
-            onTap: widget.onTap,
+            onTap: () {
+              widget.onTap?.call(context);
+            },
             onHover: (value) {
               setState(() {
                 isHover = value;
@@ -78,7 +83,9 @@ class _SearchLinkItemState extends State<SearchLinkItem> with SearcherMixin {
           // Add the underline text
           InkResponse(
             radius: 0,
-            onTap: widget.onTap,
+            onTap: () {
+              widget.onTap?.call(context);
+            },
             onHover: (value) => setState(() => isHover = value),
             child: TextCustom(
               widget.title,

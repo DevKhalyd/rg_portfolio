@@ -9,9 +9,11 @@ abstract class Routes {
   /// The first route to show in the screen
   static const home = '/home';
   static const search = '/search';
+  static const twitter = '/twitter';
 
   static final routes = <String, WidgetBuilder>{
     home: (_) => const HomeScreen(),
     search: (_) => const SearchScreen(),
+    twitter: (_) => const Center(child: Text('Twitter')),
   };
 }

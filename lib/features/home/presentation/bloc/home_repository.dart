@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:rg_portfolio/core/routes.dart';
 
 import '../../../../core/utils/utils.dart';
 import '../../../../core/widgets/custom_toast.dart';
@@ -14,14 +16,14 @@ final _searchItems = [
         title: aboutMe,
         // Describe my self
         description: aboutMeDescription,
-        onTap: () => SmartDialog.showToast('',
+        onTap: (_) => SmartDialog.showToast('',
             widget: const CustomToast('A short description about myself')),
       ),
       SearchLinkItem(
         url: Utils.getUrlForGithub('DevKhalyd'),
         title: 'GitHub Profile',
         description: 'My GitHub Profile where code is hosted',
-        onTap: () => Utils.launchURL(Utils.getUrlForGithub('DevKhalyd')),
+        onTap: (_) => Utils.launchURL(Utils.getUrlForGithub('DevKhalyd')),
       ),
     ],
   ),
@@ -32,7 +34,7 @@ final _searchItems = [
         url: Utils.getUrlForGithub('DevKhalyd/rgProjects'),
         title: 'RG Projects',
         description: 'Fancy Designs made with Flutter',
-        onTap: () =>
+        onTap: (_) =>
             Utils.launchURL(Utils.getUrlForGithub('DevKhalyd/rgProjects')),
       ),
       // GitHub Portfolio
@@ -40,22 +42,16 @@ final _searchItems = [
         url: Utils.getUrlForGithub('DevKhalyd/rg_portfolio'),
         title: 'Portfolio',
         description: 'My Portfolio source code',
-        onTap: () =>
+        onTap: (_) =>
             Utils.launchURL(Utils.getUrlForGithub('DevKhalyd/rg_portfolio')),
       ),
-
-      /* SearchLinkItem(
+      SearchLinkItem(
         url: Utils.getUrlForOwnWebsite('twitter'),
         title: 'Twitter Clone',
         description:
             'The Twitter Profile clone made with Flutter for Web and mobile sizes',
-        onTap: () => Utils.launchURL(
-          /* TODO: Create the twitter one*/
-          Utils.getUrlForGithub(
-            'DevKhalyd/rg_portfolio',
-          ),
-        ),
-      ),*/
+        onTap: (context) => Navigator.pushNamed(context, Routes.twitter),
+      ),
     ],
   ),
   SearchItem(
@@ -65,25 +61,25 @@ final _searchItems = [
         url: Utils.linkedInUrl,
         title: 'LinkedIn',
         description: 'My LinkedIn Profile',
-        onTap: () => Utils.launchURL(Utils.linkedInUrl),
+        onTap: (_) => Utils.launchURL(Utils.linkedInUrl),
       ),
       SearchLinkItem(
         url: Utils.githubUrl,
         title: 'GitHub',
         description: 'My GitHub Profile',
-        onTap: () => Utils.launchURL(Utils.githubUrl),
+        onTap: (_) => Utils.launchURL(Utils.githubUrl),
       ),
       SearchLinkItem(
         url: Utils.githubUrl,
         title: 'StackOverlow',
         description: 'My StackOverflow Profile',
-        onTap: () => Utils.launchURL(Utils.stackOverflowUrl),
+        onTap: (_) => Utils.launchURL(Utils.stackOverflowUrl),
       ),
       SearchLinkItem(
         url: Utils.upworkUrl,
         title: 'Upwork',
         description: 'My Upwork Profile',
-        onTap: () => Utils.launchURL(Utils.upworkUrl),
+        onTap: (_) => Utils.launchURL(Utils.upworkUrl),
       ),
     ],
   ),
