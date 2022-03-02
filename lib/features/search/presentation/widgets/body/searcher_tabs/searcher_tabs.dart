@@ -8,7 +8,6 @@ import 'searcher_tab.dart';
 
 // TODO: Implement the Cubit way in this part
 
-
 /// The tabs to selected in the search page.
 class SearcherTabs extends StatefulWidget {
 

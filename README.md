@@ -1,7 +1,5 @@
 # TODO
 
-- Create the new screen for the twitter and uncomment that part
-
 - Create the WebView Mobile View widget to specific each design
 
 - Add a visualization icon of who many user has seen my website (Firebase)
@@ -9,6 +7,14 @@
 # Step by Step
 
 Go implementing the dark mode
+
+# Last Part
+
+Merge the develop branch to master
+
+# Next Version (Not on this version)
+
+Update the Tabs with cubit
 
 # Commands
 

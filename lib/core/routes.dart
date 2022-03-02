@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../features/twitter/presentation/screens/twitter_screen.dart';
 
 import '../features/home/presentation/screens/home_screen.dart';
 import '../features/search/presentation/screen/search_screen.dart';
@@ -14,6 +15,6 @@ abstract class Routes {
   static final routes = <String, WidgetBuilder>{
     home: (_) => const HomeScreen(),
     search: (_) => const SearchScreen(),
-    twitter: (_) => const Center(child: Text('Twitter')),
+    twitter: (_) => const TwitterScreen(),
   };
 }
