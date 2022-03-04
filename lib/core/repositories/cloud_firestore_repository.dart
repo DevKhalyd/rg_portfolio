@@ -1,23 +1,23 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
-/// Main methods for the features repositories
-abstract class CloudFirestoreRepository {
-  const CloudFirestoreRepository({required FirebaseFirestore firestore})
-      : _firestore = firestore;
+// /// Main methods for the features repositories
+// abstract class CloudFirestoreRepository {
+//   const CloudFirestoreRepository({required FirebaseFirestore firestore})
+//       : _firestore = firestore;
 
-  final FirebaseFirestore _firestore;
+//   final FirebaseFirestore _firestore;
 
-  final webCollection = 'web';
+//   final webCollection = 'web';
 
-  Future<DocumentSnapshot<Object?>> getDocument(
-    CollectionReference ref,
-    String documentId,
-  ) async {
-    final doc = await ref.doc(documentId).get();
-    return doc;
-  }
+//   Future<DocumentSnapshot<Object?>> getDocument(
+//     CollectionReference ref,
+//     String documentId,
+//   ) async {
+//     final doc = await ref.doc(documentId).get();
+//     return doc;
+//   }
 
-  CollectionReference getCollectionReference(String collection) {
-    return _firestore.collection(collection);
-  }
-}
+//   CollectionReference getCollectionReference(String collection) {
+//     return _firestore.collection(collection);
+//   }
+// }
