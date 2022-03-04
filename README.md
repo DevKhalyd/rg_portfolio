@@ -1,6 +1,5 @@
 # TODO
 
-- Create the WebView Mobile View widget to specific each design
 
 - Add a visualization icon of who many user has seen my website (Firebase)
 
