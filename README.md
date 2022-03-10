@@ -3,6 +3,8 @@
 
 - Add a visualization icon of who many user has seen my website (Firebase)
 
+- TODO: Remove Upwork
+
 # Step by Step
 
 Go implementing the dark mode
