@@ -147,6 +147,10 @@ Verify if should be used...
     }
 ```
 
+# Firebase Rules
+
+https://firebase.google.com/docs/firestore/security/rules-structure
+
 <!--
     ReactJS source code: https://github.com/enjeck/gfolio
     Website: https://gfolio.enjeck.com/

@@ -18,10 +18,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = MediaQuery.platformBrightnessOf(context);
-
-    print('theme: $theme');
-
     return MaterialApp(
       title: 'Material App',
       theme: ThemeData.light(),
@@ -30,7 +26,6 @@ class _MyAppState extends State<MyApp> {
         // Colors which have amber is because i did not find for what is
         primary: Colors.amber,
         onPrimary: Colors.amber,
-        primaryVariant: Colors.amber,
         // ICONS ETC...
         onSecondary: Colors.black,
         // BUTTONs
