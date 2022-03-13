@@ -32,7 +32,6 @@ class _MyAppState extends State<MyApp> {
         secondary: Colors.red,
         // Text Colors for titles
         onSurface: Colors.blueAccent,
-        // TODO: keep testing
       )),
       themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
       home: Scaffold(

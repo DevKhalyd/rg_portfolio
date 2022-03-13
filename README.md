@@ -1,13 +1,8 @@
 # TODO
 
-
 - Add a visualization icon of who many user has seen my website (Firebase)
 
-- TODO: Remove Upwork
-
-# Step by Step
-
-Go implementing the dark mode
+- Add some accesibility for android and ios platforms
 
 # Last Part
 

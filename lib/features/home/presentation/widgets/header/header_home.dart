@@ -13,7 +13,6 @@ class HeaderHome extends StatelessWidget {
   const HeaderHome({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    /// Inside of a column
     return Padding(
       padding: EdgeInsets.only(
           top: context.getPercentHeight(0.01),
@@ -21,6 +20,8 @@ class HeaderHome extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
+          const _WebsiteTotalViews(),
+          const SizedBox(width: 4.0),
           SelectableWord(onPressed: () {}, label: 'Portfolio'),
           IconMenu(
             onPressed: () {
@@ -56,6 +57,33 @@ class HeaderHome extends StatelessWidget {
           )
         ],
       ),
+    );
+  }
+}
+
+class _WebsiteTotalViews extends StatelessWidget {
+  const _WebsiteTotalViews({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final homeBloc = context.read<HomeBloc>().homeRepository;
+    return FutureBuilder<int>(
+      future: homeBloc.getTotalViews(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          final data = snapshot.data;
+
+          return Row(
+            children: [
+              Text(data.toString()),
+              const SizedBox(width: 8.0),
+              const Icon(Icons.visibility),
+              const SizedBox(width: 6.0),
+            ],
+          );
+        }
+        return const SizedBox.shrink();
+      },
     );
   }
 }
