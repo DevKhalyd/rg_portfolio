@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
 
+import '../../../../../core/extensions/build_context_ext.dart';
+import '../../../../../core/routes.dart';
 import '../../bloc/home_bloc.dart';
 import '../shared/selectable_word.dart';
 
@@ -16,6 +17,9 @@ class FooterHome extends StatelessWidget {
 
     if (context.height <= 750) return const SizedBox.shrink();
 
+    final shouldShownFooterComplete =
+        context.getCurrentRouteName() != Routes.search;
+
     return Expanded(
       child: Container(
         color: const Color.fromRGBO(242, 242, 242, 1.0),
@@ -29,19 +33,30 @@ class FooterHome extends StatelessWidget {
                 Text('Mexico'),
               ],
             )),
-            const Divider(),
-            Expanded(
-                child: Row(
-              children: [
-                const SizedBox(width: _space),
-                SelectableWord(onPressed: () {}, label: 'About'),
-                const Spacer(),
-                SelectableWord(onPressed: repo.openLinkedIn, label: 'LinkedIn'),
-                const SizedBox(width: _space),
-                SelectableWord(onPressed: repo.openGitHub, label: 'GitHub'),
-                const SizedBox(width: _space),
-              ],
-            )),
+            if (shouldShownFooterComplete) const Divider(),
+            if (shouldShownFooterComplete)
+              Expanded(
+                  child: Row(
+                children: [
+                  const SizedBox(width: _space),
+                  SelectableWord(
+                      onPressed: () {
+                        final homeRepository =
+                            context.read<HomeBloc>().homeRepository;
+                        // The about part
+                        homeRepository
+                            .updateSearchItem(homeRepository.searchItems[0]);
+                        context.pushNamed(Routes.search);
+                      },
+                      label: 'About'),
+                  const Spacer(),
+                  SelectableWord(
+                      onPressed: repo.openLinkedIn, label: 'LinkedIn'),
+                  const SizedBox(width: _space),
+                  SelectableWord(onPressed: repo.openGitHub, label: 'GitHub'),
+                  const SizedBox(width: _space),
+                ],
+              )),
           ],
         ),
       ),

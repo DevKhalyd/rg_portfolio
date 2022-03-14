@@ -34,8 +34,9 @@ class HomeRepository {
     }
   }
 
+  /// Update the item to show in the searcher section
   void updateSearchItem(SearchItem item) {
-    for (var element in _searchItems) {
+    for (final element in _searchItems) {
       if (element.label == item.label) {
         element.wasSelected = true;
         _currentSearchItem = element;
@@ -50,7 +51,7 @@ class HomeRepository {
 
   /// Update the views in the database just once per session
   void updateViews() {
-    if (_viewsWasUpdated && !Utils.isDebugging) return;
+    if (_viewsWasUpdated || Utils.isDebugging) return;
     _cloudRepo.updateTotalViews();
     _viewsWasUpdated = true;
   }

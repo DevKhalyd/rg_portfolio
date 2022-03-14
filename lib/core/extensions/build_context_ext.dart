@@ -50,11 +50,16 @@ extension BuildContextExtension on BuildContext {
     Navigator.pop(this);
   }
 
+  /// Use the [Routes] to find all the routes
   void pushNamed(String name) {
     Navigator.pushNamed(this, name);
   }
 
   void popIfCan() {
     if (canPop()) pop();
+  }
+
+  String? getCurrentRouteName() {
+    return ModalRoute.of(this)?.settings.name;
   }
 }

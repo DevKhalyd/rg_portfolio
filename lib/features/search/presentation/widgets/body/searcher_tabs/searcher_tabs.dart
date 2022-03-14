@@ -6,11 +6,11 @@ import '../../../../domain/models/searcher_tab_model.dart';
 import '../../../mixins/searcher_mixin.dart';
 import 'searcher_tab.dart';
 
-// TODO: Implement the Cubit way in this part
+// IMPROVE: Always it's important use the bloc o cubit instead of the setState'
+// Could be easy to implement some feature but in the long term it will tricky to change
 
 /// The tabs to selected in the search page.
 class SearcherTabs extends StatefulWidget {
-
   const SearcherTabs({Key? key, required this.tabs})
       : assert(tabs.length > 1),
         super(key: key);

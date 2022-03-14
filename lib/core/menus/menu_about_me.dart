@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/home/presentation/bloc/home_bloc.dart';
 import '../extensions/build_context_ext.dart';
+import '../routes.dart';
 import '../utils/utils.dart';
 import '../widgets/rolando_image.dart';
 
@@ -17,15 +18,14 @@ class MenuAboutMe extends StatelessWidget {
     final width = (context.width / 2) * .47;
 
     // https://dart.dev/guides/language/effective-dart/usage#do-use-a-function-declaration-to-bind-a-function-to-a-name
+    // Remove the menu if it's present
     void updateHome() => context.read<HomeBloc>().add(HomeInitial());
 
     return Container(
       constraints: const BoxConstraints(
         maxWidth: 410,
         minWidth: 400,
-        //minHeight: 550,
       ),
-      //  height: context.getPercentHeight(.6),
       width: width,
       decoration: const BoxDecoration(
           color: Colors.white,
@@ -70,7 +70,16 @@ class MenuAboutMe extends StatelessWidget {
             const SizedBox(height: 25),
             const Divider(),
             InkResponse(
-              onTap: () {},
+              onTap: () {
+                updateHome();
+
+                if (context.getCurrentRouteName() == Routes.search) return;
+
+                final homeRepository = context.read<HomeBloc>().homeRepository;
+                // The about part
+                homeRepository.updateSearchItem(homeRepository.searchItems[0]);
+                context.pushNamed(Routes.search);
+              },
               highlightShape: BoxShape.rectangle,
               child: SizedBox(
                 height: kToolbarHeight,

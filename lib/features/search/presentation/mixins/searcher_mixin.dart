@@ -10,7 +10,7 @@ const widthImageProject = 400.0;
 /// Methods for the searcher screen
 mixin SearcherMixin {
   /// True if the current space is enough to display the full design
-  /// Otherwise show the mobile design
+  /// otherwise show the mobile design. This just for the Searcher Part
   bool isEnoughSpace(BuildContext context) => context.width > minWidthSearch;
 
   int getTimeInSeconds() {

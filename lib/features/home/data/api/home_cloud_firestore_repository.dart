@@ -24,17 +24,14 @@ class HomeCloudFirestoreRepository extends CloudFirestoreRepository {
 
     final data = doc.data() as Map<String, dynamic>;
 
-    final views = data[_fieldViews] as int;
-
-    print('Total views: $views');
-
-    return views;
+    return data[_fieldViews] as int;
   }
 
   /// Increment the total views of my website.
   void updateTotalViews() async {
     final ref = getCollectionReference(webCollection);
-    // Avoid a crash when read at the same time
+    // Avoid a crash when read at the same time. If this line is not present 
+    //returns the number 1
     await Future.delayed(const Duration(seconds: 1));
     updateDocument(ref, _documentId, {_fieldViews: FieldValue.increment(1)})
         .catchError((err) {

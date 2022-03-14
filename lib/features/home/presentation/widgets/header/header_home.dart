@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/menus/menu_about_me.dart';
 import '../../../../../core/menus/menu_options.dart';
+import '../../../../../core/routes.dart';
 import '../../../../../core/widgets/profile_icon.dart';
 import '../../bloc/home_bloc.dart';
 import '../shared/selectable_word.dart';
@@ -22,7 +23,14 @@ class HeaderHome extends StatelessWidget {
         children: [
           const _WebsiteTotalViews(),
           const SizedBox(width: 4.0),
-          SelectableWord(onPressed: () {}, label: 'Portfolio'),
+          SelectableWord(
+              onPressed: () {
+                final homeRepository = context.read<HomeBloc>().homeRepository;
+                // The about part
+                homeRepository.updateSearchItem(homeRepository.searchItems[1]);
+                context.pushNamed(Routes.search);
+              },
+              label: 'Portfolio'),
           IconMenu(
             onPressed: () {
               if (context.isMobileSize) {
