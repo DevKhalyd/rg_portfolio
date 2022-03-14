@@ -12,6 +12,11 @@ void main() {
     test('owner email', () {
       expect(Utils.email, 'rolandocontactme@gmail.com');
     });
+
+    test('is Degging', () {
+      /// Should be false because this is a release version when the test runs...
+      expect(Utils.isDebugging, false);
+    });
   });
 
   group('methods', () {

@@ -2,6 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 abstract class Utils {
+  /// Set to true to avoid update some data in the database
+  static const isDebugging = true;
+
   static const host = "https://rolando-garcia.netlify.app/#/";
 
   static const appName = 'RG Portfolio';

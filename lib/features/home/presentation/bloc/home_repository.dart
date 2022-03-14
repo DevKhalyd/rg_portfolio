@@ -50,7 +50,7 @@ class HomeRepository {
 
   /// Update the views in the database just once per session
   void updateViews() {
-    if (_viewsWasUpdated) return;
+    if (_viewsWasUpdated && !Utils.isDebugging) return;
     _cloudRepo.updateTotalViews();
     _viewsWasUpdated = true;
   }

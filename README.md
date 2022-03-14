@@ -12,6 +12,10 @@ Merge the develop branch to master
 
 Update the Tabs with cubit
 
+# What to do before to launch the new version?
+
+Basically Run the tests and if everything is ok, then launch the new version
+
 # Commands
 
 `dart run build_runner build`
