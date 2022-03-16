@@ -1,20 +1,14 @@
-# TODO
+# What to do before to launch the new version? (Personal Notes)
 
-- Add a visualization icon of who many user has seen my website (Firebase)
+Basically Run the tests and if everything is ok, then launch the new version
+
+# TODO
 
 - Add some accesibility for android and ios platforms
 
 # Last Part
 
 Merge the develop branch to master
-
-# Next Version (Not on this version)
-
-Update the Tabs with cubit
-
-# What to do before to launch the new version?
-
-Basically Run the tests and if everything is ok, then launch the new version
 
 # Commands
 

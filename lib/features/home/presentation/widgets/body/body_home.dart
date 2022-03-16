@@ -31,12 +31,12 @@ class BodyHome extends StatelessWidget {
           children: [
             SearchButton(
               "Search Website",
-              onPressed: () {},
+              onPressed: () => onRandomResult(context),
             ),
             const SizedBox(width: 30),
             SearchButton(
               "I'm feeling lucky",
-              onPressed: () {},
+              onPressed: () => onRandomResult(context),
             ),
           ],
         )
@@ -73,5 +73,11 @@ class BodyHome extends StatelessWidget {
             }),
           ],
         ));
+  }
+
+  void onRandomResult(BuildContext context) {
+    final homeRepository = context.read<HomeBloc>().homeRepository;
+    homeRepository.updateSearchItem(homeRepository.getRandomSearchItem());
+    context.pushNamed(Routes.search);
   }
 }

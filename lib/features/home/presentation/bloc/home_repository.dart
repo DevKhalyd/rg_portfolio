@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import '../../../../core/utils/utils.dart';
 import '../../data/api/home_cloud_firestore_repository.dart';
 import '../../domain/usecases/searcher_item.dart';
@@ -58,4 +60,10 @@ class HomeRepository {
 
   /// Get the viws for the app bar
   Future<int> getTotalViews() => _cloudRepo.getTotalViews();
+
+  SearchItem getRandomSearchItem() {
+    final random = Random();
+    final index = random.nextInt(_searchItems.length - 1);
+    return _searchItems[index];
+  }
 }
