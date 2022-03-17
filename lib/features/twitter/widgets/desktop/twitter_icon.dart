@@ -10,6 +10,7 @@ class TwitterIcon extends StatelessWidget {
     return SvgPicture.asset(
       'assets/svg/twitter_icon.svg',
       semanticsLabel: 'Acme Logo',
+      height: 70,
     );
   }
 }

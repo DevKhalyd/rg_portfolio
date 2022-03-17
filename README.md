@@ -2,11 +2,6 @@
 
 Basically Run the tests and if everything is ok, then launch the new version
 
-# TODO
-
-- TODO: Remove upwork from the list of contributors
-
-- TODO: Update the README.md for my profile
 
 - Add some accesibility for android and ios platforms
 
@@ -123,30 +118,10 @@ Open the Chrome Console: Shift + CTRL + J (Windows)
 [navigation]: https://docs.flutter.dev/development/ui/navigation
 [icons]: https://icons8.com/
 
-# Research
+# Widgets
 
-Maskable is for Android Icons.
-
-Verify if should be used...
-
-```json
-    {
-      "src": "icons/Icon-maskable-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "icons/Icon-maskable-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-```
-
-# Firebase Rules
-
-https://firebase.google.com/docs/firestore/security/rules-structure
+IntrinsicHeight: (A widget that sizes its child to the child's intrinsic height.)
+https://api.flutter.dev/flutter/widgets/IntrinsicHeight-class.html
 
 <!--
     ReactJS source code: https://github.com/enjeck/gfolio

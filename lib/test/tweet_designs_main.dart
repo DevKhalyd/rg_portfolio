@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rg_portfolio/features/twitter/widgets/desktop/twitter_icon.dart';
 
+import '../features/twitter/widgets/desktop/menu_twitter.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
           title: Text('Material App Bar'),
         ),
         body: Center(
-          child: TwitterIcon(),
+          child: MenuTwitter(),
         ),
       ),
     );

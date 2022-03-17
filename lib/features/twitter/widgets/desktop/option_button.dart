@@ -25,26 +25,31 @@ class OptionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: UtilsTwitter.heightButton,
-      width: UtilsTwitter.widthButton,
-      child: ElevatedButton(
-        style: _style,
-        child: Row(
-          children: [
-            Icon(icon),
-            const SizedBox(width: 24),
-            TextCustom(
-              label,
-              fontSize: 22,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-            ),
-          ],
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20),
+      child: SizedBox(
+        height: UtilsTwitter.heightButton,
+        width: UtilsTwitter.widthButton,
+        child: ElevatedButton(
+          style: _style,
+          child: Row(
+            children: [
+              Icon(
+                icon,
+                size: 36,
+              ),
+              const SizedBox(width: 24),
+              TextCustom(
+                label,
+                fontSize: 24,
+                color: Colors.white,
+              ),
+            ],
+          ),
+          onPressed: () {
+            log('Doing something for example...');
+          },
         ),
-        onPressed: () {
-          log('Doing something for example...');
-        },
       ),
     );
   }
