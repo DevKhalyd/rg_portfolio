@@ -4,6 +4,10 @@ Basically Run the tests and if everything is ok, then launch the new version
 
 # TODO
 
+- TODO: Remove upwork from the list of contributors
+
+- TODO: Update the README.md for my profile
+
 - Add some accesibility for android and ios platforms
 
 # Last Part

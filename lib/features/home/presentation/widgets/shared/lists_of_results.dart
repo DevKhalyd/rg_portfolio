@@ -75,12 +75,12 @@ final _searchItems = [
         description: 'My StackOverflow Profile',
         onTap: (_) => Utils.launchURL(Utils.stackOverflowUrl),
       ),
-      SearchLinkItem(
+      /*SearchLinkItem(
         url: Utils.upworkUrl,
         title: 'Upwork',
         description: 'My Upwork Profile',
         onTap: (_) => Utils.launchURL(Utils.upworkUrl),
-      ),
+      ),*/
     ],
   ),
 ];

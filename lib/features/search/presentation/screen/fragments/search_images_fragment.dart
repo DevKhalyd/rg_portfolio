@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
-import 'package:rg_portfolio/core/utils/utils.dart';
-import 'package:rg_portfolio/features/search/presentation/mixins/searcher_mixin.dart';
-import 'package:rg_portfolio/features/search/presentation/mixins/side_projects_mixin.dart';
-import 'package:rg_portfolio/features/search/presentation/widgets/body/image_project.dart';
+
+import '../../../../../core/extensions/build_context_ext.dart';
+import '../../../../../core/utils/utils.dart';
+import '../../mixins/searcher_mixin.dart';
+import '../../mixins/side_projects_mixin.dart';
+import '../../widgets/body/image_project.dart';
 
 // Example: https://gfolio.enjeck.com/images
 

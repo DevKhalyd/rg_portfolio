@@ -59,12 +59,14 @@ class MenuOptions extends StatelessWidget {
                     label: 'StackOverlow',
                     url: Utils.stackOverflowUrl,
                   ),
-                  // Not needed by the moment
+                  /*
+                  Not needed by the moment, because I have a good job.
+                  Thanks dude.
                   const IconOption(
                     asset: Assets.upworkIcon,
                     label: 'Upwork',
                     url: Utils.upworkUrl,
-                  ),
+                  ),*/
                   IconOption(
                     asset: Assets.gmailIcon,
                     label: 'Gmail',
