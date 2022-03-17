@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import '../features/twitter/presentation/screens/twitter_screen.dart';
 
 import '../features/home/presentation/screens/home_screen.dart';
 import '../features/search/presentation/screen/search_screen.dart';
+import '../features/twitter/screens/twitter_screen.dart';
 
 abstract class Routes {
-  static const initialRoute = home;
+  // TODO: Change this part
+  static const initialRoute = twitter;
 
   /// The first route to show in the screen
   static const home = '/home';
