@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
+import '../../../../core/extensions/build_context_ext.dart';
 
 const side = 25.0;
 

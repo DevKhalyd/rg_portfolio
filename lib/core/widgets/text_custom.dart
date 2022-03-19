@@ -10,6 +10,7 @@ class TextCustom extends StatelessWidget {
     this.decoration,
     this.maxLines,
     this.overflow,
+    this.letterSpacing,
   }) : super(key: key);
 
   final String data;
@@ -19,6 +20,7 @@ class TextCustom extends StatelessWidget {
   final TextDecoration? decoration;
   final int? maxLines;
   final TextOverflow? overflow;
+  final double? letterSpacing;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +33,7 @@ class TextCustom extends StatelessWidget {
         fontSize: fontSize,
         fontWeight: fontWeight,
         color: color,
+        letterSpacing: letterSpacing,
       ),
     );
   }

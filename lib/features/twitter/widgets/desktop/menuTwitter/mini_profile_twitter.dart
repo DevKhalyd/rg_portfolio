@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/widgets/rolando_image.dart';
-import '../../../../core/widgets/text_custom.dart';
+import '../../../../../core/widgets/rolando_image.dart';
+import '../../../../../core/widgets/text_custom.dart';
 
 /// The profile at the bottom of the menu
 class MiniProfileTwitter extends StatelessWidget {

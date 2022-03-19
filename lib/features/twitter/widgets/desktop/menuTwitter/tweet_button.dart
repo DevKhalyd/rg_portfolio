@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 
-import '../../../../core/widgets/text_custom.dart';
-import '../../utils_twitter.dart';
+import '../../../../../core/widgets/text_custom.dart';
+import '../../../utils_twitter.dart';
 
 final _style = ElevatedButton.styleFrom(
   primary: UtilsTwitter.primary,

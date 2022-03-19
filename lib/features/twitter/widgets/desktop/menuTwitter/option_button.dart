@@ -3,8 +3,8 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:rg_portfolio/core/widgets/text_center.dart';
 
-import '../../../../core/widgets/text_custom.dart';
-import '../../utils_twitter.dart';
+import '../../../../../core/widgets/text_custom.dart';
+import '../../../utils_twitter.dart';
 
 final _style = ElevatedButton.styleFrom(
   primary: Colors.transparent,
