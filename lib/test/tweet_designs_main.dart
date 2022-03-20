@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 
-import '../features/twitter/widgets/desktop/contentHeader/cover_image.dart';
-import '../features/twitter/widgets/desktop/contentHeader/title_bar.dart';
-import '../features/twitter/widgets/desktop/menuTwitter/menu_twitter.dart';
+import '../features/twitter/widgets/desktop/contentHeader/twitter_username.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({
+    Key? key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
+    return const MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.black,
-        appBar: AppBar(
-          title: Text('Material App Bar'),
-        ),
         body: Center(
-          child: CoverImage(),
+          child: TwitterUsername(),
         ),
       ),
     );
