@@ -1,7 +1,12 @@
+# TODO
+
+- Working on the accesibility of the native apps
+
+- Implementing Twitter Web Pages.
+
 # What to do before to launch the new version? (Personal Notes)
 
 Basically Run the tests and if everything is ok, then launch the new version
-
 
 - Add some accesibility for android and ios platforms
 
@@ -102,6 +107,16 @@ https://bloclibrary.dev/#/testing
 Example of a fully tested application:
 
 https://github.com/felangel/bloc/tree/master/examples/flutter_weather/test
+
+## Accessibility
+
+How to implement for each platform?
+
+https://docs.flutter.dev/development/accessibility-and-localization/accessibility#inspecting-accessibility-support
+
+Android: Make sure to allow all permission asked by the app. And of course turn on the option to show accessibility.
+
+IOS: Missing part
 
 # Useful
 
