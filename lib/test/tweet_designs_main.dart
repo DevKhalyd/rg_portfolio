@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../features/twitter/widgets/desktop/contentHeader/twitter_username.dart';
+import '../features/twitter/widgets/desktop/contentHeader/twitter_numbers_label.dart';
+
+// TODO: Add the link and the join time
 
 void main() => runApp(const MyApp());
 
@@ -11,11 +13,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
         backgroundColor: Colors.black,
         body: Center(
-          child: TwitterUsername(),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              TwitterNumbersLabel(label: 'Following', number: '38'),
+              SizedBox(width: 8),
+              TwitterNumbersLabel(label: 'Followers', number: '178.1k'),
+            ],
+          ),
         ),
       ),
     );
