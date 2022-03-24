@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rg_portfolio/core/widgets/text_custom.dart';
+
+import '../../../../../core/widgets/text_custom.dart';
 
 class TwitterNumbersLabel extends StatelessWidget {
   const TwitterNumbersLabel({
