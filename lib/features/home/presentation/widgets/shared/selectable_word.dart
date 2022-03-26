@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rg_portfolio/core/widgets/widgets.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 
@@ -9,10 +10,14 @@ class SelectableWord extends StatefulWidget {
     Key? key,
     required this.onPressed,
     required this.label,
+    this.fontSize,
+    this.color,
   }) : super(key: key);
 
   final VoidCallback onPressed;
   final String label;
+  final Color? color;
+  final double? fontSize;
 
   @override
   State<SelectableWord> createState() => _SelectableWordState();
@@ -25,18 +30,19 @@ class _SelectableWordState extends State<SelectableWord> {
   Widget build(BuildContext context) {
     /// Use state because the logic is too simple.
     return Padding(
-      padding:  EdgeInsets.symmetric(horizontal: context.getPercentWidth(0.005)),
+      padding: EdgeInsets.symmetric(horizontal: context.getPercentWidth(0.005)),
       child: MouseRegion(
-        onExit: (event) => setState(() => isHover = false),
-        onEnter: (event) => setState(() => isHover = true),
+        onExit: (_) => setState(() => isHover = false),
+        onEnter: (_) => setState(() => isHover = true),
         child: InkResponse(
           onTap: widget.onPressed,
           hoverColor: Colors.transparent,
-          child: Text(
+          child: TextCustom(
             widget.label,
-            style: TextStyle(
-              decoration: isHover ? TextDecoration.underline : TextDecoration.none,
-            ),
+            color: widget.color,
+            fontSize: widget.fontSize,
+            decoration:
+                isHover ? TextDecoration.underline : TextDecoration.none,
           ),
         ),
       ),
