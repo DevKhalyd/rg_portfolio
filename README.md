@@ -1,7 +1,5 @@
 # TODO
 
-- Working on the accesibility of the native apps
-
 - Implementing Twitter Web Pages.
 
 # What to do before to launch the new version? (Personal Notes)
