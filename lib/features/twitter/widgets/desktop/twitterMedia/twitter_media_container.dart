@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+// TODO : Continue splitting the logic of this file
+const _borderValue = 16.0;
+
 /// The container for the media images
 class TwitterMediaContainer extends StatelessWidget {
   const TwitterMediaContainer({Key? key}) : super(key: key);
@@ -11,7 +14,7 @@ class TwitterMediaContainer extends StatelessWidget {
       width: 600,
       decoration: BoxDecoration(
         color: Colors.black,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(_borderValue),
       ),
       child: Column(
         children: [
@@ -24,7 +27,16 @@ class TwitterMediaContainer extends StatelessWidget {
               ],
             ),
           ),
-          Expanded(child: Container())
+          Expanded(
+              child: Row(
+            children: const [
+              TwitterImageMedia(position: TwitterImagePosition.bottomLeft),
+              TwitterImageMedia(
+                position: TwitterImagePosition.centerBottom,
+              ),
+              TwitterImageMedia(position: TwitterImagePosition.bottomRight),
+            ],
+          ))
         ],
       ),
     );
@@ -41,7 +53,7 @@ enum TwitterImagePosition {
   centerBottom,
 }
 
-const _paddingSpace = 4.0;
+const _paddingSpace = 2.0;
 
 class TwitterImageMedia extends StatelessWidget {
   const TwitterImageMedia({
@@ -54,23 +66,30 @@ class TwitterImageMedia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final EdgeInsets padding;
+    BorderRadiusGeometry borderRadius = const BorderRadius.only();
+
+    const radius = Radius.circular(_paddingSpace + 8.0);
 
     switch (position) {
       case TwitterImagePosition.topLeft:
         padding =
             const EdgeInsets.only(right: _paddingSpace, bottom: _paddingSpace);
+        borderRadius = const BorderRadius.only(topLeft: radius);
         break;
       case TwitterImagePosition.topRight:
         padding =
             const EdgeInsets.only(left: _paddingSpace, bottom: _paddingSpace);
+        borderRadius = const BorderRadius.only(topRight: radius);
         break;
       case TwitterImagePosition.bottomLeft:
         padding =
             const EdgeInsets.only(right: _paddingSpace, top: _paddingSpace);
+        borderRadius = const BorderRadius.only(bottomLeft: radius);
         break;
       case TwitterImagePosition.bottomRight:
         padding =
             const EdgeInsets.only(left: _paddingSpace, top: _paddingSpace);
+        borderRadius = const BorderRadius.only(bottomRight: radius);
         break;
       case TwitterImagePosition.centerTop:
         padding = const EdgeInsets.only(
@@ -87,14 +106,13 @@ class TwitterImageMedia extends StatelessWidget {
         );
     }
 
-    // According to the position add a round corner if needed
-
     return Expanded(
         child: Padding(
       padding: padding,
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           color: Colors.yellow,
+          borderRadius: borderRadius,
         ),
       ),
     ));
