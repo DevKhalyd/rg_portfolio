@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../features/twitter/widgets/desktop/contentHeader/twitter_flutter_link.dart';
+import '../features/twitter/widgets/desktop/twitterMedia/twitter_media_container.dart';
 
 // TODO: Add the link text
 void main() => runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.white,
         body: Center(
-          child: TwitterFlutterLink(),
+          child: TwitterMediaContainer(),
         ),
       ),
     );

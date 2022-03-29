@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rg_portfolio/core/widgets/widgets.dart';
 
+import '../../../../../core/widgets/widgets.dart';
 import '../../../../home/presentation/widgets/shared/selectable_word.dart';
 
 class TwitterFlutterLink extends StatelessWidget {
