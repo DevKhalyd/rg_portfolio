@@ -52,6 +52,8 @@ enum TwitterImagePosition {
   centerTop,
   centerBottom,
 }
+const _url =
+    'https://pbs.twimg.com/media/FO8tG7TXwAsC5wT?format=jpg&name=large';
 
 const _paddingSpace = 2.0;
 
@@ -66,7 +68,7 @@ class TwitterImageMedia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final EdgeInsets padding;
-    BorderRadiusGeometry borderRadius = const BorderRadius.only();
+    var borderRadius = const BorderRadius.only();
 
     const radius = Radius.circular(_paddingSpace + 8.0);
 
@@ -110,9 +112,17 @@ class TwitterImageMedia extends StatelessWidget {
         child: Padding(
       padding: padding,
       child: Container(
+        height: double.infinity,
         decoration: BoxDecoration(
-          color: Colors.yellow,
+          borderRadius: BorderRadius.circular(_borderValue),
+        ),
+        child: ClipRRect(
           borderRadius: borderRadius,
+          clipBehavior: Clip.hardEdge,
+          child: Image.network(
+            _url,
+            fit: BoxFit.cover,
+          ),
         ),
       ),
     ));
