@@ -5,7 +5,7 @@ import '../features/search/presentation/screen/search_screen.dart';
 import '../features/twitter/screens/twitter_screen.dart';
 
 abstract class Routes {
-  static const initialRoute = twitter;
+  static const initialRoute = home;
 
   /// The first route to show in the screen
   static const home = '/home';

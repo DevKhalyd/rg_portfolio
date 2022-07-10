@@ -1,7 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
-import '../../../../../core/routes.dart';
 import '../../../../../core/utils/utils.dart';
 import '../../../../../core/widgets/custom_toast.dart';
 import '../../../../search/presentation/widgets/body/searcher_link_item.dart';
@@ -45,13 +43,6 @@ final _searchItems = [
         onTap: (_) =>
             Utils.launchURL(Utils.getUrlForGithub('DevKhalyd/rg_portfolio')),
       ),
-      SearchLinkItem(
-        url: Utils.getUrlForOwnWebsite('twitter'),
-        title: 'Twitter Clone',
-        description:
-            'The Twitter Profile clone made with Flutter for Web and mobile sizes',
-        onTap: (context) => Navigator.pushNamed(context, Routes.twitter),
-      ),
     ],
   ),
   SearchItem(
@@ -75,12 +66,6 @@ final _searchItems = [
         description: 'My StackOverflow Profile',
         onTap: (_) => Utils.launchURL(Utils.stackOverflowUrl),
       ),
-      /*SearchLinkItem(
-        url: Utils.upworkUrl,
-        title: 'Upwork',
-        description: 'My Upwork Profile',
-        onTap: (_) => Utils.launchURL(Utils.upworkUrl),
-      ),*/
     ],
   ),
 ];

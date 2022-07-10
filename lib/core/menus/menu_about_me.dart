@@ -13,8 +13,6 @@ class MenuAboutMe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // NOTE: Add the upwork button here
-
     final width = (context.width / 2) * .47;
 
     // https://dart.dev/guides/language/effective-dart/usage#do-use-a-function-declaration-to-bind-a-function-to-a-name
@@ -58,14 +56,6 @@ class MenuAboutMe extends StatelessWidget {
             const SelectableText(
               Utils.email,
               style: TextStyle(fontSize: 18),
-            ),
-            const SizedBox(height: 15),
-            OutlinedButton(
-              onPressed: () =>
-                  Utils.launchURL(Utils.upworkUrl, doSomething: updateHome),
-              child: const Text(
-                'Upwork',
-              ),
             ),
             const SizedBox(height: 25),
             const Divider(),
