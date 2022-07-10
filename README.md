@@ -1,10 +1,22 @@
 # TODO
 
-- Add the icon of my website to the PWA
+- Implementing Twitter Web Pages.
 
-- Test in a local server the application for mobile the [PWA]
+# What to do before to launch the new version? (Personal Notes)
 
-# Run locally with own server
+Basically Run the tests and if everything is ok, then launch the new version
+
+- Add some accesibility for android and ios platforms
+
+# Last Part
+
+Merge the develop branch to master
+
+# Commands
+
+`dart run build_runner build`
+
+# Run locally with own server`
 
 `flutter run -d chrome --web-hostname 192.168.1.69 --web-port 8888`
 
@@ -32,6 +44,78 @@ So I built the Google Search portfolio [Google]
 
 [Navigation] Basically in Flutter there is two ways to handle the navigation
 
+## Testing
+
+Simple put, test the main functions and the behavior like when add documentation
+
+**Why I should testing?**
+
+- Found bugs and fix them quickly and easily (E.G. After of add a new feature)
+- Provide Docs by its own (Refer to the tests when u want to see how it works the code)
+- Unit tests make better designs
+
+**What to be tested with Higher Priority?**
+
+- Collections passed as parameter not changed in the method (add(1,2),expected: 3)
+- Algorithm Engines (Because if someone changes the algorithm it will break the app or an unexpected behavior)
+- Utility methods
+- Core business logic methods
+- Simple DB queries checking predicates
+- Services that are high-risk (E.G. Auth, Storage, Database, etc) (If the operation is too complex skip to Integration test)
+- Exceptions
+
+**What Not to Unit Test?**
+
+- Complex DB queries
+- Constructors or properties (if they just return variables). Test them only if they contain validations.
+- Configurations like constants, readonly fields, configs, enumerations, etc.
+- Facades of just wrapping other frameworks or libraries
+- Complex multi-threading code (it is better to be tested with integration tests)
+- Methods that call another public method
+- Exception messages
+- POCO classes — models, etc.
+
+Ref: https://dzone.com/articles/unit-testing-guidelines-what-to-test-and-what-not
+
+**For Flutter:**
+
+- A unit test tests a single function, method, or class.
+- A widget test (in other UI frameworks referred to as component test) tests a single widget.
+- An integration test tests a complete app or a large part of an app.
+
+**Mock dependencies using Mockito**
+
+Mock: A mock is a substitute for a real object. Help to test an expected behavior of a real object.
+
+- A passing test might start failing if a web service or database returns unexpected results. This is known as a “flaky test.”
+
+Bloc Test:
+
+Library:
+https://pub.dev/packages/bloc_test
+
+Blog:
+https://medium.com/flutter-community/bloc-testing-write-your-first-simple-unit-test-in-flutter-1eee1d1642aa
+
+Img: https://miro.medium.com/max/1400/1*uh0oxixcra7RFnJ15tc4Yg.png
+
+Official Documentation:
+https://bloclibrary.dev/#/testing
+
+Example of a fully tested application:
+
+https://github.com/felangel/bloc/tree/master/examples/flutter_weather/test
+
+## Accessibility
+
+How to implement for each platform?
+
+https://docs.flutter.dev/development/accessibility-and-localization/accessibility#inspecting-accessibility-support
+
+Android: Make sure to allow all permission asked by the app. And of course turn on the option to show accessibility.
+
+IOS: Missing part
+
 # Useful
 
 Cookbook: https://docs.flutter.dev/cookbook/navigation
@@ -47,26 +131,10 @@ Open the Chrome Console: Shift + CTRL + J (Windows)
 [navigation]: https://docs.flutter.dev/development/ui/navigation
 [icons]: https://icons8.com/
 
-# Research
+# Widgets
 
-Maskable is for Android Icons.
-
-Verify if should be used...
-
-```json
-    {
-      "src": "icons/Icon-maskable-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "icons/Icon-maskable-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-```
+IntrinsicHeight: (A widget that sizes its child to the child's intrinsic height.)
+https://api.flutter.dev/flutter/widgets/IntrinsicHeight-class.html
 
 <!--
     ReactJS source code: https://github.com/enjeck/gfolio
@@ -79,10 +147,6 @@ Verify if should be used...
 
         - https://docs.flutter.dev/development/ui/layout/building-adaptive-apps
 
-    For Desktop: https://docs.flutter.dev/desktop
-    Verify that the cache dont increases in my pc. Otherwise just compile in mac.
-
-    Context Menu: https://api.flutter.dev/flutter/cupertino/CupertinoContextMenu-class.html
 
     NOTE: Add a loading screen. Check the resouces below
 
@@ -96,4 +160,6 @@ Verify if should be used...
     NOTE: Know about the device in the web
     https://stackoverflow.com/a/67260733/10942018
 
+
+    NOTE: To mantain this project public, please do not commit any private information or keys for the database and so on.
  -->

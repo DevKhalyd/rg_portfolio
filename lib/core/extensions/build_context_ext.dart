@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 
+// Const for differents designs
+
+/// Min space avaible for the search
+const minWidthSearch = 780.0;
+
 extension BuildContextExtension on BuildContext {
   double get width => MediaQuery.of(this).size.width;
   double get height => MediaQuery.of(this).size.height;
   double get statusBarHeight => MediaQuery.of(this).padding.top;
   bool get isLandscape => width > height + 100;
 
-  /// Verify if its a mobile size
+  /// Verify if its a mobile size. For generics designs. Use
+  /// a custom widget for mobile and a custom widget for tablet if needed
   bool get isMobileSize {
     /// A desktop or tablet
     if (height < width) {
@@ -33,5 +39,27 @@ extension BuildContextExtension on BuildContext {
   double getPercentHeight(double percent) {
     assert(percent > 0 && percent < 1);
     return height * percent;
+  }
+
+  /// Return true if can
+  bool canPop() {
+    return Navigator.of(this).canPop();
+  }
+
+  void pop() {
+    Navigator.pop(this);
+  }
+
+  /// Use the [Routes] to find all the routes
+  void pushNamed(String name) {
+    Navigator.pushNamed(this, name);
+  }
+
+  void popIfCan() {
+    if (canPop()) pop();
+  }
+
+  String? getCurrentRouteName() {
+    return ModalRoute.of(this)?.settings.name;
   }
 }

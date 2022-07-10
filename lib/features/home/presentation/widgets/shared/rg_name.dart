@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
+import 'package:rg_portfolio/core/routes.dart';
 
 import '../../../../../core/utils/utils.dart';
 
@@ -12,7 +13,22 @@ final _colors = <Color>[
 
 /// My name with the Google Style
 class RGName extends StatelessWidget {
-  const RGName({Key? key}) : super(key: key);
+  const RGName({
+    Key? key,
+    this.fontSizeMobile = 70.0,
+    this.fontSizeDesktop = 100.0,
+  })  : isClickable = false,
+        super(key: key);
+
+  const RGName.forSearch({
+    Key? key,
+    this.fontSizeMobile = 40.0,
+    this.fontSizeDesktop = 40.0,
+  })  : isClickable = true,
+        super(key: key);
+
+  final double fontSizeMobile, fontSizeDesktop;
+  final bool isClickable;
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +45,31 @@ class RGName extends StatelessWidget {
       );
     }).toList();
 
-    return RichText(
+    Widget child = RichText(
         text: TextSpan(
             text: 'R',
             style: styleName(_colors[0], context),
             children: widgets));
+
+    if (!isClickable) return child;
+
+    return InkResponse(
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      child: child,
+      onTap: () {
+        if (context.canPop()) {
+          context.pop();
+          return;
+        }
+        context.pushNamed(Routes.home);
+      },
+    );
   }
 
   TextStyle styleName(Color color, BuildContext context) {
-    final fontSize = context.isMobileSize ? 70.0 : 100.0;
+    final fontSize = context.isMobileSize ? fontSizeMobile : fontSizeDesktop;
 
     return TextStyle(
       color: color,

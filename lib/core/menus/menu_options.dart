@@ -59,11 +59,14 @@ class MenuOptions extends StatelessWidget {
                     label: 'StackOverlow',
                     url: Utils.stackOverflowUrl,
                   ),
+                  /*
+                  Not needed by the moment, because I have a good job.
+                  Thanks dude.
                   const IconOption(
                     asset: Assets.upworkIcon,
                     label: 'Upwork',
                     url: Utils.upworkUrl,
-                  ),
+                  ),*/
                   IconOption(
                     asset: Assets.gmailIcon,
                     label: 'Gmail',
@@ -88,7 +91,7 @@ class MenuOptions extends StatelessWidget {
                             return AlertDialog(
                               title: const Text('Web State'),
                               content: const Text(
-                                  'Each month I launch a new version of my web. Please stay tuned for the next one.'),
+                                  'Each YEAR I launch a new version of my web. Please stay tuned for the next one.'),
                               actions: [
                                 ElevatedButton(
                                   child: const Text('OK'),

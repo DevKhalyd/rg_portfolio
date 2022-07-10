@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/menus/menu_about_me.dart';
 import '../../../../../core/menus/menu_options.dart';
-import '../../../../../core/utils/utils.dart';
-import '../../../../../core/widgets/widgets.dart';
+import '../../../../../core/routes.dart';
+import '../../../../../core/widgets/profile_icon.dart';
 import '../../bloc/home_bloc.dart';
 import '../shared/selectable_word.dart';
 import 'icon_menu.dart';
@@ -14,7 +14,6 @@ class HeaderHome extends StatelessWidget {
   const HeaderHome({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    /// Inside of a column
     return Padding(
       padding: EdgeInsets.only(
           top: context.getPercentHeight(0.01),
@@ -22,7 +21,16 @@ class HeaderHome extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          SelectableWord(onPressed: () {}, label: 'Portfolio'),
+          const _WebsiteTotalViews(),
+          const SizedBox(width: 4.0),
+          SelectableWord(
+              onPressed: () {
+                final homeRepository = context.read<HomeBloc>().homeRepository;
+                // The about part
+                homeRepository.updateSearchItem(homeRepository.searchItems[1]);
+                context.pushNamed(Routes.search);
+              },
+              label: 'Portfolio'),
           IconMenu(
             onPressed: () {
               if (context.isMobileSize) {
@@ -39,64 +47,51 @@ class HeaderHome extends StatelessWidget {
                   .add(const HomeTogglePressed(menu: MenuOptions()));
             },
           ),
-          const _ProfileIcon()
+          ProfileIcon(
+            onPressed: () {
+              if (context.isMobileSize) {
+                showDialog(
+                  context: context,
+                  builder: (_) => const Dialog(
+                    child: MenuAboutMe(),
+                  ),
+                );
+                return;
+              }
+              context
+                  .read<HomeBloc>()
+                  .add(const HomeTogglePressed(menu: MenuAboutMe()));
+            },
+          )
         ],
       ),
     );
   }
 }
 
-/// Show my profile picture and when it's pressed, show the menu
-class _ProfileIcon extends StatelessWidget {
-  const _ProfileIcon({
-    Key? key,
-  }) : super(key: key);
+class _WebsiteTotalViews extends StatelessWidget {
+  const _WebsiteTotalViews({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Tooltip(
-      richMessage: const TextSpan(
-          text: 'My account\n',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-          children: [
-            TextSpan(
-              text: 'Rolando Garcia\n',
-              style: TextStyle(
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-            TextSpan(
-              text: Utils.email,
-              style: TextStyle(
-                fontWeight: FontWeight.normal,
-              ),
-            ),
-          ]),
-      child: Padding(
-        padding:
-            EdgeInsets.symmetric(horizontal: context.getPercentWidth(0.005)),
-        child: InkResponse(
-          hoverColor: Colors.transparent,
-          onTap: () {
-            if (context.isMobileSize) {
-              showDialog(
-                context: context,
-                builder: (_) => const Dialog(
-                  child: MenuAboutMe(),
-                ),
-              );
-              return;
-            }
-            //   showMenu(context, const MenuOptions());
-            context
-                .read<HomeBloc>()
-                .add(const HomeTogglePressed(menu: MenuAboutMe()));
-          },
-          child: const RolandoImage(),
-        ),
-      ),
+    final homeBloc = context.read<HomeBloc>().homeRepository;
+    return FutureBuilder<int>(
+      future: homeBloc.getTotalViews(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          final data = snapshot.data;
+
+          return Row(
+            children: [
+              Text(data.toString()),
+              const SizedBox(width: 8.0),
+              const Icon(Icons.visibility),
+              const SizedBox(width: 6.0),
+            ],
+          );
+        }
+        return const SizedBox.shrink();
+      },
     );
   }
 }

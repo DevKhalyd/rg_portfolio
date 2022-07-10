@@ -4,6 +4,7 @@ import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import 'core/routes.dart';
 import 'core/utils/utils.dart';
+import 'features/home/data/api/home_cloud_firestore_repository.dart';
 import 'features/home/presentation/bloc/home_bloc.dart';
 import 'features/home/presentation/bloc/home_repository.dart';
 
@@ -16,9 +17,12 @@ class App extends StatelessWidget {
         providers: [
           BlocProvider(
               create: (_) => HomeBloc(
-                    homeRepository: HomeRepository(),
-                  ))
+                    homeRepository:
+                        HomeRepository(HomeCloudFirestoreRepository())
+                          ..updateViews(),
+                  )),
         ],
+        // Note Here the data
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           builder: FlutterSmartDialog.init(),
@@ -38,7 +42,7 @@ class App extends StatelessWidget {
             ),
           ),
           title: Utils.appName,
-          initialRoute: Routes.home,
+          initialRoute: Routes.initialRoute,
           routes: Routes.routes,
         ));
   }

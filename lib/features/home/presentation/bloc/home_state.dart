@@ -1,9 +1,19 @@
 part of 'home_bloc.dart';
 
 /*
+What are the states?
+
+Basically the state of the current page.
+
+If u want to handle the state of the current page emit 
+a new state handle by the events in the bloc.
+
+*/
+
+/*
 From my perspective, the enum serves when u dont have to share data with the UI
 just a state for the UI to know what to do.
-enum HomeStatus {
+enum HomeState {
   loading,
   loaded,
   error,
@@ -22,13 +32,14 @@ class HomeToggleMenu extends HomeState {
   const HomeToggleMenu({required this.isOpen, required this.menu});
 
   final bool isOpen;
+
   /// The menu to show in the screen
   final Widget menu;
 
   // This line is necesary for Bloc because allow to update the state
   // according to the previous state and the current one
   @override
-  List<Object> get props => [isOpen,menu];
+  List<Object> get props => [isOpen, menu];
 }
 
 /// A base state of the bloc
@@ -41,4 +52,14 @@ class HomeError extends HomeState {
 
   @override
   List<Object> get props => [message];
+}
+
+class HomeSearch extends HomeState {
+  const HomeSearch({required this.search});
+
+  /// The item selected by the user
+  final SearchItem search;
+
+  @override
+  List<Object> get props => [search];
 }

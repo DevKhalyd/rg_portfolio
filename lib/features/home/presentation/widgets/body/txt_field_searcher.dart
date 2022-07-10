@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,7 +17,14 @@ const _constraints = BoxConstraints(
 
 /// The text field when the user search for the new things about me
 class TextFieldSearcher extends StatefulWidget {
-  const TextFieldSearcher({Key? key}) : super(key: key);
+  const TextFieldSearcher({
+    Key? key,
+    this.onSelected,
+    this.initialValue = '',
+  }) : super(key: key);
+
+  final void Function(SearchItem)? onSelected;
+  final String initialValue;
 
   @override
   State<TextFieldSearcher> createState() => _TextFieldSearcherState();
@@ -29,6 +34,15 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
   // Need for a correct working of the text field
   final focusNode = FocusNode();
   final controller = TextEditingController();
+
+  void Function(SearchItem)? onSelected;
+
+  @override
+  void initState() {
+    super.initState();
+    onSelected = widget.onSelected;
+    controller.text = widget.initialValue;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +56,9 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
     return RawAutocomplete<SearchItem>(
         textEditingController: controller,
         focusNode: focusNode,
-        onSelected: (option) {
-          // NOTE: Do something with this
-          log('Selected: $option');
+        onSelected: (item) {
+          context.read<HomeBloc>().add(HomeSelectedSearch(item: item));
+          if (onSelected != null) onSelected!(item);
         },
         fieldViewBuilder: (_, controller, focusNode, onSubmitted) {
           return Padding(
@@ -91,6 +105,7 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
             ),
           );
         },
+        // The options to show in the screen
         optionsBuilder: (textEditingValue) => homeRepository.searchItems,
         optionsViewBuilder: (_, onSelected, options) {
           const sharedBorderRadius = BorderRadius.only(
@@ -118,7 +133,7 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
                       hoverColor: Colors.grey.shade300,
                       leading: const Icon(Icons.history),
                       onTap: () {
-                        homeRepository.changeSearchItem(option);
+                        homeRepository.updateSearchItem(option);
                         onSelected(option);
                       },
                       title: TextCustom(
