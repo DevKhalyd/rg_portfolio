@@ -1,6 +1,5 @@
 # TODO
 
-- Upgrade to latest version flutter
 - Replace Bloc by Riverpood (Normal and Generate code)
 - Reactive programming using streams
 - Repository pattern (clean architecture, repository layers)
@@ -16,6 +15,14 @@
 - direct dependencies and transitive dependencies
 - Fix the counter name
 - Fix the HTML initialization
+- Review the same design should be present from the old version
+
+# Setup project
+
+Create `firebase_options.dart` file
+
+Reference:
+https://firebase.google.com/docs/flutter/setup?hl=es-419&platform=web
 
 # Before lauching new version do:
 

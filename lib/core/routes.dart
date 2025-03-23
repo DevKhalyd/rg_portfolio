@@ -15,6 +15,7 @@ abstract class Routes {
   static final routes = <String, WidgetBuilder>{
     home: (_) => const HomeScreen(),
     search: (_) => const SearchScreen(),
+    // TODO: Delete TwitterScreen
     twitter: (_) => const TwitterScreen(),
   };
 }
