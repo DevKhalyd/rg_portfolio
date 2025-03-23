@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../home/presentation/widgets/footer/footer_home.dart';
 
 class FooterSearcher extends StatelessWidget {
-  const FooterSearcher({Key? key}) : super(key: key);
+  const FooterSearcher({super.key});
 
   @override
   Widget build(BuildContext context) {

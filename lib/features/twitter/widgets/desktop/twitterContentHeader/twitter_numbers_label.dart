@@ -4,10 +4,10 @@ import '../../../../../core/widgets/text_custom.dart';
 
 class TwitterNumbersLabel extends StatelessWidget {
   const TwitterNumbersLabel({
-    Key? key,
+    super.key,
     required this.label,
     required this.number,
-  }) : super(key: key);
+  });
 
   final String label;
   final String number;

@@ -8,8 +8,8 @@ import '../../mixins/searcher_mixin.dart';
 /// The results of the search to show in the screen
 class ResultsSearch extends StatelessWidget with SearcherMixin {
   const ResultsSearch({
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

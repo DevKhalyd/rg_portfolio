@@ -9,7 +9,7 @@ import 'features/home/presentation/bloc/home_bloc.dart';
 import 'features/home/presentation/bloc/home_repository.dart';
 
 class App extends StatelessWidget {
-  const App({Key? key}) : super(key: key);
+  const App({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,9 +35,9 @@ class App extends StatelessWidget {
             // https://docs.flutter.dev/development/ui/widgets/material
             outlinedButtonTheme: OutlinedButtonThemeData(
               style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+                foregroundColor: WidgetStateProperty.all<Color>(Colors.black),
                 overlayColor:
-                    MaterialStateProperty.all<Color>(Colors.grey.shade300),
+                    WidgetStateProperty.all<Color>(Colors.grey.shade300),
               ),
             ),
           ),

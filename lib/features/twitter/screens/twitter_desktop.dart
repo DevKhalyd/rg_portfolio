@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TwitterDesktop extends StatelessWidget {
-  const TwitterDesktop({Key? key}) : super(key: key);
+  const TwitterDesktop({super.key});
 
   @override
   Widget build(BuildContext context) {

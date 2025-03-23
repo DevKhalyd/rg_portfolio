@@ -7,12 +7,12 @@ import '../../../../../core/extensions/build_context_ext.dart';
 /// then if is pressed do an action.
 class SelectableWord extends StatefulWidget {
   const SelectableWord({
-    Key? key,
+    super.key,
     required this.onPressed,
     required this.label,
     this.fontSize,
     this.color,
-  }) : super(key: key);
+  });
 
   final VoidCallback onPressed;
   final String label;

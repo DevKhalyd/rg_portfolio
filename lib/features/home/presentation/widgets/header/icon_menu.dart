@@ -5,7 +5,7 @@ import '../../../../../core/extensions/build_context_ext.dart';
 
 /// The icon menu that show my info about how to reach me
 class IconMenu extends StatelessWidget {
-  const IconMenu({Key? key, required this.onPressed}) : super(key: key);
+  const IconMenu({super.key, required this.onPressed});
 
   final VoidCallback onPressed;
 

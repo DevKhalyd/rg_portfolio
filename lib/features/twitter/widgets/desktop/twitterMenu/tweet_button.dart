@@ -6,14 +6,14 @@ import '../../../../../core/widgets/text_custom.dart';
 import '../../../utils_twitter.dart';
 
 final _style = ElevatedButton.styleFrom(
-  primary: UtilsTwitter.primary,
+  // primary: UtilsTwitter.primary,
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(32.0),
   ),
 );
 
 class TwitterButton extends StatelessWidget {
-  const TwitterButton({Key? key}) : super(key: key);
+  const TwitterButton({super.key});
 
   @override
   Widget build(BuildContext context) {

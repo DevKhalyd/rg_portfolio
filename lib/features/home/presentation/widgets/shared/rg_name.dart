@@ -14,18 +14,16 @@ final _colors = <Color>[
 /// My name with the Google Style
 class RGName extends StatelessWidget {
   const RGName({
-    Key? key,
+    super.key,
     this.fontSizeMobile = 70.0,
     this.fontSizeDesktop = 100.0,
-  })  : isClickable = false,
-        super(key: key);
+  })  : isClickable = false;
 
   const RGName.forSearch({
-    Key? key,
+    super.key,
     this.fontSizeMobile = 40.0,
     this.fontSizeDesktop = 40.0,
-  })  : isClickable = true,
-        super(key: key);
+  })  : isClickable = true;
 
   final double fontSizeMobile, fontSizeDesktop;
   final bool isClickable;

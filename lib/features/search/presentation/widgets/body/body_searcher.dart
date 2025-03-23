@@ -8,7 +8,7 @@ import '../../mixins/searcher_mixin.dart';
 import 'searcher_tabs/searcher_tabs.dart';
 
 class BodySearcher extends StatelessWidget with SearcherMixin {
-  const BodySearcher({Key? key}) : super(key: key);
+  const BodySearcher({super.key});
 
   @override
   Widget build(BuildContext context) {

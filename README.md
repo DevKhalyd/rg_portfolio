@@ -13,17 +13,13 @@
 - Refresh widget and animations like YouTube one
 - Branch Model
 - 1 DSA problem
-- Dependencies and Transversal Dependencies
+- direct dependencies and transitive dependencies
+- Fix the counter name
+- Fix the HTML initialization
 
-# What to do before to launch the new version? (Personal Notes)
+# Before lauching new version do:
 
-Basically Run the tests and if everything is ok, then launch the new version
-
-- Add some accesibility for android and ios platforms
-
-# Last Part
-
-Merge the develop branch to master
+- Run the tests and if everything is ok, then launch the new version
 
 # Commands
 
@@ -32,10 +28,6 @@ Merge the develop branch to master
 # Run locally with own server`
 
 `flutter run -d chrome --web-hostname 192.168.1.69 --web-port 8888`
-
-# RG Portfolio
-
-My portfolio is a collection of projects that I have worked on 😉.
 
 ## Inspiration
 
@@ -148,31 +140,3 @@ Open the Chrome Console: Shift + CTRL + J (Windows)
 
 IntrinsicHeight: (A widget that sizes its child to the child's intrinsic height.)
 https://api.flutter.dev/flutter/widgets/IntrinsicHeight-class.html
-
-<!--
-    ReactJS source code: https://github.com/enjeck/gfolio
-    Website: https://gfolio.enjeck.com/
-
-    Yaml for custom views: https://github.com/gskinnerTeam/flutter-folio/blob/master/pubspec.yaml
-
-    Adaptative screen:
-        -  https://aloisdeniel.com/#/posts/adaptative-ui
-
-        - https://docs.flutter.dev/development/ui/layout/building-adaptive-apps
-
-
-    NOTE: Add a loading screen. Check the resouces below
-
-    https://itnext.io/fix-flutter-web-loading-time-with-a-loading-spinner-c5dd36a29f5b
-
-    https://github.com/flutter/flutter/issues/77936
-
-    NOTE: Adaptative Responsive application
-    https://docs.flutter.dev/development/ui/layout/adaptive-responsive
-
-    NOTE: Know about the device in the web
-    https://stackoverflow.com/a/67260733/10942018
-
-
-    NOTE: To mantain this project public, please do not commit any private information or keys for the database and so on.
- -->

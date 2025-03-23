@@ -6,7 +6,7 @@ import '../../../../../core/widgets/text_custom.dart';
 import '../../../utils_twitter.dart';
 
 final _style = ElevatedButton.styleFrom(
-  primary: Colors.transparent,
+  // primary: Colors.transparent,
   shape: RoundedRectangleBorder(
     borderRadius: BorderRadius.circular(32.0),
   ),
@@ -14,10 +14,10 @@ final _style = ElevatedButton.styleFrom(
 
 class OptionButton extends StatelessWidget {
   const OptionButton({
-    Key? key,
+    super.key,
     required this.label,
     required this.icon,
-  }) : super(key: key);
+  });
 
   final String label;
   final IconData icon;

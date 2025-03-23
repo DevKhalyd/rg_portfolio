@@ -5,7 +5,7 @@ import '../../../../../core/widgets/text_custom.dart';
 
 /// The profile at the bottom of the menu
 class MiniProfileTwitter extends StatelessWidget {
-  const MiniProfileTwitter({Key? key}) : super(key: key);
+  const MiniProfileTwitter({super.key});
 
   @override
   Widget build(BuildContext context) {

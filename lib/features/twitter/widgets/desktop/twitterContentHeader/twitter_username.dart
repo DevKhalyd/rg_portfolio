@@ -5,7 +5,7 @@ import 'twitter_flutter_verified.dart';
 
 /// The name and the username one above of the other
 class TwitterUsername extends StatelessWidget {
-  const TwitterUsername({Key? key}) : super(key: key);
+  const TwitterUsername({super.key});
 
   @override
   Widget build(BuildContext context) {

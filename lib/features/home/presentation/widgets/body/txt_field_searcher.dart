@@ -18,10 +18,10 @@ const _constraints = BoxConstraints(
 /// The text field when the user search for the new things about me
 class TextFieldSearcher extends StatefulWidget {
   const TextFieldSearcher({
-    Key? key,
+    super.key,
     this.onSelected,
     this.initialValue = '',
-  }) : super(key: key);
+  });
 
   final void Function(SearchItem)? onSelected;
   final String initialValue;

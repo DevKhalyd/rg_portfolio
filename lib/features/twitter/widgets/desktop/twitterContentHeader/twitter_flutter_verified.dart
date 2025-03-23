@@ -4,7 +4,7 @@ import '../../../../../core/widgets/text_custom.dart';
 
 /// The flutter word with the check icon
 class TwitterFlutterVerified extends StatelessWidget {
-  const TwitterFlutterVerified({Key? key}) : super(key: key);
+  const TwitterFlutterVerified({super.key});
 
   @override
   Widget build(BuildContext context) {

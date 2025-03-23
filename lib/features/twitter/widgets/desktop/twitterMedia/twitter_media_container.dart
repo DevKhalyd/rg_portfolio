@@ -3,7 +3,7 @@ import 'twitter_image_media.dart';
 
 /// The container for the media images
 class TwitterMediaContainer extends StatelessWidget {
-  const TwitterMediaContainer({Key? key}) : super(key: key);
+  const TwitterMediaContainer({super.key});
 
   @override
   Widget build(BuildContext context) {

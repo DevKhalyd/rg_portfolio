@@ -16,7 +16,7 @@ What to show?
  */
 class SearchImagesFragment extends StatelessWidget
     with SearcherMixin, SideProjectsMixin {
-  const SearchImagesFragment({Key? key}) : super(key: key);
+  const SearchImagesFragment({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,7 @@ import 'twitter_mobile.dart';
 
 /// The screen that contains both designs (desktop and mobile)
 class TwitterScreen extends StatelessWidget {
-  const TwitterScreen({Key? key}) : super(key: key);
+  const TwitterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

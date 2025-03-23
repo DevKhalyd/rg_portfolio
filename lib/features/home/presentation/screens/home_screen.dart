@@ -6,7 +6,7 @@ import '../widgets/header/header_home.dart';
 
 /// The main page of my portfolio
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

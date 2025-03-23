@@ -5,7 +5,7 @@ import 'twitter_flutter_verified.dart';
 
 /// Flutter with the check and the total of tweets
 class TitleBar extends StatelessWidget {
-  const TitleBar({Key? key}) : super(key: key);
+  const TitleBar({super.key});
 
   @override
   Widget build(BuildContext context) {

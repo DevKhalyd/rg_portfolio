@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class TwitterImageProfile extends StatelessWidget {
   const TwitterImageProfile({
-    Key? key,
+    super.key,
     this.size,
-  }) : super(key: key);
+  });
 
   final double? size;
 

@@ -5,10 +5,10 @@ import '../../../../../core/utils/local_images.dart';
 /// The main image from the profile
 class CoverImage extends StatelessWidget {
   const CoverImage({
-    Key? key,
+    super.key,
     this.height,
     this.width,
-  }) : super(key: key);
+  });
 
   final double? height, width;
 

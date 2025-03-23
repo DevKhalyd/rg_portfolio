@@ -9,7 +9,7 @@ import '../shared/selectable_word.dart';
 const _space = 30.0;
 
 class FooterHome extends StatelessWidget {
-  const FooterHome({Key? key}) : super(key: key);
+  const FooterHome({super.key});
 
   @override
   Widget build(BuildContext context) {

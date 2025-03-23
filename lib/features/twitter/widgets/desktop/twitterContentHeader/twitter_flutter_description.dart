@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/widgets/text_custom.dart';
 
 class TwitterFlutterDescription extends StatelessWidget {
-  const TwitterFlutterDescription({Key? key}) : super(key: key);
+  const TwitterFlutterDescription({super.key});
 
   @override
   Widget build(BuildContext context) {

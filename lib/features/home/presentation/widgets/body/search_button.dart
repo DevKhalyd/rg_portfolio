@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class SearchButton extends StatelessWidget {
   const SearchButton(
     this.label, {
-    Key? key,
+    super.key,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final String label;
   final VoidCallback onPressed;
@@ -13,11 +13,11 @@ class SearchButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OutlinedButton(
+      onPressed: onPressed,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Text(label),
       ),
-      onPressed: onPressed,
     );
   }
 }

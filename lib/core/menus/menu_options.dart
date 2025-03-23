@@ -10,7 +10,7 @@ import 'widgets/icon_option.dart';
 
 /// Contains my social media and the email to copy in the clipboard
 class MenuOptions extends StatelessWidget {
-  const MenuOptions({Key? key}) : super(key: key);
+  const MenuOptions({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -73,10 +73,10 @@ class MenuOptions extends StatelessWidget {
                     onPressed: () {
                       SmartDialog.showToast(
                         '',
-                        widget: const CustomToast(
+                        maskWidget: const CustomToast(
                           'Email copied to clipboard',
                         ),
-                        time: const Duration(seconds: 3),
+                        displayTime: const Duration(seconds: 3),
                       );
                       Clipboard.setData(const ClipboardData(text: Utils.email));
                     },

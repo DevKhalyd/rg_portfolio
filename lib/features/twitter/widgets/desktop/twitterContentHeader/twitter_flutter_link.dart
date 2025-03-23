@@ -4,7 +4,7 @@ import '../../../../../core/widgets/widgets.dart';
 import '../../../../home/presentation/widgets/shared/selectable_word.dart';
 
 class TwitterFlutterLink extends StatelessWidget {
-  const TwitterFlutterLink({Key? key}) : super(key: key);
+  const TwitterFlutterLink({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class TwitterFlutterLink extends StatelessWidget {
 }
 
 class _TwitterLink extends StatefulWidget {
-  const _TwitterLink({Key? key}) : super(key: key);
+  const _TwitterLink();
 
   @override
   State<_TwitterLink> createState() => _TwitterLinkState();

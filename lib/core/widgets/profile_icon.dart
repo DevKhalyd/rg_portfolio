@@ -8,9 +8,9 @@ import 'rolando_image.dart';
 /// with more info about me
 class ProfileIcon extends StatelessWidget {
   const ProfileIcon({
-    Key? key,
+    super.key,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final VoidCallback onPressed;
 

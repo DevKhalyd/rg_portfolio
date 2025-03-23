@@ -6,7 +6,7 @@ import 'tweet_button.dart';
 import 'twitter_icon.dart';
 
 class MenuTwitter extends StatelessWidget {
-  const MenuTwitter({Key? key}) : super(key: key);
+  const MenuTwitter({super.key});
 
   @override
   Widget build(BuildContext context) {

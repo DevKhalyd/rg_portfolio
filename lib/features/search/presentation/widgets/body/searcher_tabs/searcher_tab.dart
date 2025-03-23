@@ -8,12 +8,12 @@ import 'searcher_icon_tab.dart';
 /// The tab used in the search screen
 class SearcherTab extends StatelessWidget {
   const SearcherTab({
-    Key? key,
+    super.key,
     required this.label,
     required this.icon,
     required this.isSelected,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   final String label;
   final IconData icon;
@@ -45,12 +45,12 @@ class SearcherTab extends StatelessWidget {
 
 class SearcherContentTab extends StatefulWidget {
   const SearcherContentTab({
-    Key? key,
+    super.key,
     required this.icon,
     required this.isSelected,
     required this.label,
     required this.onPressed,
-  }) : super(key: key);
+  });
 
   final IconData icon;
   final bool isSelected;

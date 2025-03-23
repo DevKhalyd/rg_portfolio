@@ -18,9 +18,9 @@ const _paddingSpace = 2.0;
 
 class TwitterImageMedia extends StatelessWidget {
   const TwitterImageMedia({
-    Key? key,
+    super.key,
     this.position = TwitterImagePosition.centerTop,
-  }) : super(key: key);
+  });
 
   final TwitterImagePosition position;
 

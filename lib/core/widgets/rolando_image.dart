@@ -3,10 +3,10 @@ import 'package:rg_portfolio/core/utils/utils.dart';
 
 class RolandoImage extends StatelessWidget {
   const RolandoImage({
-    Key? key,
+    super.key,
     this.maxRadius = 25,
     this.minRadius = 15,
-  }) : super(key: key);
+  });
 
   final double maxRadius, minRadius;
 

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/widgets/text_custom.dart';
 
 class TwitterJoinedText extends StatelessWidget {
-  const TwitterJoinedText({Key? key}) : super(key: key);
+  const TwitterJoinedText({super.key});
 
   @override
   Widget build(BuildContext context) {

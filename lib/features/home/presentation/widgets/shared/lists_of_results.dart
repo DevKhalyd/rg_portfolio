@@ -15,7 +15,7 @@ final _searchItems = [
         // Describe my self
         description: aboutMeDescription,
         onTap: (_) => SmartDialog.showToast('',
-            widget: const CustomToast('A short description about myself')),
+            maskWidget: const CustomToast('A short description about myself')),
       ),
       SearchLinkItem(
         url: Utils.getUrlForGithub('DevKhalyd'),
