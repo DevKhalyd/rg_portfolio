@@ -1,6 +1,19 @@
 # TODO
 
-- Implementing Twitter Web Pages.
+- Upgrade to latest version flutter
+- Replace Bloc by Riverpood (Normal and Generate code)
+- Reactive programming using streams
+- Repository pattern (clean architecture, repository layers)
+- Widget Lifecycle
+- How to verify the test coverage
+- CI / CD => App Stores
+- Isolates, block face id, shortcuts android, land iOS etc
+- Tags in git (versioning code)
+- Versioning apps in Android and iOS
+- Refresh widget and animations like YouTube one
+- Branch Model
+- 1 DSA problem
+- Dependencies and Transversal Dependencies
 
 # What to do before to launch the new version? (Personal Notes)
 
