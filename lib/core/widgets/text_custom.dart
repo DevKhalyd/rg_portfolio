@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class TextCustom extends StatelessWidget {
   const TextCustom(
     this.data, {
-    Key? key,
+    super.key,
     this.fontSize,
     this.fontWeight,
     this.color,
@@ -11,7 +11,7 @@ class TextCustom extends StatelessWidget {
     this.maxLines,
     this.overflow,
     this.letterSpacing,
-  }) : super(key: key);
+  });
 
   final String data;
   final double? fontSize;

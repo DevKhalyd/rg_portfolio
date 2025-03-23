@@ -9,7 +9,7 @@ import 'search_button.dart';
 import 'txt_field_searcher.dart';
 
 class BodyHome extends StatelessWidget {
-  const BodyHome({Key? key}) : super(key: key);
+  const BodyHome({super.key});
 
   @override
   Widget build(BuildContext context) {

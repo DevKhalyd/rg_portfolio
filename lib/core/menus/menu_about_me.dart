@@ -9,7 +9,7 @@ import '../widgets/rolando_image.dart';
 
 /// Contains my personal info like name, email, phone number, etc.
 class MenuAboutMe extends StatelessWidget {
-  const MenuAboutMe({Key? key}) : super(key: key);
+  const MenuAboutMe({super.key});
 
   @override
   Widget build(BuildContext context) {

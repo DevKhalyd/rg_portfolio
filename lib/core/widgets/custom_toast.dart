@@ -7,10 +7,10 @@ import '../extensions/build_context_ext.dart';
 class CustomToast extends StatelessWidget {
   const CustomToast(
     this.msg, {
-    Key? key,
+    super.key,
     this.alignment,
     this.margin,
-  }) : super(key: key);
+  });
 
   final String msg;
 

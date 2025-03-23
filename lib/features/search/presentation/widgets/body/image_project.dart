@@ -9,22 +9,22 @@ import '../../mixins/searcher_mixin.dart';
 /// Then if needed, contains a tap to go to another service or page
 class ImageProject extends StatefulWidget with SearcherMixin {
   const ImageProject({
-    Key? key,
+    super.key,
     required this.url,
     required this.title,
     required this.subtitle,
     this.onTap,
     this.width = widthImageProject,
-  }) : super(key: key);
+  });
 
   const ImageProject.test({
-    Key? key,
+    super.key,
     this.url = 'https://gfolio.enjeck.com/static/media/gfolio.4b968882.png',
     this.title = 'Test title',
     this.subtitle = 'A basic description of this subtitle',
     this.onTap,
     this.width = widthImageProject,
-  }) : super(key: key);
+  });
 
   final String url, title, subtitle;
   final double width;
@@ -94,7 +94,7 @@ class _ImageProjectState extends State<ImageProject> {
 }
 
 class _FadeImageCustom extends StatelessWidget {
-  const _FadeImageCustom({Key? key, required this.url}) : super(key: key);
+  const _FadeImageCustom({required this.url});
 
   final String url;
 

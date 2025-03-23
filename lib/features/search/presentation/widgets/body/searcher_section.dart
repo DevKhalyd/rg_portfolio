@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 ///
 /// All, Images, Videos, News, etc. Whatever I want to show in the screen
 class SearcherSections extends StatelessWidget {
-  const SearcherSections({Key? key}) : super(key: key);
+  const SearcherSections({super.key});
 
   @override
   Widget build(BuildContext context) {

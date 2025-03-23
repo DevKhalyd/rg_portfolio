@@ -47,6 +47,6 @@ abstract class Utils {
   }
 
   static String getUrlForGithub(String complement) {
-    return 'https://www.github.com/' + complement;
+    return 'https://www.github.com/$complement';
   }
 }

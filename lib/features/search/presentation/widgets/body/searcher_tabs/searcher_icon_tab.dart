@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 /// The icon that is shown in each tab
 class SearcherIconTab extends StatelessWidget {
   const SearcherIconTab({
-    Key? key,
+    super.key,
     required this.icon,
     required this.isSelected,
     required this.onHover,
-  }) : super(key: key);
+  });
 
   final IconData icon;
   final bool isSelected, onHover;

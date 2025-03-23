@@ -11,7 +11,7 @@ import '../../../../home/presentation/widgets/header/icon_menu.dart';
 import '../../../../home/presentation/widgets/shared/rg_name.dart';
 
 class HeaderSearcher extends StatelessWidget {
-  const HeaderSearcher({Key? key}) : super(key: key);
+  const HeaderSearcher({super.key});
 
   @override
   Widget build(BuildContext context) {

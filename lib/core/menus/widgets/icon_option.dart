@@ -11,12 +11,12 @@ const _sizemobile = 100.0;
 
 class IconOption extends StatelessWidget {
   const IconOption({
-    Key? key,
+    super.key,
     required this.asset,
     required this.label,
     this.url,
     this.onPressed,
-  }) : super(key: key);
+  });
 
   final String asset;
   final String label;

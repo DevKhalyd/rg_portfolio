@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TextCenter extends StatelessWidget {
-  const TextCenter(this.data, {Key? key, this.style}) : super(key: key);
+  const TextCenter(this.data, {super.key, this.style});
 
   final String data;
   final TextStyle? style;

@@ -8,14 +8,14 @@ typedef VoidContextCallBack = void Function(BuildContext);
 /// The item that appears when a result is selected.
 class SearchLinkItem extends StatefulWidget {
   const SearchLinkItem({
-    Key? key,
+    super.key,
     required this.url,
     required this.title,
     required this.description,
     required this.onTap,
     this.topicList,
     this.wasSelected = false,
-  }) : super(key: key);
+  });
 
   /// The URL of the link
   final String url;

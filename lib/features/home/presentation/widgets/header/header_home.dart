@@ -11,7 +11,7 @@ import '../shared/selectable_word.dart';
 import 'icon_menu.dart';
 
 class HeaderHome extends StatelessWidget {
-  const HeaderHome({Key? key}) : super(key: key);
+  const HeaderHome({super.key});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -70,7 +70,7 @@ class HeaderHome extends StatelessWidget {
 }
 
 class _WebsiteTotalViews extends StatelessWidget {
-  const _WebsiteTotalViews({Key? key}) : super(key: key);
+  const _WebsiteTotalViews();
 
   @override
   Widget build(BuildContext context) {

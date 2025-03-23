@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/widgets/text_custom.dart';
 
 class SearchNewsFragment extends StatelessWidget {
-  const SearchNewsFragment({Key? key}) : super(key: key);
+  const SearchNewsFragment({super.key});
 
   @override
   Widget build(BuildContext context) {

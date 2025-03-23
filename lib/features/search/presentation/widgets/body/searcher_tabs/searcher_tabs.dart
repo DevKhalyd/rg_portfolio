@@ -11,9 +11,8 @@ import 'searcher_tab.dart';
 
 /// The tabs to selected in the search page.
 class SearcherTabs extends StatefulWidget {
-  const SearcherTabs({Key? key, required this.tabs})
-      : assert(tabs.length > 1),
-        super(key: key);
+  const SearcherTabs({super.key, required this.tabs})
+      : assert(tabs.length > 1);
 
   final List<SearcherTabModel> tabs;
 
