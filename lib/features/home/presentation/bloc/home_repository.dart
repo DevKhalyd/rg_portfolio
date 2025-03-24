@@ -52,13 +52,14 @@ class HomeRepository {
   void openLinkedIn() => Utils.launchURL(Utils.linkedInUrl);
 
   /// Update the views in the database just once per session
+  /// TODO: Find a better way to call this function according to CA
   void updateViews() {
     if (_viewsWasUpdated || Utils.isDebugging) return;
     _cloudRepo.updateTotalViews();
     _viewsWasUpdated = true;
   }
 
-  /// Get the viws for the app bar
+  /// Get the views for the app bar
   Future<int> getTotalViews() => _cloudRepo.getTotalViews();
 
   SearchItem getRandomSearchItem() {

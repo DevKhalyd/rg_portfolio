@@ -33,7 +33,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  # TODO: Remove this dependency
   flutter_bloc: ^9.1.0
+  # TODO: Remove this dependency
   equatable: ^2.0.3
   url_launcher: ^6.0.17
   # TODO: Remove this dependency when have enoght time to implement the feature (not sure if it safe)
@@ -43,6 +45,8 @@ dependencies:
   firebase_core: ^3.12.1
   cloud_firestore: ^5.6.5
   flutter_svg: ^2.0.17
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
 
 dev_dependencies:
   flutter_test:
@@ -55,10 +59,13 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^5.0.0
   # https://pub.dev/packages/mockito
-  build_runner: ^2.1.7
+  build_runner: ^2.4.15
   bloc_test: ^10.0.0
   # Instead of mockito
   mocktail: ^1.0.4
+  riverpod_generator: ^2.6.5
+  custom_lint: ^0.7.5
+  riverpod_lint: ^2.6.5
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

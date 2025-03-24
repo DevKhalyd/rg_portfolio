@@ -56,6 +56,11 @@ So I built the Google Search portfolio [Google]
 
 [Navigation] Basically in Flutter there is two ways to handle the navigation
 
+## Riverpood Reference
+
+Providers: https://riverpod.dev/docs/concepts/providers#different-types-of-providers
+
+
 ## Testing
 
 Simple put, test the main functions and the behavior like when add documentation
@@ -117,16 +122,6 @@ https://bloclibrary.dev/#/testing
 Example of a fully tested application:
 
 https://github.com/felangel/bloc/tree/master/examples/flutter_weather/test
-
-## Accessibility
-
-How to implement for each platform?
-
-https://docs.flutter.dev/development/accessibility-and-localization/accessibility#inspecting-accessibility-support
-
-Android: Make sure to allow all permission asked by the app. And of course turn on the option to show accessibility.
-
-IOS: Missing part
 
 # Useful
 
