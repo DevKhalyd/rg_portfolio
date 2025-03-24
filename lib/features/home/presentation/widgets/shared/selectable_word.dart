@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rg_portfolio/core/widgets/widgets.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
+import '../../../../../core/widgets/text_custom.dart';
 
 /// When the users hovers an element, the element show a line under the text,
 /// then if is pressed do an action.

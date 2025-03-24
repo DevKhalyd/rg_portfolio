@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 abstract class Utils {
@@ -27,17 +26,14 @@ abstract class Utils {
   static const stackOverflowUrl =
       'https://stackoverflow.com/users/10942018/rolando-garcia';
 
-  static const upworkUrl =
-      'https://www.upwork.com/freelancers/~012a3620a073819a01';
-
   static const websiteRepoUrl = 'https://github.com/DevKhalyd/rg_portfolio';
 
-  static void launchURL(String url, {VoidCallback? doSomething}) {
+  static void launchURL(String url) async {
     // Verify that contains https
-    if (!url.contains('https://')) url = 'https://$url';
 
-    launch(url);
-    if (doSomething != null) doSomething();
+    if (await canLaunchUrl(Uri.parse(url))) {
+      launchUrl(Uri.parse(url));
+    }
   }
 
   /// [complement] Example: aboutMe

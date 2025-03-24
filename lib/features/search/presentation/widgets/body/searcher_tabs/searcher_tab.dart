@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/widgets/widgets.dart';
+import '../../../../../../core/widgets/text_custom.dart';
 import 'searcher_icon_tab.dart';
 
 // Ref: https://stackoverflow.com/questions/52982113/how-to-give-gradient-for-bottom-navigation-bar-icons-in-flutter
@@ -87,9 +87,10 @@ class _SearcherContentTabState extends State<SearcherContentTab> {
             const SizedBox(width: 10),
             TextCustom(
               widget.label,
-              color: widget.isSelected || onHover
-                  ? Colors.blueAccent
-                  : Colors.grey,
+              color:
+                  widget.isSelected || onHover
+                      ? Colors.blueAccent
+                      : Colors.grey,
               fontSize: 19,
             ),
           ],

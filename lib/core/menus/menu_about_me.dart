@@ -20,43 +20,28 @@ class MenuAboutMe extends StatelessWidget {
     void updateHome() => context.read<HomeBloc>().add(HomeInitial());
 
     return Container(
-      constraints: const BoxConstraints(
-        maxWidth: 410,
-        minWidth: 400,
-      ),
+      constraints: const BoxConstraints(maxWidth: 410, minWidth: 400),
       width: width,
       decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.all(Radius.circular(8.0)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black12,
-              blurRadius: 20,
-              spreadRadius: 5,
-            ),
-          ]),
+        color: Colors.white,
+        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        boxShadow: [
+          BoxShadow(color: Colors.black12, blurRadius: 20, spreadRadius: 5),
+        ],
+      ),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 20),
-            const RolandoImage(
-              minRadius: 30,
-              maxRadius: 70,
-            ),
+            const RolandoImage(minRadius: 30, maxRadius: 70),
             const SizedBox(height: 20),
             const Text(
               Utils.name,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 5),
-            const SelectableText(
-              Utils.email,
-              style: TextStyle(fontSize: 18),
-            ),
+            const SelectableText(Utils.email, style: TextStyle(fontSize: 18)),
             const SizedBox(height: 25),
             const Divider(),
             InkResponse(
@@ -77,12 +62,9 @@ class MenuAboutMe extends StatelessWidget {
                 child: Row(
                   children: const [
                     SizedBox(width: 30),
-                    Icon(
-                      Icons.person_add_alt_1,
-                      color: Colors.grey,
-                    ),
+                    Icon(Icons.person_add_alt_1, color: Colors.grey),
                     SizedBox(width: 20),
-                    Text('More about me')
+                    Text('More about me'),
                   ],
                 ),
               ),
@@ -90,8 +72,10 @@ class MenuAboutMe extends StatelessWidget {
             const Divider(),
             const SizedBox(height: 15),
             OutlinedButton(
-              onPressed: () =>
-                  Utils.launchURL(Utils.githubUrl, doSomething: updateHome),
+              onPressed: () {
+                Utils.launchURL(Utils.githubUrl);
+                updateHome();
+              },
               child: const Text('GitHub'),
             ),
             const SizedBox(height: 15),
