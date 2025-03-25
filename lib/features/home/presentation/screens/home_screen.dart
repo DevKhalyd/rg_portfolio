@@ -4,6 +4,9 @@ import '../widgets/body/body_home.dart';
 import '../widgets/footer/footer_home.dart';
 import '../widgets/header/header_home.dart';
 
+// Note: I should migrate component by component from the smallest to the largest
+// and understand how the providers works for riverpod
+
 /// The main page of my portfolio
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

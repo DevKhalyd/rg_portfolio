@@ -16,6 +16,7 @@
 - Fix the counter name
 - Fix the HTML initialization
 - Review the same design should be present from the old version
+- Support multi-language
 
 # Setup project
 
@@ -58,8 +59,53 @@ So I built the Google Search portfolio [Google]
 
 ## Riverpood Reference
 
-Providers: https://riverpod.dev/docs/concepts/providers#different-types-of-providers
+All types of providers: https://riverpod.dev/docs/concepts/providers#different-types-of-providers
 
+Combining Provider States: https://riverpod.dev/docs/concepts/combining_providers
+
+Reading a Provider: https://riverpod.dev/docs/concepts/reading
+
+### Provider Modifiers
+
+All Providers have a built-in way to add extra functionalities to your different providers.
+
+At the moment, there are two modifiers available:
+
+`.autoDispose`, which will make the provider automatically destroy its state when it is no longer being listened to.
+
+`.family`, which allows creating a provider from external parameters.
+
+Example:
+
+```dart
+final userProvider = FutureProvider.autoDispose.family<User, int>((ref, userId) async {
+  return fetchUser(userId);
+});
+```
+
+### Code Generation (New)
+
+Improvements:
+
+You may be wondering: "If code generation is optional in Riverpod, why use it?"
+
+As always with packages: To make your life easier. This includes but is not limited to:
+
+- Better syntax, more readable/flexible, and with a reduced learning curve.
+
+- **No need to worry about the type of provider. Write your logic, and Riverpod will pick the most suitable provider for you.**
+
+- The syntax no longer looks like we're defining a "dirty global variable". Instead we are defining a custom function/class.
+
+- Passing parameters to providers is now unrestricted. Instead of being limited to using .family and passing a single positional parameter, you can now pass any parameter. This includes named parameters, optional ones, and even default values.
+
+- Stateful hot-reload of the code written in Riverpod.
+
+- Better debugging, through the generation of extra metadata that the debugger then picks up.
+
+- Some Riverpod features will be available only with code generation.
+
+New Syntax: https://riverpod.dev/docs/concepts/about_code_generation#the-syntax
 
 ## Testing
 

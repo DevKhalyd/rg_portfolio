@@ -99,7 +99,7 @@ class MenuOptions extends StatelessWidget {
                     );
                   },
                 ),
-                // TODO: I think I could download the CV from the web
+                // TODO: I think I could download the CV from the web or a preview from an asset with a pdf viewer.
                 const IconOption(
                   asset: Assets.downloadIcon,
                   label: 'Download CV',

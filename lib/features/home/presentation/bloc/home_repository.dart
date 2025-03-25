@@ -1,5 +1,7 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
+
 import '../../../../core/utils/utils.dart';
 import '../../data/api/home_cloud_firestore_repository.dart';
 import '../../domain/usecases/searcher_item.dart';
@@ -10,7 +12,7 @@ final _searchItems = getSearchItems();
 /// The logic for the HomeRepository
 class HomeRepository {
   HomeRepository(HomeCloudFirestoreRepository cloudRepo)
-      : _cloudRepo = cloudRepo;
+    : _cloudRepo = cloudRepo;
 
   final HomeCloudFirestoreRepository _cloudRepo;
 
@@ -20,9 +22,6 @@ class HomeRepository {
 
   /// Current item showing to the user
   SearchItem get currentSearchItem => _currentSearchItem;
-
-  /// If true the views don't should be updated again
-  bool _viewsWasUpdated = false;
 
   bool _isMenuOpen = false;
 
@@ -36,7 +35,8 @@ class HomeRepository {
     }
   }
 
-  /// Update the item to show in the searcher section
+  /// Update the list of seach items by putting the selected item in purple color
+  /// like chrome does when select a result
   void updateSearchItem(SearchItem item) {
     for (final element in _searchItems) {
       if (element.label == item.label) {
@@ -54,9 +54,8 @@ class HomeRepository {
   /// Update the views in the database just once per session
   /// TODO: Find a better way to call this function according to CA
   void updateViews() {
-    if (_viewsWasUpdated || Utils.isDebugging) return;
+    if (kDebugMode) return;
     _cloudRepo.updateTotalViews();
-    _viewsWasUpdated = true;
   }
 
   /// Get the views for the app bar

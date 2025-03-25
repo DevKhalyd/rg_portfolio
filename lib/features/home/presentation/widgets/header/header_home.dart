@@ -14,56 +14,60 @@ class HeaderHome extends StatelessWidget {
   const HeaderHome({super.key});
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-          top: context.getPercentHeight(0.01),
-          bottom: context.getPercentHeight(0.01)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          const _WebsiteTotalViews(),
-          const SizedBox(width: 4.0),
-          SelectableWord(
+    return Container(
+      color: Colors.red,
+      child: Padding(
+        padding: EdgeInsets.only(
+            top: context.getPercentHeight(0.01),
+            bottom: context.getPercentHeight(0.01)),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            // TODO: Start migrating this widget
+            const _WebsiteTotalViews(),
+            const SizedBox(width: 4.0),
+            SelectableWord(
+                onPressed: () {
+                  // Update the list of search
+                  final homeRepository = context.read<HomeBloc>().homeRepository;
+                  homeRepository.updateSearchItem(homeRepository.searchItems[1]);
+                  context.pushNamed(Routes.search);
+                },
+                label: 'Portfolio'),
+            IconMenu(
               onPressed: () {
-                final homeRepository = context.read<HomeBloc>().homeRepository;
-                // The about part
-                homeRepository.updateSearchItem(homeRepository.searchItems[1]);
-                context.pushNamed(Routes.search);
+                if (context.isMobileSize) {
+                  showDialog(
+                    context: context,
+                    builder: (_) => const Dialog(
+                      child: MenuOptions(),
+                    ),
+                  );
+                  return;
+                }
+                context
+                    .read<HomeBloc>()
+                    .add(const HomeTogglePressed(menu: MenuOptions()));
               },
-              label: 'Portfolio'),
-          IconMenu(
-            onPressed: () {
-              if (context.isMobileSize) {
-                showDialog(
-                  context: context,
-                  builder: (_) => const Dialog(
-                    child: MenuOptions(),
-                  ),
-                );
-                return;
-              }
-              context
-                  .read<HomeBloc>()
-                  .add(const HomeTogglePressed(menu: MenuOptions()));
-            },
-          ),
-          ProfileIcon(
-            onPressed: () {
-              if (context.isMobileSize) {
-                showDialog(
-                  context: context,
-                  builder: (_) => const Dialog(
-                    child: MenuAboutMe(),
-                  ),
-                );
-                return;
-              }
-              context
-                  .read<HomeBloc>()
-                  .add(const HomeTogglePressed(menu: MenuAboutMe()));
-            },
-          )
-        ],
+            ),
+            ProfileIcon(
+              onPressed: () {
+                if (context.isMobileSize) {
+                  showDialog(
+                    context: context,
+                    builder: (_) => const Dialog(
+                      child: MenuAboutMe(),
+                    ),
+                  );
+                  return;
+                }
+                context
+                    .read<HomeBloc>()
+                    .add(const HomeTogglePressed(menu: MenuAboutMe()));
+              },
+            )
+          ],
+        ),
       ),
     );
   }
@@ -74,7 +78,12 @@ class _WebsiteTotalViews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Continue here: https://riverpod.dev/docs/essentials/first_request
+
+    // 1. Create a provider for the HomeRepository
     final homeBloc = context.read<HomeBloc>().homeRepository;
+
+    // 2. Create a FutureProvider to read provider and get the total views
     return FutureBuilder<int>(
       future: homeBloc.getTotalViews(),
       builder: (context, snapshot) {
