@@ -37,6 +37,7 @@ class HomeRepository {
 
   /// Update the list of seach items by putting the selected item in purple color
   /// like chrome does when select a result
+  @Deprecated('Use the function updateSearchItem from Riverpod')
   void updateSearchItem(SearchItem item) {
     for (final element in _searchItems) {
       if (element.label == item.label) {
@@ -47,8 +48,10 @@ class HomeRepository {
     }
   }
 
+  @Deprecated('Use the function openGitHub from Riverpod')
   void openGitHub() => Utils.launchURL(Utils.githubUrl);
 
+  @Deprecated('Use the function openLinkedIn from Riverpod')
   void openLinkedIn() => Utils.launchURL(Utils.linkedInUrl);
 
   /// Update the views in the database just once per session

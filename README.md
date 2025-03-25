@@ -17,6 +17,7 @@
 - Fix the HTML initialization
 - Review the same design should be present from the old version
 - Support multi-language
+- Add rules to firebase
 
 # Setup project
 
