@@ -27,8 +27,6 @@ abstract class Utils {
   static const websiteRepoUrl = 'https://github.com/DevKhalyd/rg_portfolio';
 
   static void launchURL(String url) async {
-    // Verify that contains https
-
     if (await canLaunchUrl(Uri.parse(url))) {
       launchUrl(Uri.parse(url));
     }

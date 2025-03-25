@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 
-import '../../../../core/utils/utils.dart';
 import '../../data/api/home_cloud_firestore_repository.dart';
 import '../../domain/usecases/searcher_item.dart';
 import '../widgets/shared/lists_of_results.dart';
@@ -10,6 +9,8 @@ import '../widgets/shared/lists_of_results.dart';
 final _searchItems = getSearchItems();
 
 /// The logic for the HomeRepository
+
+@Deprecated('Use Riverpod approach')
 class HomeRepository {
   HomeRepository(HomeCloudFirestoreRepository cloudRepo)
     : _cloudRepo = cloudRepo;
@@ -47,12 +48,6 @@ class HomeRepository {
       }
     }
   }
-
-  @Deprecated('Use the function openGitHub from Riverpod')
-  void openGitHub() => Utils.launchURL(Utils.githubUrl);
-
-  @Deprecated('Use the function openLinkedIn from Riverpod')
-  void openLinkedIn() => Utils.launchURL(Utils.linkedInUrl);
 
   /// Update the views in the database just once per session
   /// TODO: Find a better way to call this function according to CA

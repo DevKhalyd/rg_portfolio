@@ -11,6 +11,7 @@ part 'home_state.dart';
 /// Space for web implementation
 const rightSpace = 90.0;
 
+@Deprecated('This is the old bloc, migrating to riverpod')
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc({required this.homeRepository}) : super(HomeLoaded()) {
     on<HomeTogglePressed>(_onTogglePressed);

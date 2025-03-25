@@ -18,6 +18,7 @@
 - Review the same design should be present from the old version
 - Support multi-language
 - Add rules to firebase
+- Migrate to GoRouter
 
 # Setup project
 
@@ -65,6 +66,23 @@ All types of providers: https://riverpod.dev/docs/concepts/providers#different-t
 Combining Provider States: https://riverpod.dev/docs/concepts/combining_providers
 
 Reading a Provider: https://riverpod.dev/docs/concepts/reading
+
+## Providers most used
+
+**Handle Repositories / Services / Classes**
+
+[Provider]: Returns any type (A service class / computed property (filtered list))
+
+**Handle UI State**
+
+[StateProvider]: Returns any type	(A filter condition / **simple state object**)
+
+[NotifierProvider]: Returns a subclass of (Async)Notifier	(A **complex state object** that is immutable except through an interface)
+
+**Others**
+
+- FutureProvider: Returns a Future of any type - A result from an API call
+- StreamProvider: Returns a Stream of any type - A stream of results from an API
 
 ### Provider Modifiers
 
@@ -177,6 +195,10 @@ Ref Navigator: https://api.flutter.dev/flutter/widgets/Navigator-class.html
 Images in Flutter: https://docs.flutter.dev/development/platform-integration/web-images
 
 Open the Chrome Console: Shift + CTRL + J (Windows)
+
+[Provider]: https://riverpod.dev/docs/providers/provider
+[StateProvider]: https://riverpod.dev/docs/providers/state_provider
+[NotifierProvider]: https://riverpod.dev/docs/providers/notifier_provider
 
 [bloc]: https://bloclibrary.dev/#/
 [font]: https://fonts.google.com/specimen/Readex+Pro?preview.text=Google&preview.text_type=custom#standard-styles

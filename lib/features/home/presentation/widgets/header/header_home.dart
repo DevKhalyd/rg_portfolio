@@ -12,8 +12,18 @@ import '../../bloc/home_bloc.dart';
 import '../shared/selectable_word.dart';
 import 'icon_menu.dart';
 
+/// The header of the home page
+/// 
+/// Contains:
+/// 
+/// - The total views of the website
+/// - A selectable word that navigates to the portfolio page
+/// - A menu icon that opens the menu for social media
+/// - A profile icon that opens the about me menu
 class HeaderHome extends StatelessWidget {
+  
   const HeaderHome({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,9 +40,6 @@ class HeaderHome extends StatelessWidget {
             const SizedBox(width: 4.0),
             SelectableWord(
               onPressed: () {
-                // Update the list of search
-                final homeRepository = context.read<HomeBloc>().homeRepository;
-                homeRepository.updateSearchItem(homeRepository.searchItems[1]);
                 context.pushNamed(Routes.search);
               },
               label: 'Portfolio',
@@ -94,6 +101,7 @@ class _WebsiteTotalViews extends ConsumerWidget {
           Patterns: https://dart.dev/language/patterns, https://dart.dev/language/patterns#destructuring-class-instances 
           Records: https://dart.dev/language/records
         */
+        // The :final value syntax is called Object Patterns https://dart.dev/language/pattern-types#object
         AsyncData(:final value) => Row(
           children: [
             Text(value.toString()),
@@ -102,8 +110,7 @@ class _WebsiteTotalViews extends ConsumerWidget {
             const SizedBox(width: 6.0),
           ],
         ),
-        AsyncError() => const SizedBox(),
-        _ => const SizedBox(),
+        AsyncError() || _ => const SizedBox(),
       },
     );
   }

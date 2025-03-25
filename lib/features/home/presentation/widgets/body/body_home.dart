@@ -17,6 +17,7 @@ class BodyHome extends StatelessWidget {
 
     final useScrollView = context.isMobileSize && context.isLandscape;
 
+    // Static components
     Widget child = Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -45,14 +46,16 @@ class BodyHome extends StatelessWidget {
 
     if (useScrollView) child = SingleChildScrollView(child: child);
 
+    // Here it is the logic to show / hide the menu
     return Expanded(
         flex: flex,
         child: Stack(
           children: [
             GestureDetector(
+              // Add the initial state to remove any menu in the stack
               onTap: () => context.read<HomeBloc>().add(HomeInitial()),
               child: Container(
-                color: Colors.transparent,
+                color: Colors.green.withOpacity(0.5),
                 width: double.infinity,
                 height: double.infinity,
                 child: child,
