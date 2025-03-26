@@ -133,7 +133,7 @@ class _TextFieldSearcherState extends State<TextFieldSearcher> {
                       hoverColor: Colors.grey.shade300,
                       leading: const Icon(Icons.history),
                       onTap: () {
-                        homeRepository.updateSearchItem(option);
+                        // TODO: Update the item with the selected item option
                         onSelected(option);
                       },
                       title: TextCustom(

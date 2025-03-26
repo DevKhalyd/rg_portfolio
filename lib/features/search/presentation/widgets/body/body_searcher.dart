@@ -7,6 +7,9 @@ import '../../../domain/models/searcher_tab_model.dart';
 import '../../mixins/searcher_mixin.dart';
 import 'searcher_tabs/searcher_tabs.dart';
 
+// IMPORTANT: THE HOME BLOCK DOES NOT SHULD BE USED HERE SINCE IT IS A FEATURE
+// THAT IS NOT RELATED TO THE SEARCH FEATURE
+
 class BodySearcher extends StatelessWidget with SearcherMixin {
   const BodySearcher({super.key});
 

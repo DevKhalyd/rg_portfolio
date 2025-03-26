@@ -36,19 +36,6 @@ class HomeRepository {
     }
   }
 
-  /// Update the list of seach items by putting the selected item in purple color
-  /// like chrome does when select a result
-  @Deprecated('Use the function updateSearchItem from Riverpod')
-  void updateSearchItem(SearchItem item) {
-    for (final element in _searchItems) {
-      if (element.label == item.label) {
-        element.wasSelected = true;
-        _currentSearchItem = element;
-        break;
-      }
-    }
-  }
-
   /// Update the views in the database just once per session
   /// TODO: Find a better way to call this function according to CA
   void updateViews() {

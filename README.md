@@ -22,6 +22,7 @@
 - See if the barrier works as expected in home
 - Close the dialog if there is a navigation action
 - Change URL Strategy
+- Update the list of seach items by putting the selected item in purple color like chrome does when select a result
 
 # Setup project
 

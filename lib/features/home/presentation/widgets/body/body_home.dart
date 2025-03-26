@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rg_portfolio/features/home/presentation/riverpod/menu_provider.dart';
 import 'package:rg_portfolio/features/home/presentation/widgets/body/menu_enable.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/routes.dart';
-import '../../bloc/home_bloc.dart';
 import '../shared/rg_name.dart';
 import 'search_button.dart';
 import 'txt_field_searcher.dart';
@@ -33,15 +31,11 @@ class BodyHome extends ConsumerWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SearchButton(
-              "Search Website",
-              onPressed: () => onRandomResult(context),
-            ),
+            // TODO: Read the input and search the website
+            SearchButton("Search Website", onPressed: null),
             const SizedBox(width: 30),
-            SearchButton(
-              "I'm feeling lucky",
-              onPressed: () => onRandomResult(context),
-            ),
+            // TODO: Generate a random search item
+            SearchButton("I'm feeling lucky", onPressed: null),
           ],
         ),
       ],
@@ -68,11 +62,5 @@ class BodyHome extends ConsumerWidget {
         ],
       ),
     );
-  }
-
-  void onRandomResult(BuildContext context) {
-    final homeRepository = context.read<HomeBloc>().homeRepository;
-    homeRepository.updateSearchItem(homeRepository.getRandomSearchItem());
-    context.pushNamed(Routes.search);
   }
 }
