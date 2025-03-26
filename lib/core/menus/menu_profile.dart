@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../extensions/build_context_ext.dart';
 import '../routes.dart';
 import '../utils/utils.dart';
-import '../widgets/rolando_image.dart';
+import '../widgets/roland_image.dart';
 
 /// Contains my personal info like name, email, phone number, etc.
 class MenuProfile extends StatelessWidget {

@@ -54,6 +54,8 @@ class BodyHome extends ConsumerWidget {
       flex: flex,
       child: Stack(
         children: [
+          // It seems the GestureDetector sometimes works and sometimes doesn't
+          // I'm not sure why, but I think it's because of the compilation, let finish with the other task first
           GestureDetector(
             onTap:
                 () => ref

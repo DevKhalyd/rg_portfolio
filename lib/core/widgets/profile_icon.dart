@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../extensions/build_context_ext.dart';
 import '../utils/utils.dart';
-import 'rolando_image.dart';
+import 'roland_image.dart';
 
 /// Show my profile picture and when it's pressed, show the menu
 /// with more info about me
@@ -42,7 +42,7 @@ class ProfileIcon extends StatelessWidget {
         child: InkResponse(
           hoverColor: Colors.transparent,
           onTap: onPressed,
-          child: const RolandoImage(),
+          child: const RolandImage(),
         ),
       ),
     );

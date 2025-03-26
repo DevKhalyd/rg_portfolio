@@ -19,6 +19,7 @@
 - Support multi-language
 - Add rules to firebase
 - Migrate to GoRouter
+- See if the barrier works as expected in home
 
 # Setup project
 

@@ -25,6 +25,9 @@ Future<int> getTotalViews(Ref ref) => ref.read(homeRepositoryProvider).getTotalV
 
 // It seems @riverpod annotation do not generate the state provider instead generate a notifier provider
 // So because the logic is simple I create a state provider manually
+@Deprecated('Use the generated provider')
 final StateProvider<MenuState> menuStateProvider = StateProvider<MenuState>(
   (ref) => MenuState.hide,
 );
+
+// TODO: Create a notifier provider for the menuStateProvider because the logic is more complex
