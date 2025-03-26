@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:rg_portfolio/features/home/presentation/riverpod/home_providers.dart';
+import 'package:rg_portfolio/features/home/presentation/widgets/body/menu.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/routes.dart';
@@ -8,11 +11,11 @@ import '../shared/rg_name.dart';
 import 'search_button.dart';
 import 'txt_field_searcher.dart';
 
-class BodyHome extends StatelessWidget {
+class BodyHome extends ConsumerWidget {
   const BodyHome({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final flex = context.isMobileSize ? 7 : 8;
 
     final useScrollView = context.isMobileSize && context.isLandscape;
@@ -40,7 +43,7 @@ class BodyHome extends StatelessWidget {
               onPressed: () => onRandomResult(context),
             ),
           ],
-        )
+        ),
       ],
     );
 
@@ -48,34 +51,24 @@ class BodyHome extends StatelessWidget {
 
     // Here it is the logic to show / hide the menu
     return Expanded(
-        flex: flex,
-        child: Stack(
-          children: [
-            GestureDetector(
-              // Add the initial state to remove any menu in the stack
-              onTap: () => context.read<HomeBloc>().add(HomeInitial()),
-              child: Container(
-                color: Colors.green.withOpacity(0.5),
-                width: double.infinity,
-                height: double.infinity,
-                child: child,
-              ),
+      flex: flex,
+      child: Stack(
+        children: [
+          GestureDetector(
+            onTap:
+                () => ref
+                    .read(menuStateProvider.notifier)
+                    .update((_) => MenuState.hide),
+            child: SizedBox(
+              width: double.infinity,
+              height: double.infinity,
+              child: child,
             ),
-            BlocBuilder<HomeBloc, HomeState>(builder: (_, state) {
-              if (state is HomeToggleMenu) {
-                return state.isOpen
-                    ? Positioned(
-                        top: context.getPercentHeight(0.0005),
-                        right: context.getPercentWidth(0.015),
-                        child: state.menu,
-                      )
-                    : const SizedBox();
-              }
-
-              return const SizedBox();
-            }),
-          ],
-        ));
+          ),
+          Menu(),
+        ],
+      ),
+    );
   }
 
   void onRandomResult(BuildContext context) {

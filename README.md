@@ -33,7 +33,9 @@ https://firebase.google.com/docs/flutter/setup?hl=es-419&platform=web
 
 # Commands
 
-`dart run build_runner build`
+Build all the g files:
+
+`dart run build_runner build --delete-conflicting-outputs`
 
 # Run locally with own server`
 

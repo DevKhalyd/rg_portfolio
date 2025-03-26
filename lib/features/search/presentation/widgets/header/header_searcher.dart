@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
-import '../../../../../core/menus/menu_about_me.dart';
-import '../../../../../core/menus/menu_options.dart';
+import '../../../../../core/menus/menu_profile.dart';
+import '../../../../../core/menus/menu_social_media.dart';
 import '../../../../../core/widgets/profile_icon.dart';
 import '../../../../home/presentation/bloc/home_bloc.dart';
 import '../../../../home/presentation/widgets/body/txt_field_searcher.dart';
@@ -50,14 +50,14 @@ class HeaderSearcher extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (_) => const Dialog(
-                    child: MenuOptions(),
+                    child: MenuSocialMedia(),
                   ),
                 );
                 return;
               }
               context
                   .read<HomeBloc>()
-                  .add(const HomeTogglePressed(menu: MenuOptions()));
+                  .add(const HomeTogglePressed(menu: MenuSocialMedia()));
             },
           ),
           ProfileIcon(
@@ -66,14 +66,14 @@ class HeaderSearcher extends StatelessWidget {
                 showDialog(
                   context: context,
                   builder: (_) => const Dialog(
-                    child: MenuAboutMe(),
+                    child: MenuProfile(),
                   ),
                 );
                 return;
               }
               context
                   .read<HomeBloc>()
-                  .add(const HomeTogglePressed(menu: MenuAboutMe()));
+                  .add(const HomeTogglePressed(menu: MenuProfile()));
             },
           ),
         ],

@@ -24,6 +24,7 @@ class App extends StatelessWidget {
       ],
       // Note Here the data
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         builder: FlutterSmartDialog.init(),
         navigatorObservers: [FlutterSmartDialog.observer],
         scrollBehavior: const MaterialScrollBehavior().copyWith(

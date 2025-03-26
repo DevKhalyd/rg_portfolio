@@ -13,7 +13,7 @@ Use case:
 ```dart
     context
       .read<HomeBloc>()
-      .add(const HomeTogglePressed(menu: MenuOptions()));
+      .add(const HomeTogglePressed(menu: MenuSocialMedia()));
 ```
 */
 

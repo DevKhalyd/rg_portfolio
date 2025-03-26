@@ -1,23 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../features/home/presentation/bloc/home_bloc.dart';
 import '../extensions/build_context_ext.dart';
 import '../routes.dart';
 import '../utils/utils.dart';
 import '../widgets/rolando_image.dart';
 
 /// Contains my personal info like name, email, phone number, etc.
-class MenuAboutMe extends StatelessWidget {
-  const MenuAboutMe({super.key});
+class MenuProfile extends StatelessWidget {
+  const MenuProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
     final width = (context.width / 2) * .47;
-
-    // https://dart.dev/guides/language/effective-dart/usage#do-use-a-function-declaration-to-bind-a-function-to-a-name
-    // Remove the menu if it's present
-    void updateHome() => context.read<HomeBloc>().add(HomeInitial());
 
     return Container(
       constraints: const BoxConstraints(maxWidth: 410, minWidth: 400),
@@ -46,13 +39,7 @@ class MenuAboutMe extends StatelessWidget {
             const Divider(),
             InkResponse(
               onTap: () {
-                updateHome();
-
                 if (context.getCurrentRouteName() == Routes.search) return;
-
-                final homeRepository = context.read<HomeBloc>().homeRepository;
-                // The about part
-                homeRepository.updateSearchItem(homeRepository.searchItems[0]);
                 context.pushNamed(Routes.search);
               },
               highlightShape: BoxShape.rectangle,
@@ -74,7 +61,6 @@ class MenuAboutMe extends StatelessWidget {
             OutlinedButton(
               onPressed: () {
                 Utils.launchURL(Utils.githubUrl);
-                updateHome();
               },
               child: const Text('GitHub'),
             ),

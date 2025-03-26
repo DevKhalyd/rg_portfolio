@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'app.dart';
 
 // Configuration file to initialize Firebase
+// U need to create ur own file
 import 'firebase_options.dart';
 
 void main() async {

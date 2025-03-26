@@ -1,79 +1,83 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rg_portfolio/features/home/presentation/riverpod/providers.dart';
+import 'package:rg_portfolio/features/home/presentation/riverpod/home_providers.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
-import '../../../../../core/menus/menu_about_me.dart';
-import '../../../../../core/menus/menu_options.dart';
+import '../../../../../core/menus/menu_profile.dart';
+import '../../../../../core/menus/menu_social_media.dart';
 import '../../../../../core/routes.dart';
 import '../../../../../core/widgets/profile_icon.dart';
-import '../../bloc/home_bloc.dart';
 import '../shared/selectable_word.dart';
 import 'icon_menu.dart';
 
 /// The header of the home page
-/// 
+///
 /// Contains:
-/// 
+///
 /// - The total views of the website
 /// - A selectable word that navigates to the portfolio page
 /// - A menu icon that opens the menu for social media
-/// - A profile icon that opens the about me menu
-class HeaderHome extends StatelessWidget {
-  
+/// - A profile icon that opens the profile menu
+class HeaderHome extends ConsumerWidget {
   const HeaderHome({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
-      child: Padding(
-        padding: EdgeInsets.only(
-          top: context.getPercentHeight(0.01),
-          bottom: context.getPercentHeight(0.01),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            const _WebsiteTotalViews(),
-            const SizedBox(width: 4.0),
-            SelectableWord(
-              onPressed: () {
-                context.pushNamed(Routes.search);
-              },
-              label: 'Portfolio',
-            ),
-            IconMenu(
-              onPressed: () {
-                if (context.isMobileSize) {
-                  showDialog(
-                    context: context,
-                    builder: (_) => const Dialog(child: MenuOptions()),
-                  );
-                  return;
-                }
-                context.read<HomeBloc>().add(
-                  const HomeTogglePressed(menu: MenuOptions()),
+  Widget build(BuildContext context, WidgetRef ref) {
+    return Padding(
+      padding: EdgeInsets.only(
+        top: context.getPercentHeight(0.01),
+        bottom: context.getPercentHeight(0.01),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          const _WebsiteTotalViews(),
+          const SizedBox(width: 4.0),
+          SelectableWord(
+            onPressed: () {
+              context.pushNamed(Routes.search);
+            },
+            label: 'Portfolio',
+          ),
+          IconMenu(
+            onPressed: () {
+              if (context.isMobileSize) {
+                showDialog(
+                  context: context,
+                  builder: (_) => const Dialog(child: MenuSocialMedia()),
                 );
-              },
-            ),
-            ProfileIcon(
-              onPressed: () {
-                if (context.isMobileSize) {
-                  showDialog(
-                    context: context,
-                    builder: (_) => const Dialog(child: MenuAboutMe()),
+                return;
+              }
+              ref
+                  .read(menuStateProvider.notifier)
+                  .update(
+                    (currentState) =>
+                        currentState == MenuState.socialMedia
+                            ? MenuState.hide
+                            : MenuState.socialMedia,
                   );
-                  return;
-                }
-                context.read<HomeBloc>().add(
-                  const HomeTogglePressed(menu: MenuAboutMe()),
+            },
+          ),
+          ProfileIcon(
+            onPressed: () {
+              if (context.isMobileSize) {
+                showDialog(
+                  context: context,
+                  builder: (_) => const Dialog(child: MenuProfile()),
                 );
-              },
-            ),
-          ],
-        ),
+                return;
+              }
+              ref
+                  .read(menuStateProvider.notifier)
+                  .update(
+                    (currentState) =>
+                        currentState == MenuState.profile
+                            ? MenuState.hide
+                            : MenuState.profile,
+                  );
+            },
+          ),
+        ],
       ),
     );
   }

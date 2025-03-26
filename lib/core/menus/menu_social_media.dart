@@ -9,8 +9,8 @@ import '../widgets/custom_toast.dart';
 import 'widgets/icon_option.dart';
 
 /// Contains my social media and the email to copy in the clipboard
-class MenuOptions extends StatelessWidget {
-  const MenuOptions({super.key});
+class MenuSocialMedia extends StatelessWidget {
+  const MenuSocialMedia({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +54,6 @@ class MenuOptions extends StatelessWidget {
                   label: 'StackOverlow',
                   url: Utils.stackOverflowUrl,
                 ),
-                /*
-                  Not needed by the moment, because I have a good job.
-                  Thanks dude.
-                  const IconOption(
-                    asset: Assets.upworkIcon,
-                    label: 'Upwork',
-                    url: Utils.upworkUrl,
-                  ),*/
                 IconOption(
                   asset: Assets.gmailIcon,
                   label: 'Gmail',
