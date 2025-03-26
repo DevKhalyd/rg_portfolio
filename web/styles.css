@@ -1,4 +1,9 @@
 
+/* 
+TODO: Support Dark Mode for the spinner
+*/
+
+
 /* The container */
 .loading {
   display: flex;
@@ -32,3 +37,5 @@
     transform: rotate(360deg);
   }
 }
+
+

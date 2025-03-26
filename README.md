@@ -5,6 +5,7 @@
 - Repository pattern (clean architecture, repository layers)
 - Widget Lifecycle
 - How to verify the test coverage
+- Update GiHub Image
 - CI / CD => App Stores
 - Isolates, block face id, shortcuts android, land iOS etc
 - Tags in git (versioning code)
@@ -23,6 +24,9 @@
 - Close the dialog if there is a navigation action
 - Change URL Strategy
 - Update the list of seach items by putting the selected item in purple color like chrome does when select a result
+- Add the DarkTheme
+- Mobile Web support
+- Add a message called Inspiration and add the README file context
 
 # Setup project
 
