@@ -6,7 +6,6 @@ import 'package:rg_portfolio/features/home/presentation/riverpod/menu_provider.d
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/menus/menu_profile.dart';
 import '../../../../../core/menus/menu_social_media.dart';
-import '../../../../../core/routes.dart';
 import '../../../../../core/widgets/profile_icon.dart';
 import '../../../../../core/widgets/selectable_word.dart';
 import 'icon_menu.dart';
@@ -34,12 +33,7 @@ class HeaderHome extends ConsumerWidget {
         children: [
           const _WebsiteTotalViews(),
           const SizedBox(width: 4.0),
-          SelectableWord(
-            onPressed: () {
-              context.pushNamed(Routes.search);
-            },
-            label: 'Portfolio',
-          ),
+          SelectableWord(onPressed: () {}, label: 'Portfolio'),
           IconMenu(
             onPressed: () {
               if (context.isMobileSize) {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../extensions/build_context_ext.dart';
-import '../routes.dart';
 import '../utils/utils.dart';
 import '../widgets/roland_image.dart';
 
@@ -38,10 +37,7 @@ class MenuProfile extends StatelessWidget {
             const SizedBox(height: 25),
             const Divider(),
             InkResponse(
-              onTap: () {
-                if (context.getCurrentRouteName() == Routes.search) return;
-                context.pushNamed(Routes.search);
-              },
+              onTap: () {},
               highlightShape: BoxShape.rectangle,
               child: SizedBox(
                 height: kToolbarHeight,

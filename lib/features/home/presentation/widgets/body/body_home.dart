@@ -4,7 +4,6 @@ import 'package:rg_portfolio/features/home/presentation/riverpod/menu_provider.d
 import 'package:rg_portfolio/features/home/presentation/widgets/body/menu_enable.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
-import '../../../../../core/routes.dart';
 import '../../../../../core/widgets/rg_name.dart';
 import 'search_button.dart';
 import 'txt_field_searcher.dart';
@@ -25,7 +24,9 @@ class BodyHome extends ConsumerWidget {
         const RGName(),
         const SizedBox(height: 30),
         TextFieldSearcher(
-          onSelected: (_) => Navigator.of(context).pushNamed(Routes.search),
+          onSelected: (_) {
+            // Navigator.of(context).pushNamed(Routes.search)
+          },
         ),
         const SizedBox(height: 40),
         Row(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
-import 'package:rg_portfolio/core/routes.dart';
 
 import '../utils/utils.dart';
 
@@ -61,7 +60,6 @@ class RGName extends StatelessWidget {
           context.pop();
           return;
         }
-        context.pushNamed(Routes.home);
       },
     );
   }

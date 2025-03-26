@@ -16,11 +16,8 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: const [
-          // Migration finished
           HeaderHome(),
-          // Working on it
           BodyHome(),
-          // Migration finished
           FooterHome(),
         ],
       ),

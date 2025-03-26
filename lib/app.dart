@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:rg_portfolio/core/router/router.dart';
 
-import 'core/routes.dart';
 import 'core/utils/utils.dart';
 import 'features/home/data/api/home_cloud_firestore_repository.dart';
 import 'features/home/presentation/bloc/home_bloc.dart';
@@ -23,10 +23,10 @@ class App extends StatelessWidget {
         ),
       ],
       // Note Here the data
-      child: MaterialApp(
+      child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         builder: FlutterSmartDialog.init(),
-        navigatorObservers: [FlutterSmartDialog.observer],
+        routerConfig: router,
         scrollBehavior: const MaterialScrollBehavior().copyWith(
           physics: const BouncingScrollPhysics(),
         ),
@@ -44,8 +44,6 @@ class App extends StatelessWidget {
           ),
         ),
         title: Utils.appName,
-        initialRoute: Routes.initialRoute,
-        routes: Routes.routes,
       ),
     );
   }

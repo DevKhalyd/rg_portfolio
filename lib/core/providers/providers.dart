@@ -15,7 +15,6 @@ final _searchItems = <SearchItem>[
       SearchLinkItem(
         url: Utils.getUrlForOwnWebsite('aboutMe'),
         title: aboutMe,
-        // Describe my self
         description: aboutMeDescription,
         onTap:
             (_) => SmartDialog.showToast(
