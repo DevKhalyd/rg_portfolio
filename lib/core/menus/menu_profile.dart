@@ -27,7 +27,7 @@ class MenuProfile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 20),
-            const RolandoImage(minRadius: 30, maxRadius: 70),
+            const RolandImage(minRadius: 30, maxRadius: 70),
             const SizedBox(height: 20),
             const Text(
               Utils.name,
