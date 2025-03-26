@@ -20,6 +20,8 @@
 - Add rules to firebase
 - Migrate to GoRouter
 - See if the barrier works as expected in home
+- Close the dialog if there is a navigation action
+- Change URL Strategy
 
 # Setup project
 

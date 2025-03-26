@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rg_portfolio/features/home/presentation/riverpod/home_providers.dart';
+import 'package:rg_portfolio/features/home/presentation/riverpod/menu_provider.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/menus/menu_profile.dart';
@@ -48,14 +49,7 @@ class HeaderHome extends ConsumerWidget {
                 );
                 return;
               }
-              ref
-                  .read(menuStateProvider.notifier)
-                  .update(
-                    (currentState) =>
-                        currentState == MenuState.socialMedia
-                            ? MenuState.hide
-                            : MenuState.socialMedia,
-                  );
+              ref.read(menuProvider.notifier).toggle(MenuState.socialMedia);
             },
           ),
           ProfileIcon(
@@ -67,14 +61,7 @@ class HeaderHome extends ConsumerWidget {
                 );
                 return;
               }
-              ref
-                  .read(menuStateProvider.notifier)
-                  .update(
-                    (currentState) =>
-                        currentState == MenuState.profile
-                            ? MenuState.hide
-                            : MenuState.profile,
-                  );
+              ref.read(menuProvider.notifier).toggle(MenuState.profile);
             },
           ),
         ],

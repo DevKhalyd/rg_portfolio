@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:rg_portfolio/features/home/presentation/riverpod/home_providers.dart';
-import 'package:rg_portfolio/features/home/presentation/widgets/body/menu.dart';
+import 'package:rg_portfolio/features/home/presentation/riverpod/menu_provider.dart';
+import 'package:rg_portfolio/features/home/presentation/widgets/body/menu_enable.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/routes.dart';
@@ -57,17 +57,14 @@ class BodyHome extends ConsumerWidget {
           // It seems the GestureDetector sometimes works and sometimes doesn't
           // I'm not sure why, but I think it's because of the compilation, let finish with the other task first
           GestureDetector(
-            onTap:
-                () => ref
-                    .read(menuStateProvider.notifier)
-                    .update((_) => MenuState.hide),
+            onTap: () => ref.read(menuProvider.notifier).hide(),
             child: SizedBox(
               width: double.infinity,
               height: double.infinity,
               child: child,
             ),
           ),
-          Menu(),
+          MenuEnable(),
         ],
       ),
     );

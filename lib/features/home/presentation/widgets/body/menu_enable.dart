@@ -3,15 +3,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
 import 'package:rg_portfolio/core/menus/menu_profile.dart';
 import 'package:rg_portfolio/core/menus/menu_social_media.dart';
-import 'package:rg_portfolio/features/home/presentation/riverpod/home_providers.dart';
+import 'package:rg_portfolio/features/home/presentation/riverpod/menu_provider.dart';
 
-/// A widget that creates the space for the different menus
-class Menu extends ConsumerWidget {
-  const Menu({super.key});
+/// A widget that enables the space for the different menus
+class MenuEnable extends ConsumerWidget {
+  const MenuEnable({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final menuState = ref.watch(menuStateProvider);
+    final menuState = ref.watch(menuProvider);
 
     final menu = switch (menuState) {
       MenuState.socialMedia => MenuSocialMedia(),
