@@ -38,6 +38,7 @@ class _SearcherTabsState extends State<SearcherTabs> with SearcherMixin {
 
     return BlocListener<HomeBloc, HomeState>(
       listener: (context, state) {
+        // State triggered by HomeSelectedSearch
         /// Set to the first tab
         if (state is HomeSearch) updateState(tabs.first);
       },

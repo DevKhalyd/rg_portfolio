@@ -8,7 +8,7 @@ import '../../../../../core/widgets/profile_icon.dart';
 import '../../../../home/presentation/bloc/home_bloc.dart';
 import '../../../../home/presentation/widgets/body/txt_field_searcher.dart';
 import '../../../../home/presentation/widgets/header/icon_menu.dart';
-import '../../../../home/presentation/widgets/shared/rg_name.dart';
+import '../../../../../core/widgets/rg_name.dart';
 
 class HeaderSearcher extends StatelessWidget {
   const HeaderSearcher({super.key});
@@ -18,8 +18,7 @@ class HeaderSearcher extends StatelessWidget {
     final width = context.width;
     
     final fieldSearcher = TextFieldSearcher(
-        initialValue:
-            context.read<HomeBloc>().homeRepository.currentSearchItem.label);
+        initialValue: 'initialValue for current search in label',);
 
     if (width < minWidthSearch) {
       return Column(

@@ -5,7 +5,7 @@ import 'package:rg_portfolio/features/home/presentation/widgets/body/menu_enable
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/routes.dart';
-import '../shared/rg_name.dart';
+import '../../../../../core/widgets/rg_name.dart';
 import 'search_button.dart';
 import 'txt_field_searcher.dart';
 

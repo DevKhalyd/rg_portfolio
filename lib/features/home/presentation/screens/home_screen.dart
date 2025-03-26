@@ -16,10 +16,11 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: const [
-          // In progress to migrate to riverpod
+          // Migration finished
           HeaderHome(),
+          // Working on it
           BodyHome(),
-          // Footer Migration finished
+          // Migration finished
           FooterHome(),
         ],
       ),

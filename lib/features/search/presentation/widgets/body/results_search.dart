@@ -7,30 +7,26 @@ import '../../mixins/searcher_mixin.dart';
 
 /// The results of the search to show in the screen
 class ResultsSearch extends StatelessWidget with SearcherMixin {
-  const ResultsSearch({
-    super.key,
-  });
+  const ResultsSearch({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final repo = context.read<HomeBloc>().homeRepository;
-
     return BlocBuilder<HomeBloc, HomeState>(
       builder: (context, state) {
-        final results = repo.currentSearchItem.results;
+        // final results = repo.currentSearchItem.results;
         return ListView(
           children: [
             const SizedBox(height: 10),
             Padding(
               padding: EdgeInsets.only(left: isEnoughSpace(context) ? 0 : side),
               child: TextCustom(
-                getMessage(results.length),
+                getMessage(0),
                 fontSize: 18,
                 color: Colors.grey,
               ),
             ),
             const SizedBox(height: 30),
-            ...results,
+            Text('No results found because bloc is deprecated'),
           ],
         );
       },

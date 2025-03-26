@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/routes.dart';
 import '../../../../../core/utils/utils.dart';
-import '../shared/selectable_word.dart';
+import '../../../../../core/widgets/selectable_word.dart';
 
 const _space = 30.0;
 

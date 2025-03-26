@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
 import 'package:rg_portfolio/core/routes.dart';
 
-import '../../../../../core/utils/utils.dart';
+import '../utils/utils.dart';
 
 final _colors = <Color>[
   Colors.blue,

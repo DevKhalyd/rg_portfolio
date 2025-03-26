@@ -8,7 +8,7 @@ import '../../../../../core/menus/menu_profile.dart';
 import '../../../../../core/menus/menu_social_media.dart';
 import '../../../../../core/routes.dart';
 import '../../../../../core/widgets/profile_icon.dart';
-import '../shared/selectable_word.dart';
+import '../../../../../core/widgets/selectable_word.dart';
 import 'icon_menu.dart';
 
 /// The header of the home page

@@ -1,11 +1,14 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
+import 'package:rg_portfolio/core/utils/utils.dart';
+import 'package:rg_portfolio/core/widgets/custom_toast.dart';
+import 'package:rg_portfolio/features/home/domain/usecases/searcher_item.dart';
+import 'package:rg_portfolio/features/search/presentation/widgets/body/searcher_link_item.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../../../core/utils/utils.dart';
-import '../../../../../core/widgets/custom_toast.dart';
-import '../../../../search/presentation/widgets/body/searcher_link_item.dart';
-import '../../../domain/usecases/searcher_item.dart';
+part 'providers.g.dart';
 
-final _searchItems = [
+final _searchItems = <SearchItem>[
   SearchItem(
     label: aboutMe,
     results: [
@@ -14,8 +17,11 @@ final _searchItems = [
         title: aboutMe,
         // Describe my self
         description: aboutMeDescription,
-        onTap: (_) => SmartDialog.showToast('',
-            maskWidget: const CustomToast('A short description about myself')),
+        onTap:
+            (_) => SmartDialog.showToast(
+              '',
+              maskWidget: const CustomToast('A short description about myself'),
+            ),
       ),
       SearchLinkItem(
         url: Utils.getUrlForGithub('DevKhalyd'),
@@ -32,16 +38,19 @@ final _searchItems = [
         url: Utils.getUrlForGithub('DevKhalyd/rgProjects'),
         title: 'RG Projects',
         description: 'Fancy Designs made with Flutter',
-        onTap: (_) =>
-            Utils.launchURL(Utils.getUrlForGithub('DevKhalyd/rgProjects')),
+        onTap:
+            (_) =>
+                Utils.launchURL(Utils.getUrlForGithub('DevKhalyd/rgProjects')),
       ),
       // GitHub Portfolio
       SearchLinkItem(
         url: Utils.getUrlForGithub('DevKhalyd/rg_portfolio'),
         title: 'Portfolio',
         description: 'My Portfolio source code',
-        onTap: (_) =>
-            Utils.launchURL(Utils.getUrlForGithub('DevKhalyd/rg_portfolio')),
+        onTap:
+            (_) => Utils.launchURL(
+              Utils.getUrlForGithub('DevKhalyd/rg_portfolio'),
+            ),
       ),
     ],
   ),
@@ -70,5 +79,8 @@ final _searchItems = [
   ),
 ];
 
-/// Just wraps the results for my home screen
-List<SearchItem> getSearchItems() => _searchItems;
+/// A provider that returns a list of searchable items for the website
+@riverpod
+List<SearchItem> searchableItems(Ref ref) {
+  return _searchItems;
+}
