@@ -17,7 +17,7 @@ final router = GoRouter(
       path: searchRoute,
       builder:
           (context, state) =>
-              SearchScreen(query: state.uri.queryParameters['search'] ?? 'No query found'),
+              SearchScreen(query: state.uri.queryParameters['q'] ?? ''),
     ),
   ],
 );

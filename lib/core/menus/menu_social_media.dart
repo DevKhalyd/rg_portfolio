@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 import '../extensions/build_context_ext.dart';
 import '../utils/assets.dart';
 import '../utils/utils.dart';
-import '../widgets/custom_toast.dart';
 import 'widgets/icon_option.dart';
 
 /// Contains my social media and the email to copy in the clipboard
@@ -58,13 +56,6 @@ class MenuSocialMedia extends StatelessWidget {
                   asset: Assets.gmailIcon,
                   label: 'Gmail',
                   onPressed: () {
-                    SmartDialog.showToast(
-                      '',
-                      maskWidget: const CustomToast(
-                        'Email copied to clipboard',
-                      ),
-                      displayTime: const Duration(seconds: 3),
-                    );
                     Clipboard.setData(const ClipboardData(text: Utils.email));
                   },
                 ),

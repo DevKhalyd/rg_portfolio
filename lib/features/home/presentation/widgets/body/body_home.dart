@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:rg_portfolio/features/home/presentation/riverpod/menu_provider.dart';
 import 'package:rg_portfolio/features/home/presentation/widgets/body/menu_enable.dart';
 
@@ -24,8 +25,8 @@ class BodyHome extends ConsumerWidget {
         const RGName(),
         const SizedBox(height: 30),
         TextFieldSearcher(
-          onSelected: (_) {
-            // Navigator.of(context).pushNamed(Routes.search)
+          onSelected: (item) {
+            context.go('/search?q=${item.label}');
           },
         ),
         const SizedBox(height: 40),

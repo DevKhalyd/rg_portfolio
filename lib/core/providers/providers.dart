@@ -1,7 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:rg_portfolio/core/utils/utils.dart';
-import 'package:rg_portfolio/core/widgets/custom_toast.dart';
 import 'package:rg_portfolio/features/home/domain/usecases/searcher_item.dart';
 import 'package:rg_portfolio/features/search/presentation/widgets/body/searcher_link_item.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -16,11 +14,7 @@ final _searchItems = <SearchItem>[
         url: Utils.getUrlForOwnWebsite('aboutMe'),
         title: aboutMe,
         description: aboutMeDescription,
-        onTap:
-            (_) => SmartDialog.showToast(
-              '',
-              maskWidget: const CustomToast('A short description about myself'),
-            ),
+        onTap: null,
       ),
       SearchLinkItem(
         url: Utils.getUrlForGithub('DevKhalyd'),

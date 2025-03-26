@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 import 'package:rg_portfolio/core/router/router.dart';
 
 import 'core/utils/utils.dart';
@@ -25,7 +24,6 @@ class App extends StatelessWidget {
       // Note Here the data
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
-        builder: FlutterSmartDialog.init(),
         routerConfig: router,
         scrollBehavior: const MaterialScrollBehavior().copyWith(
           physics: const BouncingScrollPhysics(),

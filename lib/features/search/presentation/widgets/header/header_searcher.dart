@@ -11,14 +11,15 @@ import '../../../../home/presentation/widgets/header/icon_menu.dart';
 import '../../../../../core/widgets/rg_name.dart';
 
 class HeaderSearcher extends StatelessWidget {
-  const HeaderSearcher({super.key});
+  const HeaderSearcher({super.key, required this.initialSearch});
+
+  final String initialSearch;
 
   @override
   Widget build(BuildContext context) {
     final width = context.width;
-    
-    final fieldSearcher = TextFieldSearcher(
-        initialValue: 'initialValue for current search in label',);
+
+    final fieldSearcher = TextFieldSearcher(initialValue: initialSearch);
 
     if (width < minWidthSearch) {
       return Column(
@@ -48,15 +49,13 @@ class HeaderSearcher extends StatelessWidget {
               if (context.isMobileSize) {
                 showDialog(
                   context: context,
-                  builder: (_) => const Dialog(
-                    child: MenuSocialMedia(),
-                  ),
+                  builder: (_) => const Dialog(child: MenuSocialMedia()),
                 );
                 return;
               }
-              context
-                  .read<HomeBloc>()
-                  .add(const HomeTogglePressed(menu: MenuSocialMedia()));
+              context.read<HomeBloc>().add(
+                const HomeTogglePressed(menu: MenuSocialMedia()),
+              );
             },
           ),
           ProfileIcon(
@@ -64,15 +63,13 @@ class HeaderSearcher extends StatelessWidget {
               if (context.isMobileSize) {
                 showDialog(
                   context: context,
-                  builder: (_) => const Dialog(
-                    child: MenuProfile(),
-                  ),
+                  builder: (_) => const Dialog(child: MenuProfile()),
                 );
                 return;
               }
-              context
-                  .read<HomeBloc>()
-                  .add(const HomeTogglePressed(menu: MenuProfile()));
+              context.read<HomeBloc>().add(
+                const HomeTogglePressed(menu: MenuProfile()),
+              );
             },
           ),
         ],
