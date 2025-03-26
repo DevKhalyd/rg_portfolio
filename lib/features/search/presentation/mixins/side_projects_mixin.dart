@@ -1,5 +1,7 @@
 import 'package:rg_portfolio/features/search/domain/models/project.dart';
 
+// Why this a mixin and not a simple provider / class / list ???
+
 /// Contains my projects
 mixin SideProjectsMixin {
   List<Project> getProjects() {

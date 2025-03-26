@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:rg_portfolio/features/search/presentation/riverpod/menu_search_provider.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/menus/menu_profile.dart';
 import '../../../../../core/menus/menu_social_media.dart';
 import '../../../../../core/widgets/profile_icon.dart';
-import '../../../../home/presentation/bloc/home_bloc.dart';
 import '../../../../home/presentation/widgets/body/txt_field_searcher.dart';
 import '../../../../home/presentation/widgets/header/icon_menu.dart';
 import '../../../../../core/widgets/rg_name.dart';
 
-class HeaderSearcher extends StatelessWidget {
+class HeaderSearcher extends ConsumerWidget {
   const HeaderSearcher({super.key, required this.initialSearch});
 
   final String initialSearch;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final width = context.width;
 
     final fieldSearcher = TextFieldSearcher(initialValue: initialSearch);
@@ -53,9 +53,9 @@ class HeaderSearcher extends StatelessWidget {
                 );
                 return;
               }
-              context.read<HomeBloc>().add(
-                const HomeTogglePressed(menu: MenuSocialMedia()),
-              );
+              ref
+                  .read(menuSearchProvider.notifier)
+                  .toggle(MenuSearchState.socialMedia);
             },
           ),
           ProfileIcon(
@@ -67,9 +67,9 @@ class HeaderSearcher extends StatelessWidget {
                 );
                 return;
               }
-              context.read<HomeBloc>().add(
-                const HomeTogglePressed(menu: MenuProfile()),
-              );
+              ref
+                  .read(menuSearchProvider.notifier)
+                  .toggle(MenuSearchState.profile);
             },
           ),
         ],

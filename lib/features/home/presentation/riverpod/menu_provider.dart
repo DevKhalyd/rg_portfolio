@@ -25,6 +25,9 @@ class Menu extends _$Menu {
   }
 
   void hide() {
+    if (state == MenuState.hide) {
+      return;
+    }
     state = MenuState.hide;
   }
 }

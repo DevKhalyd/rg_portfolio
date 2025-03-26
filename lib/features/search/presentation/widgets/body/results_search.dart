@@ -33,6 +33,7 @@ class ResultsSearch extends StatelessWidget with SearcherMixin {
     );
   }
 
+  // Error: this is method is called each time the window has a resize
   String getMessage(int results) {
     return 'About $results results (0.${getTimeInSeconds()} seconds)';
   }
