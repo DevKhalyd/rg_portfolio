@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
-import '../../../../../core/routes.dart';
-import '../../bloc/home_bloc.dart';
-import '../shared/selectable_word.dart';
+import '../../../../../core/utils/utils.dart';
+import '../../../../../core/widgets/selectable_word.dart';
 
 const _space = 30.0;
 
@@ -13,12 +11,8 @@ class FooterHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final repo = context.read<HomeBloc>().homeRepository;
-
+    // If the height is less than 750, then the footer is not shown
     if (context.height <= 750) return const SizedBox.shrink();
-
-    final shouldShownFooterComplete =
-        context.getCurrentRouteName() != Routes.search;
 
     return Expanded(
       child: Container(
@@ -26,37 +20,31 @@ class FooterHome extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-                child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                SizedBox(width: _space),
-                Text('Mexico'),
-              ],
-            )),
-            if (shouldShownFooterComplete) const Divider(),
-            if (shouldShownFooterComplete)
-              Expanded(
-                  child: Row(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [SizedBox(width: _space), Text('Mexico')],
+              ),
+            ),
+            const Divider(),
+            Expanded(
+              child: Row(
                 children: [
                   const SizedBox(width: _space),
-                  SelectableWord(
-                      onPressed: () {
-                        final homeRepository =
-                            context.read<HomeBloc>().homeRepository;
-                        // The about part
-                        homeRepository
-                            .updateSearchItem(homeRepository.searchItems[0]);
-                        context.pushNamed(Routes.search);
-                      },
-                      label: 'About'),
+                  SelectableWord(onPressed: () {}, label: 'About'),
                   const Spacer(),
                   SelectableWord(
-                      onPressed: repo.openLinkedIn, label: 'LinkedIn'),
+                    onPressed: () => Utils.launchURL(Utils.linkedInUrl),
+                    label: 'LinkedIn',
+                  ),
                   const SizedBox(width: _space),
-                  SelectableWord(onPressed: repo.openGitHub, label: 'GitHub'),
+                  SelectableWord(
+                    onPressed: () => Utils.launchURL(Utils.githubUrl),
+                    label: 'GitHub',
+                  ),
                   const SizedBox(width: _space),
                 ],
-              )),
+              ),
+            ),
           ],
         ),
       ),

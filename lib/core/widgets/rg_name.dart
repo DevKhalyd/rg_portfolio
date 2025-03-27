@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
-import 'package:rg_portfolio/core/routes.dart';
 
-import '../../../../../core/utils/utils.dart';
+import '../utils/utils.dart';
 
 final _colors = <Color>[
   Colors.blue,
@@ -30,7 +29,7 @@ class RGName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final letters = 'olando'.split('');
+    final letters = 'oland'.split('');
     int counter = 0;
 
     final widgets = letters.map((e) {
@@ -61,7 +60,6 @@ class RGName extends StatelessWidget {
           context.pop();
           return;
         }
-        context.pushNamed(Routes.home);
       },
     );
   }

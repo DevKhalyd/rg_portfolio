@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rg_portfolio/core/widgets/text_custom.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-import '../../../../../core/widgets/widgets.dart';
 import '../../mixins/searcher_mixin.dart';
 
 /// A image project just show a preview of a project

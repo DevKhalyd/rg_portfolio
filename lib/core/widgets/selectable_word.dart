@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:rg_portfolio/core/widgets/widgets.dart';
 
-import '../../../../../core/extensions/build_context_ext.dart';
+import '../extensions/build_context_ext.dart';
+import 'text_custom.dart';
 
-/// When the users hovers an element, the element show a line under the text,
-/// then if is pressed do an action.
+/// A basic pressable text widget.
 class SelectableWord extends StatefulWidget {
   const SelectableWord({
     super.key,

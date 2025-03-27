@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+// NOTE: I think this implementation is not correct because this a concretion not an abstraction
+
 /// Main methods for the features repositories
 abstract class CloudFirestoreRepository {
   /// Use the [firestore] to mock it or to use the real firestore

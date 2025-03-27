@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:rg_portfolio/features/search/presentation/riverpod/menu_search_provider.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
-import '../../../../../core/menus/menu_about_me.dart';
-import '../../../../../core/menus/menu_options.dart';
+import '../../../../../core/menus/menu_profile.dart';
+import '../../../../../core/menus/menu_social_media.dart';
 import '../../../../../core/widgets/profile_icon.dart';
-import '../../../../home/presentation/bloc/home_bloc.dart';
 import '../../../../home/presentation/widgets/body/txt_field_searcher.dart';
 import '../../../../home/presentation/widgets/header/icon_menu.dart';
-import '../../../../home/presentation/widgets/shared/rg_name.dart';
+import '../../../../../core/widgets/rg_name.dart';
 
-class HeaderSearcher extends StatelessWidget {
-  const HeaderSearcher({super.key});
+class HeaderSearcher extends ConsumerWidget {
+  const HeaderSearcher({super.key, required this.initialSearch});
+
+  final String initialSearch;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final width = context.width;
-    
-    final fieldSearcher = TextFieldSearcher(
-        initialValue:
-            context.read<HomeBloc>().homeRepository.currentSearchItem.label);
+
+    final fieldSearcher = TextFieldSearcher(initialValue: initialSearch);
 
     if (width < minWidthSearch) {
       return Column(
@@ -49,15 +49,13 @@ class HeaderSearcher extends StatelessWidget {
               if (context.isMobileSize) {
                 showDialog(
                   context: context,
-                  builder: (_) => const Dialog(
-                    child: MenuOptions(),
-                  ),
+                  builder: (_) => const Dialog(child: MenuSocialMedia()),
                 );
                 return;
               }
-              context
-                  .read<HomeBloc>()
-                  .add(const HomeTogglePressed(menu: MenuOptions()));
+              ref
+                  .read(menuSearchProvider.notifier)
+                  .toggle(MenuSearchState.socialMedia);
             },
           ),
           ProfileIcon(
@@ -65,15 +63,13 @@ class HeaderSearcher extends StatelessWidget {
               if (context.isMobileSize) {
                 showDialog(
                   context: context,
-                  builder: (_) => const Dialog(
-                    child: MenuAboutMe(),
-                  ),
+                  builder: (_) => const Dialog(child: MenuProfile()),
                 );
                 return;
               }
-              context
-                  .read<HomeBloc>()
-                  .add(const HomeTogglePressed(menu: MenuAboutMe()));
+              ref
+                  .read(menuSearchProvider.notifier)
+                  .toggle(MenuSearchState.profile);
             },
           ),
         ],

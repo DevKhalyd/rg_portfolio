@@ -5,6 +5,7 @@
 - Repository pattern (clean architecture, repository layers)
 - Widget Lifecycle
 - How to verify the test coverage
+- Update GiHub Image
 - CI / CD => App Stores
 - Isolates, block face id, shortcuts android, land iOS etc
 - Tags in git (versioning code)
@@ -16,6 +17,19 @@
 - Fix the counter name
 - Fix the HTML initialization
 - Review the same design should be present from the old version
+- Support multi-language
+- Add rules to firebase
+- Migrate to GoRouter
+- See if the barrier works as expected in home
+- Close the dialog if there is a navigation action
+- Change URL Strategy
+- Update the list of seach items by putting the selected item in purple color like chrome does when select a result
+- Add the DarkTheme
+- Mobile Web support
+- Add a message called Inspiration and add the README file context
+- Clock Project, migrate to rg portfolio as an animation project or just reference in the links using the Link widget (https://pub.dev/documentation/url_launcher/latest/link/Link-class.html)
+- Migrate the past animated projects to this portfolio
+- Add the new views at the initialization 
 
 # Setup project
 
@@ -30,7 +44,9 @@ https://firebase.google.com/docs/flutter/setup?hl=es-419&platform=web
 
 # Commands
 
-`dart run build_runner build`
+Build all the g files:
+
+`dart run build_runner build --delete-conflicting-outputs`
 
 # Run locally with own server`
 
@@ -55,6 +71,73 @@ So I built the Google Search portfolio [Google]
 ## Documentation
 
 [Navigation] Basically in Flutter there is two ways to handle the navigation
+
+## Riverpood Reference
+
+All types of providers: https://riverpod.dev/docs/concepts/providers#different-types-of-providers
+
+Combining Provider States: https://riverpod.dev/docs/concepts/combining_providers
+
+Reading a Provider: https://riverpod.dev/docs/concepts/reading
+
+## Providers most used
+
+**Handle Repositories / Services / Classes**
+
+[Provider]: Returns any type (A service class / computed property (filtered list))
+
+**Handle UI State**
+
+[StateProvider]: Returns any type	(A filter condition / **simple state object**)
+
+[NotifierProvider]: Returns a subclass of (Async)Notifier	(A **complex state object** that is immutable except through an interface)
+
+**Others**
+
+- FutureProvider: Returns a Future of any type - A result from an API call
+- StreamProvider: Returns a Stream of any type - A stream of results from an API
+
+### Provider Modifiers
+
+All Providers have a built-in way to add extra functionalities to your different providers.
+
+At the moment, there are two modifiers available:
+
+`.autoDispose`, which will make the provider automatically destroy its state when it is no longer being listened to.
+
+`.family`, which allows creating a provider from external parameters.
+
+Example:
+
+```dart
+final userProvider = FutureProvider.autoDispose.family<User, int>((ref, userId) async {
+  return fetchUser(userId);
+});
+```
+
+### Code Generation (New)
+
+Improvements:
+
+You may be wondering: "If code generation is optional in Riverpod, why use it?"
+
+As always with packages: To make your life easier. This includes but is not limited to:
+
+- Better syntax, more readable/flexible, and with a reduced learning curve.
+
+- **No need to worry about the type of provider. Write your logic, and Riverpod will pick the most suitable provider for you.**
+
+- The syntax no longer looks like we're defining a "dirty global variable". Instead we are defining a custom function/class.
+
+- Passing parameters to providers is now unrestricted. Instead of being limited to using .family and passing a single positional parameter, you can now pass any parameter. This includes named parameters, optional ones, and even default values.
+
+- Stateful hot-reload of the code written in Riverpod.
+
+- Better debugging, through the generation of extra metadata that the debugger then picks up.
+
+- Some Riverpod features will be available only with code generation.
+
+New Syntax: https://riverpod.dev/docs/concepts/about_code_generation#the-syntax
 
 ## Testing
 
@@ -118,16 +201,6 @@ Example of a fully tested application:
 
 https://github.com/felangel/bloc/tree/master/examples/flutter_weather/test
 
-## Accessibility
-
-How to implement for each platform?
-
-https://docs.flutter.dev/development/accessibility-and-localization/accessibility#inspecting-accessibility-support
-
-Android: Make sure to allow all permission asked by the app. And of course turn on the option to show accessibility.
-
-IOS: Missing part
-
 # Useful
 
 Cookbook: https://docs.flutter.dev/cookbook/navigation
@@ -135,6 +208,10 @@ Ref Navigator: https://api.flutter.dev/flutter/widgets/Navigator-class.html
 Images in Flutter: https://docs.flutter.dev/development/platform-integration/web-images
 
 Open the Chrome Console: Shift + CTRL + J (Windows)
+
+[Provider]: https://riverpod.dev/docs/providers/provider
+[StateProvider]: https://riverpod.dev/docs/providers/state_provider
+[NotifierProvider]: https://riverpod.dev/docs/providers/notifier_provider
 
 [bloc]: https://bloclibrary.dev/#/
 [font]: https://fonts.google.com/specimen/Readex+Pro?preview.text=Google&preview.text_type=custom#standard-styles

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rg_portfolio/core/extensions/build_context_ext.dart';
 
-import '../../../features/home/presentation/bloc/home_bloc.dart';
 import '../../utils/utils.dart';
 
 const _size = 150.0;
@@ -44,17 +42,9 @@ class IconOption extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              asset,
-              height: size * .5,
-            ),
+            Image.asset(asset, height: size * .5),
             SizedBox(height: heightSizedBox),
-            Text(
-              label,
-              style: TextStyle(
-                fontSize: fontSize,
-              ),
-            ),
+            Text(label, style: TextStyle(fontSize: fontSize)),
           ],
         ),
       ),
@@ -65,10 +55,8 @@ class IconOption extends StatelessWidget {
     final isMobile = context.isMobileSize;
     if (isMobile) {
       Navigator.pop(context);
-    } else {
-      context.read<HomeBloc>().add(HomeInitial());
     }
     final onDefault = url != null ? () => Utils.launchURL(url!) : onPressed;
-    onDefault!();
+    onDefault?.call();
   }
 }

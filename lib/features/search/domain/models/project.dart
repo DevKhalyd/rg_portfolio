@@ -1,4 +1,4 @@
-/// A project to be showned in my portfolio (Images part)
+/// A project to be shown in my portfolio (Images part)
 class Project {
   const Project({
     required this.title,
