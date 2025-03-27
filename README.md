@@ -1,11 +1,10 @@
 # TODO
-
-- Replace Bloc by Riverpood (Normal and Generate code)
+- Make it work the list for the searchable items
 - Reactive programming using streams
 - Repository pattern (clean architecture, repository layers)
 - Widget Lifecycle
 - How to verify the test coverage
-- Update GiHub Image
+- Update GiHub Image with the New Trend (Studio Ghibli or Comic)
 - CI / CD => App Stores
 - Isolates, block face id, shortcuts android, land iOS etc
 - Tags in git (versioning code)
@@ -29,7 +28,9 @@
 - Add a message called Inspiration and add the README file context
 - Clock Project, migrate to rg portfolio as an animation project or just reference in the links using the Link widget (https://pub.dev/documentation/url_launcher/latest/link/Link-class.html)
 - Migrate the past animated projects to this portfolio
-- Add the new views at the initialization 
+- Add the new views at the initialization
+- Review the item being rebuild when resize on search screen
+- Disable netlify build
 
 # Setup project
 

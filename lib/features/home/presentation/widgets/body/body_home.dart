@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:rg_portfolio/features/home/presentation/riverpod/menu_provider.dart';
 import 'package:rg_portfolio/features/home/presentation/widgets/body/menu_enable.dart';
+import 'package:rg_portfolio/features/search/presentation/riverpod/search_providers.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
 import '../../../../../core/widgets/rg_name.dart';
@@ -26,6 +27,9 @@ class BodyHome extends ConsumerWidget {
         const SizedBox(height: 30),
         TextFieldSearcher(
           onSelected: (item) {
+            // Update the notifier
+            ref.read(searchQueryProvider.notifier).update((_) => item.label);
+            // Go to the search page and update the url in the browser
             context.go('/search?q=${item.label}');
           },
         ),
