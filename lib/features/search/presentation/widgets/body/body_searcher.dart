@@ -4,7 +4,6 @@ import 'package:rg_portfolio/features/search/presentation/riverpod/menu_search_p
 import 'package:rg_portfolio/features/search/presentation/widgets/body/menu_search_enable.dart';
 
 import '../../../../../core/extensions/build_context_ext.dart';
-import '../../../../home/presentation/bloc/home_bloc.dart';
 import '../../../domain/models/searcher_tab_model.dart';
 import '../../mixins/searcher_mixin.dart';
 import 'searcher_tabs/searcher_tabs.dart';
@@ -29,7 +28,7 @@ class BodySearcher extends ConsumerWidget with SearcherMixin {
                       width: double.infinity,
                       child: Row(
                         children: [
-                          const SizedBox(width: rightSpace + 100),
+                          const SizedBox(width: 190),
                           Expanded(
                             child: SearcherTabs(
                               tabs: SearcherTabModel.getTabs(),

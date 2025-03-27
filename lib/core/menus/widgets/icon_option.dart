@@ -55,8 +55,6 @@ class IconOption extends StatelessWidget {
     final isMobile = context.isMobileSize;
     if (isMobile) {
       Navigator.pop(context);
-    } else {
-      // TODO: Remove the menu when the user clicks on the body home
     }
     final onDefault = url != null ? () => Utils.launchURL(url!) : onPressed;
     onDefault?.call();
