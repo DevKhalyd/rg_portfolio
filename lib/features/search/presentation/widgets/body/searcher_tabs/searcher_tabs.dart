@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../../../home/presentation/bloc/home_bloc.dart';
 import '../../../../domain/models/searcher_tab_model.dart';
 import '../../../mixins/searcher_mixin.dart';
 import 'searcher_tab.dart';
@@ -11,8 +8,7 @@ import 'searcher_tab.dart';
 
 /// The tabs to selected in the search page.
 class SearcherTabs extends StatefulWidget {
-  const SearcherTabs({super.key, required this.tabs})
-      : assert(tabs.length > 1);
+  const SearcherTabs({super.key, required this.tabs}) : assert(tabs.length > 1);
 
   final List<SearcherTabModel> tabs;
 
@@ -36,42 +32,38 @@ class _SearcherTabsState extends State<SearcherTabs> with SearcherMixin {
   Widget build(BuildContext context) {
     final notSpace = !isEnoughSpace(context);
 
-    return BlocListener<HomeBloc, HomeState>(
-      listener: (context, state) {
-        // State triggered by HomeSelectedSearch
-        /// Set to the first tab
-        if (state is HomeSearch) updateState(tabs.first);
-      },
-      child: Column(
-        children: [
-          if (notSpace) const SizedBox(height: 20),
-          SizedBox(
-            height: kToolbarHeight,
-            child: Row(
-              mainAxisAlignment:
-                  notSpace ? MainAxisAlignment.center : MainAxisAlignment.start,
-              children: tabs
-                  .map((e) => SearcherTab(
+    return Column(
+      children: [
+        if (notSpace) const SizedBox(height: 20),
+        SizedBox(
+          height: kToolbarHeight,
+          child: Row(
+            mainAxisAlignment:
+                notSpace ? MainAxisAlignment.center : MainAxisAlignment.start,
+            children:
+                tabs
+                    .map(
+                      (e) => SearcherTab(
                         label: e.label,
                         icon: e.icon,
                         isSelected: e.label == currentItem,
                         onPressed: () => updateState(e),
-                      ))
-                  .toList(),
-            ),
+                      ),
+                    )
+                    .toList(),
           ),
-          const SizedBox(height: 15),
-          Expanded(
-            child: PageView.builder(
-              controller: controller,
-              itemCount: tabs.length,
-              itemBuilder: (_, i) {
-                return tabs[i].fragment;
-              },
-            ),
+        ),
+        const SizedBox(height: 15),
+        Expanded(
+          child: PageView.builder(
+            controller: controller,
+            itemCount: tabs.length,
+            itemBuilder: (_, i) {
+              return tabs[i].fragment;
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 

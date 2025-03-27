@@ -29,7 +29,7 @@ class RGName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final letters = 'olando'.split('');
+    final letters = 'oland'.split('');
     int counter = 0;
 
     final widgets = letters.map((e) {

@@ -7,7 +7,6 @@ import 'package:rg_portfolio/features/search/presentation/screen/search_screen.d
 
 final router = GoRouter(
   initialLocation: initialRoute,
-  debugLogDiagnostics: true,
   routes: [
     GoRoute(
       path: initialRoute,

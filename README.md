@@ -28,6 +28,8 @@
 - Mobile Web support
 - Add a message called Inspiration and add the README file context
 - Clock Project, migrate to rg portfolio as an animation project or just reference in the links using the Link widget (https://pub.dev/documentation/url_launcher/latest/link/Link-class.html)
+- Migrate the past animated projects to this portfolio
+- Add the new views at the initialization 
 
 # Setup project
 
