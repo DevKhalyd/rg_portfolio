@@ -3,6 +3,8 @@ import 'package:rg_portfolio/core/router/routes.dart';
 import 'package:rg_portfolio/features/home/presentation/screens/home_screen.dart';
 import 'package:rg_portfolio/features/search/presentation/screen/search_screen.dart';
 
+import '../../features/tic_tac_toe/example_screen.dart';
+
 // TODO: Define the redirection to unkonwn routes
 
 final router = GoRouter(
@@ -17,6 +19,10 @@ final router = GoRouter(
       builder:
           (context, state) =>
               SearchScreen(query: state.uri.queryParameters['q'] ?? ''),
+    ),
+    GoRoute(
+      path: ticTacToeRoute,
+      builder: (context, state) => const ExampleScreen(),
     ),
   ],
 );

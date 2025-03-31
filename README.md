@@ -1,8 +1,8 @@
 # TODO
-- Make it work the list for the searchable items
+
+- Tic Tac Toe Frontend
+- Make it work the search field in portfolio
 - Reactive programming using streams
-- Repository pattern (clean architecture, repository layers)
-- Widget Lifecycle
 - How to verify the test coverage
 - Update GiHub Image with the New Trend (Studio Ghibli or Comic)
 - CI / CD => App Stores
@@ -31,6 +31,7 @@
 - Add the new views at the initialization
 - Review the item being rebuild when resize on search screen
 - Disable netlify build
+- Add internationalization (translation)
 
 # Setup project
 

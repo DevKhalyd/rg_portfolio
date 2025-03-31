@@ -2,7 +2,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 abstract class Utils {
 
-  static const host = "https://rolando-garcia.netlify.app/#/";
+  static const host = "https://rolando-garcia.netlify.app";
 
   static const appName = 'RG Portfolio';
 
@@ -12,9 +12,9 @@ abstract class Utils {
   /// Just a temp image...
   static const tempImage = 'assets/img/profile.png';
 
-  static const name = 'Rolando Garcia';
+  static const name = 'Roland Garcia';
 
-  static const email = 'rolandocontactme@gmail.com';
+  static const email = 'rolando.garcia.office@gmail.com';
 
   static const githubUrl = 'https://github.com/DevKhalyd';
 
@@ -32,13 +32,20 @@ abstract class Utils {
     }
   }
 
-  /// [complement] Example: aboutMe
-  /// Result: https://rolando-garcia.netlify.app/#/aboutMe
-  static String getUrlForOwnWebsite(String complement) {
+  // TODO: Create a method that gets the host from the environment
+  // and validates if the current platform is web or not to provide a correct route
+
+  /// [complement] Example: aboutMe, ticTacToe, rgProjects
+  /// 
+  /// Result: https://rolando-garcia.netlify.app/[complement]
+  static String getUrlForOwnWebsite([String complement = '']) {
     return host + complement;
   }
 
-  static String getUrlForGithub(String complement) {
-    return 'https://www.github.com/$complement';
+  /// [complement] Example: Any projected stored in GitHub
+  /// 
+  /// Result: https://www.github.com/DevKhalyd/[complement]
+  static String getUrlForGithub([String complement = '']) {
+    return 'https://www.github.com/DevKhalyd/$complement';
   }
 }
