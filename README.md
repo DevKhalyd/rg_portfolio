@@ -226,3 +226,29 @@ Open the Chrome Console: Shift + CTRL + J (Windows)
 
 IntrinsicHeight: (A widget that sizes its child to the child's intrinsic height.)
 https://api.flutter.dev/flutter/widgets/IntrinsicHeight-class.html
+
+
+# Project Ideas to implement
+
+- Understand how the surface of the iPhone works (Didi Example)
+- Block devices with Face ID or Finger ID
+- Pagination in backend and frontend
+- Embedded a flutter view into a native app
+- BUbbles on Android
+- Mini Player in Android
+- My custom player for mobile
+- Own edit photos
+- Learn to consume grapgql
+- Protocol RTC
+- Alarms for Google and iOS
+- Radio fm
+- add to portfolio: share info between apps from the same developer
+- Create a copilot for a custom server like deep seek
+- Build our custom LLMs for enterprise
+- Video Streaming like Twitch, I think could be related with the RTC Protocol
+- Auth System for backend and fronted
+- Chat to use BT
+- Platform Views
+- SDUI Hybrid Approach
+- Apps running in the background
+- Be safe Me continue with that application

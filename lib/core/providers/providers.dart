@@ -45,9 +45,10 @@ final _searchItems = <SearchItem>[
         onTap: () => Utils.launchURL(Utils.getUrlForGithub('rg_portfolio')),
       ),
       // Tic Tac Toe Project
+      // TODO: This should be removed in ios
       SearchLinkItem(
         url: Utils.getUrlForOwnWebsite(ticTacToeRoute),
-        title: 'Tic Tac Toe',
+        title: 'Tic Tac Toe with Sockets',
         topicList: ['Flutter', 'Game'],
         description: 'A simple Tic Tac Toe game made with Flutter',
         onNavigation: ticTacToeRoute,
