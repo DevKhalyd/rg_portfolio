@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ExampleScreen extends StatelessWidget {
-  const ExampleScreen({super.key});
+class TicTacToeScreen extends StatelessWidget {
+  const TicTacToeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
