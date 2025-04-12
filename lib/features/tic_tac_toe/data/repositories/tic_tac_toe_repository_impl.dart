@@ -8,7 +8,7 @@ import 'package:rg_portfolio/features/tic_tac_toe/domain/repositories/tic_tac_to
 class TicTacToeRepositoryImpl extends TicTacToeRepository {
   TicTacToeRepositoryImpl({required this.webSocket});
 
-  final WebSocketDataSource webSocket;
+  final WebSocketDataSource<WsMessage> webSocket;
 
   @override
   Future<bool> initializeConnection(String wsUrl) {
@@ -17,17 +17,27 @@ class TicTacToeRepositoryImpl extends TicTacToeRepository {
 
   @override
   Future<String?> createGame(String wsUrl) async {
-    // Send message to create a new game
-    final request = WsMessage(
-      type: MessageType.gameCreated,
-      // TODO: Verify we don't need to send a payload for game creation
-      payload: null,
-    );
+    // Send the game creation request
+    final request = WsMessage(type: MessageType.create, payload: null);
 
     webSocket.send(request);
 
+    // Wait for a response from the server
+    final message = await webSocket.messages.first;
+
+    // Validate the message type and extract the gameId
+    if (message.type == MessageType.create) {
+      final payload = message.payload;
+      if (payload is Map && payload['gameId'] != null) {
+        return payload['gameId'] as String;
+      }
+    }
+
+    // Throw an error if you want to notify the user about the failure
+    // or return null if you want to handle it silently
+    return null;
   }
-  
+
   @override
   Future<void> joinGame(String wsUrl, String gameId) {
     throw UnimplementedError();
