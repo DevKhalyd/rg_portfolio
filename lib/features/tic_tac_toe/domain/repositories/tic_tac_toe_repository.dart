@@ -13,8 +13,18 @@ abstract class TicTacToeRepository {
   Future<String?> createGame(String wsUrl);
 
   /// Joins an existing game with the given [gameId].
-  Future<void> joinGame(String wsUrl, String gameId);
-}
+  ///
+  /// Returns true if the join operation was successful, false otherwise.
+  Future<bool> joinGame(String gameId);
 
-// Stream<void> getGameStream();
-// Future<void> sendMove(dynamic move);
+  /// Sends a move in the game.
+  /// 
+  /// [index] is the index of the move in the game board.
+  /// 
+  /// Return the new game state.
+  Future<void> sendMoveInGame({
+    required String gameId,
+    required String playerId,
+    required int index,
+  });
+}

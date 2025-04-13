@@ -1,5 +1,6 @@
 import 'package:rg_portfolio/features/tic_tac_toe/data/data_sources/websocket_data_source.dart';
 import 'package:rg_portfolio/features/tic_tac_toe/data/models/ws_message.dart';
+import 'package:rg_portfolio/features/tic_tac_toe/domain/entities/game_state_entity.dart';
 import 'package:rg_portfolio/features/tic_tac_toe/domain/repositories/tic_tac_toe_repository.dart';
 
 // Continue with the TicTacToeRepositoryImpl class
@@ -9,6 +10,9 @@ class TicTacToeRepositoryImpl extends TicTacToeRepository {
   TicTacToeRepositoryImpl({required this.webSocket});
 
   final WebSocketDataSource<WsMessage> webSocket;
+
+  // Create a Stream with the game state
+  // Create a Stream to watch the connection status
 
   @override
   Future<bool> initializeConnection(String wsUrl) {
@@ -39,7 +43,37 @@ class TicTacToeRepositoryImpl extends TicTacToeRepository {
   }
 
   @override
-  Future<void> joinGame(String wsUrl, String gameId) {
+  Future<bool> joinGame(String gameId) async {
+    // Send the join request
+    final request = WsMessage(
+      type: MessageType.join,
+      payload: {'gameId': gameId},
+    );
+
+    webSocket.send(request);
+
+    // Wait for response from server
+    final message = await webSocket.messages.first;
+
+    // Check for expected response type
+    if (message.type == MessageType.join) {
+      final payload = message.payload;
+
+      final gameEntity = GameEntity.fromJson(payload);
+      // Push to the stream
+      return true;
+    }
+
+    // Handle errors or unexpected responses
+    return false;
+  }
+
+  @override
+  Future<void> sendMoveInGame({
+    required String gameId,
+    required String playerId,
+    required int index,
+  }) {
     throw UnimplementedError();
   }
 }

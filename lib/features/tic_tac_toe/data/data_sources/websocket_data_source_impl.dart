@@ -1,12 +1,13 @@
 import 'dart:developer';
 
 import 'package:rg_portfolio/features/tic_tac_toe/data/data_sources/websocket_data_source.dart';
+import 'package:rg_portfolio/features/tic_tac_toe/data/models/ws_message.dart';
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 // Rerefence: https://pub.dev/packages/web_socket_channel
 
 /// A WebSocket data source implementation that uses the web_socket_channel package.
-class WebSocketDataSourceImpl extends WebSocketDataSource<Map<String, Object>> {
+class WebSocketDataSourceImpl extends WebSocketDataSource<WsMessage> {
   WebSocketChannel? _channel;
 
   @override
@@ -23,16 +24,16 @@ class WebSocketDataSourceImpl extends WebSocketDataSource<Map<String, Object>> {
   }
 
   @override
-  void send(Map<String, Object> message) {
+  void send(WsMessage message) {
     _channel?.sink.add(message);
   }
 
   @override
-  Stream<Map<String, Object>> get messages {
+  Stream<WsMessage> get messages {
     if (_channel == null) {
       throw Exception("WebSocket is not connected");
     }
-    return _channel!.stream as Stream<Map<String, Object>>;
+    return _channel!.stream as Stream<WsMessage>;
   }
 
   @override
