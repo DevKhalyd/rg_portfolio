@@ -18,13 +18,16 @@ abstract class TicTacToeRepository {
   Future<bool> joinGame(String gameId);
 
   /// Sends a move in the game.
-  /// 
+  ///
   /// [index] is the index of the move in the game board.
-  /// 
+  ///
   /// Return the new game state.
   Future<void> sendMoveInGame({
     required String gameId,
     required String playerId,
     required int index,
   });
+
+  /// Dispose any resources used by the repository.
+  void dispose();
 }

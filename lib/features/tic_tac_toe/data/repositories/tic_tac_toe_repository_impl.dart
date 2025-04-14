@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:rg_portfolio/features/tic_tac_toe/data/data_sources/websocket_data_source.dart';
 import 'package:rg_portfolio/features/tic_tac_toe/data/models/ws_message.dart';
 import 'package:rg_portfolio/features/tic_tac_toe/domain/entities/game_state_entity.dart';
@@ -11,8 +13,11 @@ class TicTacToeRepositoryImpl extends TicTacToeRepository {
 
   final WebSocketDataSource<WsMessage> webSocket;
 
-  // Create a Stream with the game state
   // Create a Stream to watch the connection status
+  // to the server or see if the websocket is good enough to listen
+
+  final StreamController<GameEntity> _gameStateController =
+      StreamController<GameEntity>.broadcast();
 
   @override
   Future<bool> initializeConnection(String wsUrl) {
@@ -58,9 +63,9 @@ class TicTacToeRepositoryImpl extends TicTacToeRepository {
     // Check for expected response type
     if (message.type == MessageType.join) {
       final payload = message.payload;
-
       final gameEntity = GameEntity.fromJson(payload);
-      // Push to the stream
+      // This is the first event before to start the game
+      _gameStateController.add(gameEntity);
       return true;
     }
 
@@ -75,5 +80,10 @@ class TicTacToeRepositoryImpl extends TicTacToeRepository {
     required int index,
   }) {
     throw UnimplementedError();
+  }
+
+  @override
+  void dispose() {
+    _gameStateController.close();
   }
 }
