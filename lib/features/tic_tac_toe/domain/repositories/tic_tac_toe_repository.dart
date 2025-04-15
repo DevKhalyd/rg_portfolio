@@ -1,4 +1,4 @@
-abstract class TicTacToeRepository {
+abstract class TicTacToeRepository<T> {
   /// Initializes the connection to the WebSocket server.
   ///
   /// This method should be called before any other operations to ensure that the
@@ -30,4 +30,6 @@ abstract class TicTacToeRepository {
 
   /// Dispose any resources used by the repository.
   void dispose();
+
+  Stream<T> gameStateStream();
 }

@@ -78,12 +78,33 @@ class TicTacToeRepositoryImpl extends TicTacToeRepository {
     required String gameId,
     required String playerId,
     required int index,
-  }) {
-    throw UnimplementedError();
+  }) async {
+    // Send the move request
+    final request = WsMessage(
+      type: MessageType.move,
+      payload: {'gameId': gameId, 'playerId': playerId, 'index': index},
+    );
+
+    webSocket.send(request);
+
+    // Wait for response from server
+    final message = await webSocket.messages.first;
+
+    // Check for expected response type
+    if (message.type == MessageType.move) {
+      final payload = message.payload;
+      final gameEntity = GameEntity.fromJson(payload);
+      _gameStateController.add(gameEntity);
+    }
   }
 
   @override
   void dispose() {
     _gameStateController.close();
+  }
+
+  @override
+  Stream<GameEntity> gameStateStream() {
+    return _gameStateController.stream;
   }
 }
