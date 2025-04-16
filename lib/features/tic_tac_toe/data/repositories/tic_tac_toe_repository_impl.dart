@@ -9,19 +9,23 @@ import 'package:rg_portfolio/features/tic_tac_toe/domain/repositories/tic_tac_to
 // Chat: https://chatgpt.com/c/67ef75e7-48dc-8013-85fb-7a34a293434d
 
 class TicTacToeRepositoryImpl extends TicTacToeRepository {
-  TicTacToeRepositoryImpl({required this.webSocket});
+  TicTacToeRepositoryImpl({required WebSocketDataSource<WsMessage> webSocket})
+    : _webSocket = webSocket;
 
-  final WebSocketDataSource<WsMessage> webSocket;
+  final WebSocketDataSource<WsMessage> _webSocket;
 
   // Create a Stream to watch the connection status
-  // to the server or see if the websocket is good enough to listen
+  // to the server or see if the _websocket is good enough to listen
+
+  // Hint: It could be a Stream<bool> to indicate the connection status listening from the _webSocket
+  // just to errors.
 
   final StreamController<GameEntity> _gameStateController =
       StreamController<GameEntity>.broadcast();
 
   @override
   Future<bool> initializeConnection(String wsUrl) {
-    return webSocket.connect(wsUrl);
+    return _webSocket.connect(wsUrl);
   }
 
   @override
@@ -29,10 +33,10 @@ class TicTacToeRepositoryImpl extends TicTacToeRepository {
     // Send the game creation request
     final request = WsMessage(type: MessageType.create, payload: null);
 
-    webSocket.send(request);
+    _webSocket.send(request);
 
     // Wait for a response from the server
-    final message = await webSocket.messages.first;
+    final message = await _webSocket.messages.first;
 
     // Validate the message type and extract the gameId
     if (message.type == MessageType.create) {
@@ -55,10 +59,10 @@ class TicTacToeRepositoryImpl extends TicTacToeRepository {
       payload: {'gameId': gameId},
     );
 
-    webSocket.send(request);
+    _webSocket.send(request);
 
     // Wait for response from server
-    final message = await webSocket.messages.first;
+    final message = await _webSocket.messages.first;
 
     // Check for expected response type
     if (message.type == MessageType.join) {
@@ -85,10 +89,10 @@ class TicTacToeRepositoryImpl extends TicTacToeRepository {
       payload: {'gameId': gameId, 'playerId': playerId, 'index': index},
     );
 
-    webSocket.send(request);
+    _webSocket.send(request);
 
     // Wait for response from server
-    final message = await webSocket.messages.first;
+    final message = await _webSocket.messages.first;
 
     // Check for expected response type
     if (message.type == MessageType.move) {
@@ -101,6 +105,7 @@ class TicTacToeRepositoryImpl extends TicTacToeRepository {
   @override
   void dispose() {
     _gameStateController.close();
+    _webSocket.disconnect();
   }
 
   @override
