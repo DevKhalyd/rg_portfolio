@@ -117,6 +117,7 @@ final userProvider = FutureProvider.autoDispose.family<User, int>((ref, userId) 
 });
 ```
 
+
 ### Code Generation (New)
 
 Improvements:
