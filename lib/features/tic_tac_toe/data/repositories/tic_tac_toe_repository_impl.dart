@@ -13,7 +13,7 @@ class TicTacToeRepositoryImpl extends TicTacToeRepository {
 
   final WebSocketDataSource<WsMessage> _webSocket;
 
-  // Create a Stream to watch the connection status
+  // TODO: Create a Stream to watch the connection status
   // to the server or see if the _websocket is good enough to listen
 
   // Hint: It could be a Stream<bool> to indicate the connection status listening from the _webSocket
