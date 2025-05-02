@@ -1,12 +1,13 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-// TODO: Continue implementing the Tic Tac Toe game
-
-// 1. Do Dependency Injection for the widget
-// 2. Use usescases to be called in the widget
+import 'package:go_router/go_router.dart';
+import 'package:rg_portfolio/core/dialogs/warning_dialog.dart';
+import 'package:rg_portfolio/core/router/routes.dart';
+import 'package:rg_portfolio/features/tic_tac_toe/presentation/riverpod/usecases/initialize_connection_usecase_provider.dart';
 
 /// This screen is the main entry point for the Tic Tac Toe game.
 /// It allows the user to create a new game or join an existing one.
@@ -39,17 +40,44 @@ class _TicTacToeScreenState extends ConsumerState<TicTacToeScreen> {
                 initialValue: 'ws://localhost:8080',
                 decoration: const InputDecoration(labelText: 'WebSocket URL'),
                 validator:
-                    (value) => isValidWsUrl(value) ? null : 'Enter a valid URL. Example: ws://localhost:8080',
+                    (value) =>
+                        isValidWsUrl(value)
+                            ? null
+                            : 'Enter a valid URL. Example: ws://localhost:8080',
                 onSaved: (value) => webSocketHost = value ?? '',
               ),
               const SizedBox(height: 60),
               ElevatedButton(
-                onPressed: () {
+                onPressed: () async {
                   if (formKey.currentState?.validate() == false) {
                     return;
                   }
                   formKey.currentState?.save();
-                  log('Call to the server and navigate to the next screen $webSocketHost');
+                  final connectWS = ref.read(
+                    initializeConnectionUseCaseProvider,
+                  );
+                  log('Server connecting to $webSocketHost');
+                  final isConnected = await connectWS.call(webSocketHost);
+
+                  // The user leaves the screen after the connection is / not stablished
+                  if (!mounted) return;
+
+
+                  // TODO: Test if this works when the server is running to verify the logic is well implemented
+                  if (!isConnected) {
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false,
+                      builder:
+                          (context) => const WarningDialog(
+                            title: 'Connection Error',
+                            content:
+                                'WebSocket is not connected. Please veryfi your server is running.',
+                          ),
+                    );
+                    return;
+                  }
+                  context.go(ticTacToeGameRoute);
                 },
                 child: const Text('Create New Game'),
               ),

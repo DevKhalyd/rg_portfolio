@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:rg_portfolio/core/router/routes.dart';
 import 'package:rg_portfolio/features/home/presentation/screens/home_screen.dart';
 import 'package:rg_portfolio/features/search/presentation/screen/search_screen.dart';
+import 'package:rg_portfolio/features/tic_tac_toe/presentation/screens/tic_tac_toe_game_screen.dart';
 
 import '../../features/tic_tac_toe/presentation/screens/tic_tac_toe_screen.dart';
 
@@ -23,6 +24,10 @@ final router = GoRouter(
     GoRoute(
       path: ticTacToeRoute,
       builder: (context, state) => const TicTacToeScreen(),
+    ),
+    GoRoute(
+      path: ticTacToeGameRoute,
+      builder: (context, state) => const TicTacToeGameScreen(),
     ),
   ],
 );
