@@ -28,7 +28,7 @@ class TicTacToeRepositoryImpl extends TicTacToeRepository {
   }
 
   @override
-  Future<String?> createGame(String wsUrl) async {
+  Future<String?> createGame() async {
     // Send the game creation request
     final request = WsMessage(type: MessageType.create, payload: null);
 

@@ -3,14 +3,16 @@ abstract class TicTacToeRepository<T> {
   ///
   /// This method should be called before any other operations to ensure that the
   /// connection is established.
+  /// 
+  /// The [wsUrl] parameter is the WebSocket URL to connect to the game server.
   ///
   /// Returns true if the connection was successful, false otherwise.
   Future<bool> initializeConnection(String wsUrl);
 
   /// Creates a new game and returns the game ID.
-  ///
-  /// The [wsUrl] parameter is the WebSocket URL to connect to the game server.
-  Future<String?> createGame(String wsUrl);
+  /// 
+  /// Returns the game ID if the game was created successfully, null otherwise.
+  Future<String?> createGame();
 
   /// Joins an existing game with the given [gameId].
   ///
