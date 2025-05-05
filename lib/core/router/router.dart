@@ -27,7 +27,11 @@ final router = GoRouter(
     ),
     GoRoute(
       path: ticTacToeGameRoute,
-      builder: (context, state) => const TicTacToeGameScreen(),
+      builder: (context, state) {
+        final extras = state.extra as Map<String, dynamic>?;
+
+        return TicTacToeGameScreen(gameID: extras?['gameID'] as String? ?? '');
+      },
     ),
   ],
 );

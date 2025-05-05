@@ -26,7 +26,7 @@ class WebSocketDataSourceImpl extends WebSocketDataSource<WsMessage> {
 
   @override
   void send(WsMessage message) {
-    _channel.sink.add(message);
+    _channel.sink.add(jsonEncode(message.toJson()));
   }
 
   @override

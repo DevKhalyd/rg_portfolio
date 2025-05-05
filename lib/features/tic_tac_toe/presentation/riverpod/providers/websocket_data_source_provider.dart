@@ -6,7 +6,7 @@ import '../../../data/data_sources/websocket_data_source_impl.dart';
 
 part 'websocket_data_source_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 WebSocketDataSource<WsMessage> websocketDataSource(Ref ref) {
   return WebSocketDataSourceImpl();
 }
