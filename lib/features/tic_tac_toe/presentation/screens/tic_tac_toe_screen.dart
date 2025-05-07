@@ -113,7 +113,15 @@ class _TicTacToeScreenState extends ConsumerState<TicTacToeScreen>
         const SizedBox(height: 30),
         ElevatedButton(
           onPressed: () {
-            // 1. Open a dialog that ask for the game id
+            showInputDialog(
+              context: context,
+              title: 'Enter Game ID',
+              labelText: 'Game ID',
+              onConfirm: (value) {
+                if (value.isEmpty) return;
+              },
+            );
+
             // 2. Call the server to join the game
             // 3. If the game / ws connection id is valid navigate to the game screen
           },
