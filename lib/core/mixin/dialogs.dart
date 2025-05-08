@@ -16,6 +16,7 @@ mixin Dialogs {
     );
   }
 
+  /// When InputDialogCallback is called, the current dialog will be closed
   void showInputDialog({
     required BuildContext context,
     required String title,

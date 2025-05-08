@@ -43,8 +43,8 @@ class InputDialog extends StatelessWidget {
               Navigator.of(context).pop();
               return;
             }
-            onConfirm(input);
             Navigator.of(context).pop();
+            onConfirm(input);
           },
           child: Text(acceptText),
         ),

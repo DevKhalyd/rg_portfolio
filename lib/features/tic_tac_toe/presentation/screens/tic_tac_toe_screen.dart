@@ -9,6 +9,7 @@ import 'package:rg_portfolio/core/mixin/dialogs.dart';
 import 'package:rg_portfolio/core/router/routes.dart';
 import 'package:rg_portfolio/features/tic_tac_toe/presentation/riverpod/usecases/create_game_usecase_provider.dart';
 import 'package:rg_portfolio/features/tic_tac_toe/presentation/riverpod/usecases/initialize_connection_usecase_provider.dart';
+import 'package:rg_portfolio/features/tic_tac_toe/presentation/riverpod/usecases/join_game_usecase_provider.dart';
 
 /// This screen is the main entry point for the Tic Tac Toe game.
 /// It allows the user to create a new game or join an existing one.
@@ -117,13 +118,33 @@ class _TicTacToeScreenState extends ConsumerState<TicTacToeScreen>
               context: context,
               title: 'Enter Game ID',
               labelText: 'Game ID',
-              onConfirm: (value) {
-                if (value.isEmpty) return;
+              onConfirm: (gameID) async {
+                if (gameID.isEmpty) return;
+
+                setLoading(true);
+
+                final isJoined = await ref
+                    .read(joinGameUseCaseProvider)
+                    .call(gameID);
+
+                setLoading(false);
+
+                if (!isJoined) {
+                  showWarningDialog(
+                    context: context,
+                    title: 'Join Game Error',
+                    content:
+                        'Game joining failed. Please verify the game ID.',
+                  );
+                  return;
+                }
+
+                // TODO:
+
+                // 3. Verify how the application will distinguish between different players
+                // 4. If the game / ws connection id is valid navigate to the game screen
               },
             );
-
-            // 2. Call the server to join the game
-            // 3. If the game / ws connection id is valid navigate to the game screen
           },
           child: const Text('Join Game'),
         ),
