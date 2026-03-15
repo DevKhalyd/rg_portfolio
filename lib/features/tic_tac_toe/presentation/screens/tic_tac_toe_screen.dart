@@ -139,10 +139,8 @@ class _TicTacToeScreenState extends ConsumerState<TicTacToeScreen>
                   return;
                 }
 
-                // TODO:
-
-                // 3. Verify how the application will distinguish between different players
-                // 4. If the game / ws connection id is valid navigate to the game screen
+                // TODO: Use the GameEntity to get the player ID from the joinUseCase
+                // then redirect to the game screen
               },
             );
           },

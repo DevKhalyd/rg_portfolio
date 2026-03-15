@@ -57,7 +57,6 @@ dev_dependencies:
   flutter_lints: ^5.0.0
   # https://pub.dev/packages/mockito
   build_runner: ^2.4.15
-  bloc_test: ^10.0.0
   # Instead of mockito
   mocktail: ^1.0.4
   riverpod_generator: ^2.6.5
