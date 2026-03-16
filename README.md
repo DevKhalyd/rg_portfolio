@@ -1,11 +1,6 @@
 # TODO
 
-- Tic Tac Toe Frontend
-- Make it work the search field in portfolio
-- Reactive programming using streams
-- How to verify the test coverage
-- Update GiHub Image with the New Trend (Studio Ghibli or Comic)
-- CI / CD => App Stores
+- CI / CD => Git Hub Pages
 - Isolates, block face id, shortcuts android, land iOS etc
 - Tags in git (versioning code)
 - Versioning apps in Android and iOS
@@ -23,14 +18,8 @@
 - Close the dialog if there is a navigation action
 - Change URL Strategy
 - Update the list of seach items by putting the selected item in purple color like chrome does when select a result
-- Add the DarkTheme
-- Mobile Web support
 - Add a message called Inspiration and add the README file context
-- Clock Project, migrate to rg portfolio as an animation project or just reference in the links using the Link widget (https://pub.dev/documentation/url_launcher/latest/link/Link-class.html)
-- Migrate the past animated projects to this portfolio
-- Add the new views at the initialization
 - Review the item being rebuild when resize on search screen
-- Disable netlify build
 - Add internationalization (translation)
 
 # Setup project
