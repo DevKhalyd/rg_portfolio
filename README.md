@@ -1,11 +1,10 @@
 # TODO
 
-- Replace Bloc by Riverpood (Normal and Generate code)
+- Tic Tac Toe Frontend
+- Make it work the search field in portfolio
 - Reactive programming using streams
-- Repository pattern (clean architecture, repository layers)
-- Widget Lifecycle
 - How to verify the test coverage
-- Update GiHub Image
+- Update GiHub Image with the New Trend (Studio Ghibli or Comic)
 - CI / CD => App Stores
 - Isolates, block face id, shortcuts android, land iOS etc
 - Tags in git (versioning code)
@@ -29,7 +28,10 @@
 - Add a message called Inspiration and add the README file context
 - Clock Project, migrate to rg portfolio as an animation project or just reference in the links using the Link widget (https://pub.dev/documentation/url_launcher/latest/link/Link-class.html)
 - Migrate the past animated projects to this portfolio
-- Add the new views at the initialization 
+- Add the new views at the initialization
+- Review the item being rebuild when resize on search screen
+- Disable netlify build
+- Add internationalization (translation)
 
 # Setup project
 
@@ -114,6 +116,7 @@ final userProvider = FutureProvider.autoDispose.family<User, int>((ref, userId) 
   return fetchUser(userId);
 });
 ```
+
 
 ### Code Generation (New)
 
@@ -224,3 +227,29 @@ Open the Chrome Console: Shift + CTRL + J (Windows)
 
 IntrinsicHeight: (A widget that sizes its child to the child's intrinsic height.)
 https://api.flutter.dev/flutter/widgets/IntrinsicHeight-class.html
+
+
+# Project Ideas to implement
+
+- Understand how the surface of the iPhone works (Didi Example)
+- Block devices with Face ID or Finger ID
+- Pagination in backend and frontend
+- Embedded a flutter view into a native app
+- BUbbles on Android
+- Mini Player in Android
+- My custom player for mobile
+- Own edit photos
+- Learn to consume grapgql
+- Protocol RTC
+- Alarms for Google and iOS
+- Radio fm
+- add to portfolio: share info between apps from the same developer
+- Create a copilot for a custom server like deep seek
+- Build our custom LLMs for enterprise
+- Video Streaming like Twitch, I think could be related with the RTC Protocol
+- Auth System for backend and fronted
+- Chat to use BT
+- Platform Views
+- SDUI Hybrid Approach
+- Apps running in the background
+- Be safe Me continue with that application

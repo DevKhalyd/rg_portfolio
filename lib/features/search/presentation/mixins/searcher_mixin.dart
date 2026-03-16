@@ -7,6 +7,8 @@ const side = 25.0;
 
 const widthImageProject = 400.0;
 
+// TODO: Why a mixin and not an extension ???
+
 /// Methods for the searcher screen
 mixin SearcherMixin {
   /// True if the current space is enough to display the full design

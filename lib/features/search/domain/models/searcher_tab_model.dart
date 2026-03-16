@@ -20,11 +20,7 @@ class SearcherTabModel {
   final Widget fragment;
 
   // Create the copyWith
-  SearcherTabModel copyWith({
-    String? label,
-    IconData? icon,
-    bool? isSelected,
-  }) {
+  SearcherTabModel copyWith({String? label, IconData? icon, bool? isSelected}) {
     return SearcherTabModel(
       label: label ?? this.label,
       icon: icon ?? this.icon,
@@ -32,7 +28,7 @@ class SearcherTabModel {
     );
   }
 
-  /// Tabs to show in the [HomeScreen]
+  /// Tabs to show in the [SearchScreen]
   static List<SearcherTabModel> getTabs() {
     return const [
       SearcherTabModel(

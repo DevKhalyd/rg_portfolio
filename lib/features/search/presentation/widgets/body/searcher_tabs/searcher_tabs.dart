@@ -3,10 +3,8 @@ import '../../../../domain/models/searcher_tab_model.dart';
 import '../../../mixins/searcher_mixin.dart';
 import 'searcher_tab.dart';
 
-// IMPROVE: Always it's important use the bloc o cubit instead of the setState'
-// Could be easy to implement some feature but in the long term it will tricky to change
-
-/// The tabs to selected in the search page.
+/// Widget that handle the tabs available to select and the
+/// space for the selected tab
 class SearcherTabs extends StatefulWidget {
   const SearcherTabs({super.key, required this.tabs}) : assert(tabs.length > 1);
 
@@ -35,6 +33,7 @@ class _SearcherTabsState extends State<SearcherTabs> with SearcherMixin {
     return Column(
       children: [
         if (notSpace) const SizedBox(height: 20),
+        // All tabs available to select
         SizedBox(
           height: kToolbarHeight,
           child: Row(
@@ -54,6 +53,7 @@ class _SearcherTabsState extends State<SearcherTabs> with SearcherMixin {
           ),
         ),
         const SizedBox(height: 15),
+        // Space for the selected tab
         Expanded(
           child: PageView.builder(
             controller: controller,
@@ -67,7 +67,6 @@ class _SearcherTabsState extends State<SearcherTabs> with SearcherMixin {
     );
   }
 
-  // NOTE: For this method may I can use Cubit for the logic (Take a look)
   updateState(SearcherTabModel e) {
     if (currentItem == e.label) return;
     setState(() => currentItem = e.label);
